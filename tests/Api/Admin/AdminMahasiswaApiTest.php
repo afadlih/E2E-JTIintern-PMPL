@@ -132,8 +132,12 @@ class AdminMahasiswaApiTest extends TestCase
 
         $this->assertDatabaseHas('m_mahasiswa', [
             'nim' => '2141720099',
-            'nama' => 'Jane Smith',
+            'id_kelas' => $kelas->id_kelas,
+        ]);
+
+        $this->assertDatabaseHas('m_user', [
             'email' => 'jane@example.com',
+            'name' => 'Jane Smith',
         ]);
     }
 
@@ -191,9 +195,13 @@ class AdminMahasiswaApiTest extends TestCase
 
         $this->assertDatabaseHas('m_mahasiswa', [
             'id_mahasiswa' => $mahasiswa->id_mahasiswa,
-            'nama' => 'Updated Name',
-            'email' => 'updated@example.com',
             'ipk' => 3.8,
+        ]);
+
+        $this->assertDatabaseHas('m_user', [
+            'id_user' => $mahasiswa->id_user,
+            'name' => 'Updated Name',
+            'email' => 'updated@example.com',
         ]);
     }
 

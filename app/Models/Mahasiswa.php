@@ -11,8 +11,8 @@ class Mahasiswa extends Model
 
     protected $table = 'm_mahasiswa';
     protected $primaryKey = 'id_mahasiswa';
-    public $incrementing = false;
-    protected $keyType = 'string';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
     protected $fillable = [
         'id_user',

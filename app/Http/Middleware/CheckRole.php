@@ -47,7 +47,14 @@ class CheckRole
             return $next($request);
         }
 
-        // Ganti response JSON dengan redirect ke halaman unauthorized
+        // Return JSON response for API calls, fallback to redirect for web routes
+        if ($request->expectsJson() || $request->is('api/*')) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthorized role access'
+            ], 403);
+        }
+
         return redirect()->route('unauthorized');
     }
 }

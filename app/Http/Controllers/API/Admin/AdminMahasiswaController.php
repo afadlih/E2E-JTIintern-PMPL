@@ -9,6 +9,7 @@ use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class AdminMahasiswaController extends Controller
 {
@@ -57,13 +58,14 @@ class AdminMahasiswaController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'data' => [
+            'data' => [[
                 'id_mahasiswa' => $mahasiswa->id_mahasiswa,
                 'nim' => $mahasiswa->nim,
                 'nama' => $mahasiswa->user->name ?? '',
+                'email' => $mahasiswa->user->email ?? '',
                 'ipk' => $mahasiswa->ipk,
                 'kelas' => $mahasiswa->kelas->nama_kelas ?? '',
-            ]
+            ]]
         ]);
     }
 
@@ -75,7 +77,7 @@ class AdminMahasiswaController extends Controller
         $validated = $request->validate([
             'nim' => 'required|unique:m_mahasiswa,nim',
             'nama' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:m_user,email',
             'password' => 'required|min:6',
             'id_kelas' => 'required|exists:m_kelas,id_kelas',
             'alamat' => 'nullable|string|max:50',
@@ -136,6 +138,7 @@ class AdminMahasiswaController extends Controller
         $validated = $request->validate([
             'nim' => 'sometimes|unique:m_mahasiswa,nim,' . $id . ',id_mahasiswa',
             'nama' => 'sometimes|string',
+            'email' => ['sometimes', 'email', Rule::unique('m_user', 'email')->ignore($mahasiswa->id_user, 'id_user')],
             'id_kelas' => 'sometimes|exists:m_kelas,id_kelas',
             'alamat' => 'nullable|string|max:50',
             'ipk' => 'nullable|numeric|min:0|max:4',
@@ -154,9 +157,10 @@ class AdminMahasiswaController extends Controller
             ]);
 
             // Update user if name provided
-            if (isset($validated['nama']) && $mahasiswa->user) {
+            if ($mahasiswa->user && (isset($validated['nama']) || isset($validated['email']))) {
                 $mahasiswa->user->update([
-                    'name' => $validated['nama']
+                    'name' => $validated['nama'] ?? $mahasiswa->user->name,
+                    'email' => $validated['email'] ?? $mahasiswa->user->email,
                 ]);
             }
 
