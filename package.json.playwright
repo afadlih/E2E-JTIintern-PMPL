@@ -1,0 +1,33 @@
+{
+  "name": "e2e-jtiintern-pmpl",
+  "version": "1.0.0",
+  "description": "E2E Testing untuk JTI Intern PMPL menggunakan Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:admin": "playwright test --project=admin",
+    "test:mahasiswa": "playwright test --project=mahasiswa",
+    "test:dosen": "playwright test --project=dosen",
+    "test:multi": "playwright test --project=multi-role",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "setup:auth": "node tests/setup-auth.js",
+    "test:all": "npm run setup:auth && npm run test",
+    "test:ci": "npm run setup:auth && playwright test --reporter=html,json",
+    "clean": "rimraf playwright-report test-results"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "testing",
+    "automation"
+  ],
+  "author": "JTI Intern Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "dotenv": "^16.3.1"
+  }
+}

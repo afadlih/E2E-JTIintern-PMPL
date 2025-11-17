@@ -1,0 +1,221 @@
+.search-header .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-box {
+    position: relative;
+    width: auto;
+}
+
+.search-box input {
+    padding: 8px 16px 8px 40px;
+    border-radius: 8px;
+    border: 1px solid #e7e7e7;
+    font-size: 14px;
+    font-weight: 600;
+    height: 38px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-weight: 600;
+    color: #7d7d7d;
+    height: 38px;
+}
+
+.filter-btn i {
+    font-size: 16px;
+}
+
+.filter-btn.active {
+    background: #5988ff;
+    color: white;
+    border-color: #5988ff;
+}
+
+.company-card {
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: white;
+    height: 100%;
+}
+
+.company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.company-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin-bottom: 4px;
+}
+
+.company-location {
+    font-size: 14px;
+    color: #7d7d7d;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.company-logo i {
+    color: #5988ff;
+}
+
+/* ✅ LOGO STYLING */
+.company-logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.company-logo:hover {
+    border-color: #0d6efd;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.15);
+}
+
+.company-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.company-logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Debug button styling */
+.action-btn.debug {
+    background: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+.action-btn.debug:hover {
+    background: #ffc107;
+    color: #212529;
+}
+
+/* Logo preview styling */
+#logoPreview img,
+#editLogoPreview img,
+#currentLogoPreview img {
+    object-fit: contain;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+#currentLogoPreview {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px dashed #dee2e6;
+    background-color: #f8f9fa;
+}
+
+/* Animation for logo loading */
+@keyframes logoLoad {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.company-logo-img {
+    animation: logoLoad 0.3s ease-out;
+}
+
+/* Error state untuk logo */
+.company-logo .bi-building {
+    font-size: 2rem;
+    color: #adb5bd;
+    transition: color 0.3s ease;
+}
+
+.company-logo:hover .bi-building {
+    color: #6c757d;
+}
+
+.vacancy-info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e7e7e7;
+}
+
+.vacancy-info p {
+    font-size: 12px;
+    color: #7d7d7d;
+    margin-bottom: 8px;
+}
+
+.vacancy-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #2d2d2d;
+    font-weight: 500;
+}
+
+.vacancy-count i {
+    color: #5988ff;
+}
+
+/* Keep the icons white in colored buttons */
+.btn[style*="background: #02A232"] i,
+.btn[style*="background: #5988FF"] i {
+    color: white;
+}
+
+/* Add this after existing styles */
+.bi {
+    color: #5988ff;
+}
+
+/* Update active filter button */
+.filter-btn.active i,
+.btn-success i,
+.btn-primary i {
+    color: white; /* Keep white icons for buttons with colored backgrounds */
+}

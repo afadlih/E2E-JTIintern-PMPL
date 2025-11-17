@@ -1,0 +1,96 @@
+/* Master container untuk sidenav */
+#sidenav-main {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important; /* Pastikan tidak ada overflow di container utama */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Header sidenav */
+#sidenav-main .sidenav-header {
+    flex-shrink: 0 !important; /* Jangan mengubah ukuran header */
+}
+
+/* Container konten sidenav (antara header dan footer) */
+#sidenav-main .sidenav-content {
+    flex: 1 !important; /* Mengambil ruang yang tersedia */
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important; /* Penting: hilangkan overflow di level ini */
+    min-height: 0 !important; /* Penting untuk flexbox nesting */
+}
+
+/* Navbar collapse - ini yang perlu di-scroll */
+#sidenav-main .collapse.navbar-collapse {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important; /* Biarkan tinggi ditentukan oleh flex */
+    max-height: none !important; /* Hapus max-height yang bisa membatasi */
+}
+
+/* Styling scrollbar */
+#sidenav-main .navbar-collapse::-webkit-scrollbar {
+    width: 4px;
+}
+
+#sidenav-main .navbar-collapse::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#sidenav-main .navbar-collapse::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 136, 136, 0.3);
+    border-radius: 10px;
+}
+
+/* Footer sidenav */
+#sidenav-main .sidenav-footer {
+    flex-shrink: 0 !important; /* Jangan mengubah ukuran footer */
+    padding: 0.75rem 0;
+    background: #fff;
+    z-index: 2;
+    margin-top: auto !important; /* Mendorong footer ke bawah */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Hapus perfectScrollbar yang bisa mengganggu */
+#sidenav-main .ps__rail-y,
+#sidenav-main .ps__thumb-y {
+    display: none !important;
+}
+
+/* Override untuk navbar-nav */
+#sidenav-main .navbar-nav {
+    width: 100% !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+/* Pastikan setiap nav-item tidak menambahkan margin berlebih */
+#sidenav-main .nav-item {
+    width: 100% !important;
+}
+
+/* Fix height untuk menu section headings */
+#sidenav-main h6.text-uppercase {
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Reset padding pada sidenav section */
+#sidenav-main hr.horizontal {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Pastikan tidak ada overflow di container */
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* Nonaktifkan fitur scrollbar dari plugin perfectScrollbar */
+#sidenav-scrollbar {
+    display: none !important;
+}

@@ -1,0 +1,1236 @@
+/* ================================
+   PROFILE PAGE BASE STYLES
+   ================================ */
+.container-fluid {
+    padding-top: 2rem;
+}
+
+.card {
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* ================================
+   AVATAR STYLING
+   ================================ */
+.avatar-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.avatar-profile {
+    width: 100px;
+    height: 100px;
+    background-color: #eff6ff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #5e72e4;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.avatar-edit {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #5e72e4;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 2px solid #fff;
+}
+
+.avatar-edit:hover {
+    transform: scale(1.1);
+    background-color: #4559cb;
+}
+
+/* ================================
+   FORM STYLING
+   ================================ */
+.form-control {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    transition: all 0.15s ease-in-out;
+    font-size: 0.875rem;
+}
+
+.form-control:focus {
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.15);
+}
+
+.form-select {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    transition: all 0.15s ease-in-out;
+}
+
+.form-select:focus {
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.15);
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #344767;
+    margin-bottom: 0.5rem;
+}
+
+/* ================================
+   INPUT GROUP STYLING
+   ================================ */
+.input-group {
+    display: flex;
+    align-items: stretch;
+}
+
+.input-group .form-control {
+    border-right: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+    height: 38px;
+    padding: 0.5rem 0.75rem;
+}
+
+.input-group .toggle-password {
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-left: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    transition: all 0.15s ease-in-out;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+}
+
+.input-group .toggle-password:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.input-group .form-control:focus {
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.15);
+    z-index: 3;
+}
+
+.input-group .form-control:focus + .toggle-password {
+    border-color: #5e72e4;
+}
+
+.toggle-password i {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* ================================
+   PASSWORD STRENGTH STYLING
+   ================================ */
+.password-strength {
+    margin-top: 0.5rem;
+}
+
+.password-strength .progress {
+    height: 6px;
+    border-radius: 3px;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+
+.password-strength .progress-bar {
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+#password-match-message {
+    font-size: 0.875rem;
+    min-height: 1.25rem;
+}
+
+.password-match-success {
+    color: #28a745 !important;
+}
+
+.password-match-error {
+    color: #dc3545 !important;
+}
+
+/* ================================
+   BADGE STYLING
+   ================================ */
+.badge {
+    font-weight: 500;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+}
+
+.bg-light-primary {
+    background-color: rgba(94, 114, 228, 0.1);
+    color: #5e72e4;
+}
+
+.bg-light-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+/* ================================
+   SELECT2 STYLING
+   ================================ */
+.select2-container--default .select2-selection--multiple {
+    border-color: #dee2e6;
+    border-radius: 0.5rem;
+    min-height: 38px;
+}
+
+.select2-container--default.select2-container--focus
+    .select2-selection--multiple {
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.15);
+}
+
+.select2-container--default
+    .select2-selection--multiple
+    .select2-selection__choice {
+    background-color: rgba(94, 114, 228, 0.1);
+    border: 1px solid rgba(94, 114, 228, 0.2);
+    border-radius: 4px;
+    color: #5e72e4;
+    padding: 2px 8px;
+}
+
+.select2-container--default
+    .select2-selection--multiple
+    .select2-selection__choice__remove {
+    color: #5e72e4;
+    margin-right: 5px;
+}
+
+.select2-container--default
+    .select2-results__option--highlighted[aria-selected] {
+    background-color: #5e72e4;
+}
+
+/* ================================
+   SKELETON LOADING BASE STYLES
+   ================================ */
+.skeleton-text,
+.skeleton-avatar,
+.skeleton-button,
+.skeleton-badge,
+.skeleton-form-control,
+.skeleton-select,
+.skeleton-textarea {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+    border-radius: 0.375rem;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Skeleton text variations */
+.skeleton-text-xs {
+    height: 12px;
+    width: 40%;
+    margin-bottom: 0.25rem;
+}
+
+.skeleton-text-sm {
+    height: 14px;
+    width: 60%;
+    margin-bottom: 0.25rem;
+}
+
+.skeleton-text-md {
+    height: 16px;
+    width: 80%;
+    margin-bottom: 0.25rem;
+}
+
+.skeleton-text-lg {
+    height: 20px;
+    width: 90%;
+    margin-bottom: 0.25rem;
+}
+
+.skeleton-text-xl {
+    height: 24px;
+    width: 95%;
+    margin-bottom: 0.5rem;
+}
+
+/* ================================
+   HEADER SKELETON
+   ================================ */
+.header-skeleton {
+    padding: 1.5rem;
+    animation: fadeIn 0.6s ease;
+}
+
+.skeleton-header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skeleton-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.skeleton-header-text {
+    flex: 1;
+}
+
+/* ================================
+   PROFILE INFO SKELETON
+   ================================ */
+.profile-info-skeleton {
+    padding: 1.5rem;
+}
+
+.skeleton-info-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-form-label {
+    height: 16px;
+    width: 30%;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+    border-radius: 0.25rem;
+}
+
+.skeleton-form-control {
+    height: 38px;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.skeleton-select {
+    height: 38px;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.skeleton-textarea {
+    height: 80px;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.skeleton-form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.skeleton-form-row .skeleton-form-group {
+    flex: 1;
+}
+
+/* ================================
+   SKILLS SKELETON
+   ================================ */
+.skills-skeleton {
+    padding: 1.5rem;
+}
+
+.skeleton-skills-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skeleton-skill-badge {
+    height: 28px;
+    width: 80px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+}
+
+.skeleton-skill-badge:nth-child(1) {
+    width: 90px;
+}
+.skeleton-skill-badge:nth-child(2) {
+    width: 70px;
+}
+.skeleton-skill-badge:nth-child(3) {
+    width: 100px;
+}
+.skeleton-skill-badge:nth-child(4) {
+    width: 85px;
+}
+.skeleton-skill-badge:nth-child(5) {
+    width: 75px;
+}
+.skeleton-skill-badge:nth-child(6) {
+    width: 95px;
+}
+
+/* ================================
+   MINAT SKELETON
+   ================================ */
+.minat-skeleton {
+    padding: 1.5rem;
+}
+
+.skeleton-minat-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-minat-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skeleton-minat-badge {
+    height: 28px;
+    width: 120px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+}
+
+.skeleton-minat-badge:nth-child(1) {
+    width: 140px;
+}
+.skeleton-minat-badge:nth-child(2) {
+    width: 110px;
+}
+.skeleton-minat-badge:nth-child(3) {
+    width: 130px;
+}
+.skeleton-minat-badge:nth-child(4) {
+    width: 100px;
+}
+
+/* ================================
+   PASSWORD SKELETON
+   ================================ */
+.password-skeleton {
+    padding: 1.5rem;
+}
+
+.skeleton-password-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.skeleton-input-group {
+    display: flex;
+    gap: 0;
+    margin-bottom: 1rem;
+}
+
+.skeleton-input-group .skeleton-form-control {
+    border-radius: 0.5rem 0 0 0.5rem;
+    flex: 1;
+}
+
+.skeleton-input-group .skeleton-button {
+    width: 45px;
+    height: 38px;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.skeleton-progress-section {
+    margin-bottom: 1rem;
+}
+
+.skeleton-progress-bar {
+    height: 6px;
+    width: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+}
+
+.skeleton-form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.skeleton-button {
+    height: 38px;
+    border-radius: 0.5rem;
+}
+
+.skeleton-button-primary {
+    width: 120px;
+}
+
+.skeleton-button-secondary {
+    width: 80px;
+}
+
+/* ================================
+   SKELETON ANIMATIONS & VARIATIONS
+   ================================ */
+.skeleton-wrapper {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skeleton-wrapper.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.skeleton-form-group:nth-child(1) {
+    animation-delay: 0s;
+}
+.skeleton-form-group:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.skeleton-form-group:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.skeleton-form-group:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.skeleton-form-group:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.skeleton-skill-badge:nth-child(1) {
+    animation-delay: 0s;
+}
+.skeleton-skill-badge:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.skeleton-skill-badge:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.skeleton-skill-badge:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.skeleton-skill-badge:nth-child(5) {
+    animation-delay: 0.4s;
+}
+.skeleton-skill-badge:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+/* ================================
+   CONTENT TRANSITION ANIMATIONS
+   ================================ */
+.real-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.real-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================
+   LOADING OVERLAY
+   ================================ */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    z-index: 10;
+}
+
+.loading-spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #5e72e4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================
+   GENERAL ANIMATIONS
+   ================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .avatar-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .avatar-profile {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .avatar-edit {
+        width: 28px;
+        height: 28px;
+    }
+
+    .card-body,
+    .card-header {
+        padding: 1rem;
+    }
+
+    .skeleton-header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .skeleton-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .skeleton-skills-content,
+    .skeleton-minat-content {
+        justify-content: center;
+    }
+
+    .toggle-password {
+        padding: 0.375rem 0.5rem;
+        min-width: 40px;
+    }
+
+    .input-group .form-control,
+    .input-group .toggle-password {
+        height: 36px;
+    }
+}
+
+@media (max-width: 576px) {
+    .skeleton-form-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+
+    .skeleton-button {
+        width: 100%;
+    }
+
+    .skeleton-skills-content,
+    .skeleton-minat-content {
+        gap: 0.25rem;
+    }
+
+    .skeleton-skill-badge,
+    .skeleton-minat-badge {
+        width: calc(50% - 0.125rem);
+    }
+}
+
+/* ================================
+   ACCESSIBILITY & PERFORMANCE
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+    .skeleton-text,
+    .skeleton-avatar,
+    .skeleton-button,
+    .skeleton-badge,
+    .skeleton-form-control,
+    .skeleton-select,
+    .skeleton-textarea,
+    .skeleton-skill-badge,
+    .skeleton-minat-badge,
+    .skeleton-progress-bar {
+        animation: none;
+        background: #f0f0f0;
+    }
+
+    .skeleton-wrapper,
+    .real-content {
+        transition: none;
+    }
+
+    .fade-in,
+    .slide-up {
+        animation: none;
+    }
+}
+
+/* Optimize rendering performance */
+.skeleton-text,
+.skeleton-avatar,
+.skeleton-button,
+.skeleton-badge,
+.skeleton-form-control,
+.skeleton-select,
+.skeleton-textarea,
+.skeleton-skill-badge,
+.skeleton-minat-badge,
+.skeleton-progress-bar,
+.skeleton-wrapper,
+.real-content {
+    will-change: background-position, opacity, transform;
+}
+
+/* ================================
+   DARK MODE SUPPORT (Future-ready)
+   ================================ */
+@media (prefers-color-scheme: dark) {
+    .skeleton-text,
+    .skeleton-avatar,
+    .skeleton-button,
+    .skeleton-badge,
+    .skeleton-form-control,
+    .skeleton-select,
+    .skeleton-textarea,
+    .skeleton-skill-badge,
+    .skeleton-minat-badge,
+    .skeleton-progress-bar {
+        background: linear-gradient(
+            90deg,
+            #2a2a2a 25%,
+            #3a3a3a 50%,
+            #2a2a2a 75%
+        );
+        background-size: 200% 100%;
+    }
+
+    .loading-overlay {
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .loading-spinner {
+        border-color: #3a3a3a;
+        border-top-color: #5e72e4;
+    }
+}
+
+/* ================================
+   PROFILE HEADER SKELETON (Missing)
+   ================================ */
+.profile-header-skeleton {
+    padding: 1.5rem;
+}
+
+.skeleton-avatar-container {
+    position: relative;
+    display: inline-block;
+}
+
+.skeleton-avatar-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.3) 25%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.3) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-white 1.8s infinite;
+}
+
+.skeleton-avatar-edit {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.4) 25%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.4) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-white 1.8s infinite;
+}
+
+.skeleton-text-white {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.3) 25%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.3) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-white 1.8s infinite;
+    border-radius: 0.375rem;
+}
+
+@keyframes shimmer-white {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* ================================
+   INFO HEADER SKELETON (Missing)
+   ================================ */
+.info-header-skeleton {
+    padding: 0;
+}
+
+/* ================================
+   ENHANCED PROFILE INFO SKELETON
+   ================================ */
+.skeleton-section-title {
+    height: 18px;
+    width: 40%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.skeleton-info-item {
+    margin-bottom: 1rem;
+}
+
+.skeleton-label {
+    height: 12px;
+    width: 60%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ================================
+   SKILLS & MINAT HEADER SKELETON
+   ================================ */
+.skills-header-skeleton,
+.minat-header-skeleton,
+.password-header-skeleton {
+    padding: 0;
+}
+
+.skeleton-edit-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+}
+
+/* ================================
+   ENHANCED BADGE SKELETON
+   ================================ */
+.skeleton-badge-sm {
+    height: 24px;
+    width: 60px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+}
+
+.skeleton-badge-md {
+    height: 28px;
+    width: 80px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+}
+
+/* ================================
+   PASSWORD FORM SKELETON
+   ================================ */
+.skeleton-input-group {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.skeleton-input {
+    flex: 1;
+    height: 38px;
+    border-radius: 0.5rem 0 0 0.5rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+}
+
+.skeleton-toggle-button {
+    width: 45px;
+    height: 38px;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+}
+
+.skeleton-button-full {
+    height: 38px;
+    width: 100%;
+    border-radius: 0.5rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s infinite;
+    margin-bottom: 1rem;
+}
+
+.skeleton-requirements {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+/* ================================
+   REAL CONTENT STYLING (Missing)
+   ================================ */
+.real-header-content,
+.real-info-header,
+.real-profile-content,
+.real-skills-header,
+.real-skills-content,
+.real-minat-header,
+.real-minat-content,
+.real-password-header,
+.real-password-form {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.real-header-content.show,
+.real-info-header.show,
+.real-profile-content.show,
+.real-skills-header.show,
+.real-skills-content.show,
+.real-minat-header.show,
+.real-minat-content.show,
+.real-password-header.show,
+.real-password-form.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================
+   PROFILE COMPLETION CARD (Missing)
+   ================================ */
+.profile-incomplete-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    animation: slideDown 0.5s ease;
+}
+
+.profile-incomplete-card.hiding {
+    animation: slideUp 0.3s ease forwards;
+}
+
+.warning-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.btn-complete-now {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-complete-now:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.btn-close-card {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.btn-close-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   CV Upload Styles
+   ================================ */
+.cv-upload-section {
+    border-radius: 0.5rem;
+}
+
+.current-cv {
+    transition: all 0.3s ease;
+}
+
+.current-cv:hover {
+    transform: translateY(-1px);
+}
+
+.cv-dropzone {
+    border: 2px dashed #dee2e6;
+    border-radius: 0.5rem;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.cv-dropzone:hover {
+    border-color: #5e72e4;
+    background-color: #f8f9fa;
+}
+
+.dropzone-box {
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+.dz-success-mark,
+.dz-error-mark {
+    display: none !important;
+}
+
+.dz-message {
+    margin: 0;
+}
+
+.dz-message i {
+    color: #5e72e4;
+    margin-bottom: 0.5rem;
+}
+
+.dz-message p {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.dz-message .fw-bold {
+    font-size: 0.9rem;
+}
+
+/* Compact CV actions */
+.cv-actions .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.cv-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cv-info h6 {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.cv-info p {
+    font-size: 0.75rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cv-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .cv-actions .btn {
+        width: 100%;
+    }
+
+    .dropzone-box {
+        padding: 0.75rem;
+    }
+}
+
+.cv-input-section {
+    margin-top: 1rem;
+}
+
+.cv-input-section .form-control {
+    border: 2px dashed #dee2e6;
+    padding: 1rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.cv-input-section .form-control:hover {
+    border-color: #5e72e4;
+    background-color: #f8f9fa;
+}
+
+.cv-input-section small {
+    color: #6c757d;
+}
+
+/* Add to your CSS */
+#profile-view-mode textarea,
+#profile-view-mode select,
+#profile-view-mode .form-control[readonly] {
+    display: none;
+}
+
+#profile-view-mode .btn-action-group {
+    display: none;
+}
+
+#profile-edit-mode {
+    display: none;
+}
+
+#profile-edit-mode .form-control:focus,
+#profile-edit-mode .form-select:focus {
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.15);
+}

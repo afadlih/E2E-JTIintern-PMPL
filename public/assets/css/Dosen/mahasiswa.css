@@ -1,0 +1,607 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+.badge-active {
+    background-color: #caffcc !important;
+    color: #57c45a !important;
+    border: 1px solid #57c45a;
+}
+
+.badge-completed {
+    background-color: #ffdcc3 !important;
+    color: #fd6900 !important;
+    border: 1px solid #f88f44;
+}
+
+/* Add this to your assets/css/dosen/mahasiswa.css */
+.mahasiswa-card {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mahasiswa-card .action-buttons {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.mahasiswa-card:hover .action-buttons {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.mahasiswa-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Add this to your mahasiswa.css file */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.6);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+        transform: scale(1);
+    }
+}
+
+.evaluation-alert {
+    animation: pulse 2s infinite;
+}
+
+/* Special card styling for evaluation needed */
+.mahasiswa-card.needs-evaluation {
+    border: 2px solid #ff6b6b !important;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1) !important;
+}
+
+.mahasiswa-card.needs-evaluation:hover {
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.25) !important;
+}
+
+/* Add to mahasiswa.css */
+.evaluation-completed {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.evaluation-completed:hover {
+    background: #c3e6cb !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
+}
+
+/* ✅ ADD: Skeleton Animation Styles */
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-card {
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #e8edf5;
+    padding: 20px;
+    margin-bottom: 20px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skeleton-status {
+    height: 29px;
+    width: 120px;
+    border-radius: 15px;
+}
+
+.skeleton-name {
+    height: 16px;
+    width: 80%;
+    border-radius: 4px;
+}
+
+.skeleton-nim {
+    height: 14px;
+    width: 60%;
+    border-radius: 4px;
+}
+
+.skeleton-class {
+    height: 12px;
+    width: 50%;
+    border-radius: 4px;
+}
+
+.skeleton-company {
+    height: 14px;
+    width: 70%;
+    border-radius: 4px;
+}
+
+.skeleton-position {
+    height: 12px;
+    width: 60%;
+    border-radius: 4px;
+}
+
+.skeleton-divider {
+    height: 1px;
+    width: 100%;
+    border-radius: 1px;
+    margin: 10px 0;
+}
+
+.skeleton-button {
+    height: 36px;
+    border-radius: 6px;
+    flex: 1;
+}
+
+.skeleton-search {
+    height: 38px;
+    border-radius: 6px;
+}
+
+.skeleton-filter {
+    height: 38px;
+    width: 150px;
+    border-radius: 6px;
+}
+
+/* ✅ Loading overlay styles */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.skeleton-fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* ✅ ADD: Log Aktivitas Modal Styles */
+.stat-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.stat-card:nth-child(1) .stat-icon {
+    background: linear-gradient(135deg, #5988ff, #4c7bef);
+    color: white;
+}
+
+.stat-card:nth-child(2) .stat-icon {
+    background: linear-gradient(135deg, #00b894, #00a085);
+    color: white;
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    background: linear-gradient(135deg, #fdcb6e, #e17055);
+    color: white;
+}
+
+.stat-card:nth-child(4) .stat-icon {
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    color: white;
+}
+
+.stat-info h6 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2d3436;
+}
+
+.stat-info small {
+    font-size: 12px;
+    color: #636e72;
+}
+
+/* Timeline Styles for Modal */
+.timeline-dosen {
+    position: relative;
+}
+
+.timeline-dosen::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #5988ff, #e9ecef);
+    border-radius: 1px;
+}
+
+.timeline-month-dosen {
+    margin-bottom: 30px;
+}
+
+.timeline-month-dosen .month-label-dosen {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 15px;
+    padding-left: 50px;
+    position: relative;
+}
+
+.timeline-month-dosen .month-label-dosen::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: #5988ff;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #5988ff;
+}
+
+.timeline-item-dosen {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 50px;
+}
+
+.timeline-item-dosen::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border: 2px solid #5988ff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-card-dosen {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timeline-card-dosen:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: #5988ff;
+}
+
+.timeline-header-dosen {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.timeline-date-dosen {
+    font-weight: 600;
+    color: #2d3436;
+    font-size: 14px;
+}
+
+.timeline-day-dosen {
+    font-size: 12px;
+    color: #636e72;
+    margin-top: 2px;
+}
+
+.timeline-time-dosen {
+    font-size: 11px;
+    color: #b2bec3;
+    background: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.timeline-description-dosen {
+    color: #2d3436;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.timeline-photo-dosen {
+    margin-bottom: 15px;
+}
+
+.timeline-photo-dosen img {
+    max-width: 200px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timeline-photo-dosen img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-actions-dosen {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.timeline-actions-dosen .btn {
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+/* Filter animations */
+.timeline-item-dosen.filtered-out {
+    opacity: 0.3;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.timeline-item-dosen.filtered-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline-dosen::before {
+        left: 15px;
+    }
+
+    .timeline-item-dosen {
+        padding-left: 40px;
+    }
+
+    .timeline-item-dosen::before {
+        left: 10px;
+    }
+
+    .timeline-month-dosen .month-label-dosen {
+        padding-left: 40px;
+    }
+
+    .timeline-month-dosen .month-label-dosen::before {
+        left: 7px;
+    }
+
+    .timeline-card-dosen {
+        padding: 15px;
+    }
+
+    .timeline-header-dosen {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .timeline-photo-dosen img {
+        max-width: 100%;
+    }
+
+    .stat-card {
+        padding: 12px;
+        text-align: center;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .stat-icon {
+        margin: 0 auto;
+    }
+}
+
+/* Loading states */
+.timeline-skeleton-dosen {
+    padding-left: 50px;
+    margin-bottom: 20px;
+}
+
+.timeline-skeleton-card-dosen {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+}
+
+.timeline-skeleton-card-dosen::before {
+    content: "";
+    position: absolute;
+    left: -35px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 50%;
+}
+
+/* No data state */
+.no-activities-found {
+    text-align: center;
+    padding: 40px 20px;
+    color: #636e72;
+}
+
+.no-activities-found i {
+    font-size: 48px;
+    color: #ddd;
+    margin-bottom: 16px;
+}
+
+/* ✅ ADD: Modal-specific styles */
+.timeline-container-modal {
+    position: relative;
+}
+
+.timeline-container-modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.timeline-container-modal::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.timeline-container-modal::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.timeline-container-modal::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Evaluasi form styles */
+.evaluasi-form .card-header {
+    font-weight: 600;
+}
+
+.evaluasi-form .form-select:focus,
+.evaluasi-form .form-control:focus {
+    border-color: #5988ff;
+    box-shadow: 0 0 0 0.2rem rgba(89, 136, 255, 0.25);
+}
+
+.evaluasi-form .badge {
+    font-size: 1.1em;
+    min-width: 80px;
+}
+
+/* Modal responsive adjustments */
+@media (max-width: 768px) {
+    .modal-xl {
+        max-width: 95vw;
+    }
+
+    .timeline-container-modal {
+        max-height: 400px !important;
+    }
+
+    .evaluasi-form .card-body {
+        padding: 1rem;
+    }
+
+    .evaluasi-form .row.g-3 {
+        --bs-gutter-x: 1rem;
+    }
+}
+
+/* Pagination styles */
+.pagination {
+    margin-bottom: 0;
+}
+
+.pagination .page-link {
+    color: #5988ff;
+    border: 1px solid #dee2e6;
+    padding: 0.375rem 0.75rem;
+    margin-left: -1px;
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.pagination .page-link:hover {
+    color: #4c7bef;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.pagination .page-item.active .page-link {
+    color: #fff;
+    background-color: #5988ff;
+    border-color: #5988ff;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #dee2e6;
+    cursor: not-allowed;
+}
+
+.pagination .page-item:first-child .page-link {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.pagination .page-item:last-child .page-link {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.pagination-info {
+    color: #6c757d;
+    font-size: 0.875rem;
+}

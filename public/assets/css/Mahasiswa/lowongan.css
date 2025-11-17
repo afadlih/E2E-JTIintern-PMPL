@@ -1,0 +1,1276 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #f3f3ff;
+}
+
+.container-fluid {
+    padding-top: 2rem;
+}
+
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e5e7eb;
+    background-color: #fff;
+}
+
+/* Card lowongan style yang lebih modern */
+.lowongan-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.lowongan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+.lowongan-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #5e72e4, #8c9eff);
+}
+
+/* Company logo styling */
+.company-logo-wrapper {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #f8f9fe, #ffffff);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.company-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Company name styling */
+.company-name {
+    font-size: 0.9rem;
+    color: #5e72e4 !important;
+    font-weight: 500;
+}
+
+/* Badge styling */
+.badge-skill {
+    background: linear-gradient(45deg, #5e72e4, #825ee4);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    border-radius: 30px;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(94, 114, 228, 0.3);
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.badge-more {
+    background: #f5f5f5;
+    color: #525f7f;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+    border-radius: 30px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.capacity-badge {
+    color: #525f7f;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Status badges */
+.badge-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.badge-waiting {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.badge-accepted {
+    background-color: #2dce89;
+    color: white;
+}
+
+.badge-rejected {
+    background-color: #f5365c;
+    color: white;
+}
+
+.badge-active-magang {
+    background-color: #6a42d1;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    font-weight: 600;
+}
+
+/* Button styling */
+.btn-view {
+    background: transparent;
+    color: #5e72e4;
+    border: 1px solid #5e72e4;
+    transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+    background: #5e72e4;
+    color: white;
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Filter section styling */
+.filter-section {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.form-select {
+    border-radius: 8px;
+    border-color: #e9ecef;
+    padding: 10px 15px;
+}
+
+.form-select:focus {
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.25);
+}
+
+/* Modal Detail Styling */
+.modal-content {
+    border-radius: 16px !important;
+    overflow: hidden;
+    border: none !important;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.modal-hero {
+    position: relative;
+    height: 220px;
+    background: linear-gradient(135deg, #5e72e4 0%, #825ee4 100%);
+    margin: -1.5rem -1.5rem 0;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.modal-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.company-badge {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    background: white;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.company-hero-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.modal-hero-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.modal-hero-company {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.modal-hero-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.modal-hero-meta i {
+    margin-right: 0.3rem;
+}
+
+.meta-divider {
+    margin: 0 0.25rem;
+}
+
+.detail-container {
+    padding: 1.5rem;
+}
+
+.detail-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.highlight-card {
+    display: flex;
+    align-items: center;
+    background: #f8f9fe;
+    border-radius: 12px;
+    padding: 1rem;
+    flex: 1;
+    min-width: 180px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s;
+}
+
+.highlight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.highlight-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #5e72e4, #825ee4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.highlight-icon i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.highlight-title {
+    color: #8898aa;
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.highlight-value {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.section-title {
+    color: #344767;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.section-title i {
+    margin-right: 0.5rem;
+    color: #5e72e4;
+}
+
+.section-content {
+    color: #4d5d7b;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.description-text {
+    white-space: pre-line;
+    padding: 1rem;
+    border-left: 3px solid #5e72e4;
+    background: #f8f9fe;
+    border-radius: 0 8px 8px 0;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.skill-pill {
+    background: linear-gradient(45deg, #5e72e4, #825ee4);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(94, 114, 228, 0.3);
+    transition: all 0.2s;
+}
+
+.skill-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(94, 114, 228, 0.4);
+}
+
+.company-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.company-meta-item {
+    display: flex;
+    align-items: center;
+}
+
+.company-meta-item i {
+    color: #5e72e4;
+    margin-right: 0.5rem;
+}
+
+.apply-section {
+    background: #f0f6ff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.apply-info {
+    display: flex;
+    align-items: center;
+    color: #5e72e4;
+    font-size: 0.9rem;
+}
+
+.apply-info i {
+    font-size: 1.2rem;
+    margin-right: 0.75rem;
+}
+
+/* Animation for detail sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer styling */
+.modal-footer {
+    border-top: none !important;
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+.btn-apply {
+    background: linear-gradient(135deg, #5e72e4, #825ee4);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(94, 114, 228, 0.3);
+}
+
+.btn-apply:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(94, 114, 228, 0.4);
+}
+
+.btn-apply:active {
+    transform: translateY(1px);
+}
+
+/* Company map styling */
+.company-map {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.company-map iframe {
+    width: 100%;
+    height: 200px;
+}
+
+/* ================================
+   SKELETON LOADING BASE STYLES
+   ================================ */
+.skeleton-text,
+.skeleton-icon-small,
+.skeleton-company-logo,
+.skeleton-skill-tag,
+.skeleton-skill-tag-small,
+.skeleton-capacity-badge,
+.skeleton-view-button,
+.skeleton-card-divider,
+.skeleton-hero-badge,
+.skeleton-hero-title,
+.skeleton-hero-company,
+.skeleton-meta-item,
+.skeleton-highlight-icon,
+.skeleton-section-title,
+.skeleton-skill-pill,
+.skeleton-skill-pill-small,
+.skeleton-input,
+.skeleton-textarea,
+.skeleton-button,
+.skeleton-upload-area,
+.skeleton-icon-box,
+.skeleton-badge,
+.skeleton-search-box,
+.skeleton-image,
+.skeleton-timeline-dot,
+.skeleton-timeline-content,
+.skeleton-status-card {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    border-radius: 6px;
+}
+
+/* ✅ TEXT SKELETON VARIANTS - sama dengan logaktivitas */
+.skeleton-text-xs {
+    height: 12px;
+    border-radius: 4px;
+    width: 60%;
+    margin-bottom: 0.25rem;
+}
+
+.skeleton-text-sm {
+    height: 14px;
+    border-radius: 4px;
+    width: 75%;
+    margin-bottom: 0.25rem;
+}
+
+.skeleton-text-md {
+    height: 16px;
+    border-radius: 5px;
+    width: 85%;
+    margin-bottom: 0.25rem;
+}
+
+.skeleton-text-lg {
+    height: 20px;
+    border-radius: 5px;
+    width: 70%;
+    margin-bottom: 0.25rem;
+}
+
+.skeleton-text-xl {
+    height: 28px;
+    border-radius: 6px;
+    width: 80%;
+    margin-bottom: 0.5rem;
+}
+
+/* ✅ FORM ELEMENT SKELETONS - sama dengan logaktivitas */
+.skeleton-input {
+    height: 42px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.skeleton-textarea {
+    height: 100px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.skeleton-button {
+    height: 44px;
+    border-radius: 8px;
+    width: 140px;
+}
+
+.skeleton-button-sm {
+    height: 32px;
+    width: 120px;
+    border-radius: 6px;
+}
+
+.skeleton-upload-area {
+    height: 120px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* ✅ ICON BOX SKELETON - sama dengan logaktivitas */
+.skeleton-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+/* ✅ BADGE SKELETON - sama dengan logaktivitas */
+.skeleton-badge {
+    height: 24px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+/* ✅ SEARCH BOX SKELETON - sama dengan logaktivitas */
+.skeleton-search-box {
+    height: 38px;
+    width: 250px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+/* ✅ STATUS CARD SKELETON - sama dengan logaktivitas */
+.skeleton-status-card {
+    height: 60px;
+    width: 200px;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+/* ✅ IMAGE SKELETON - sama dengan logaktivitas */
+.skeleton-image {
+    height: 120px;
+    width: 100%;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+/* ================================
+   LOWONGAN CARD SKELETON - MATCHING LOGAKTIVITAS
+   ================================ */
+.lowongan-skeleton-card {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+
+/* ✅ ENHANCED SHIMMER OVERLAY - sama dengan logaktivitas */
+.lowongan-skeleton-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+    z-index: 1;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ✅ ACCENT BAR - sama dengan logaktivitas */
+.lowongan-skeleton-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    z-index: 2;
+}
+
+.skeleton-company-logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.skeleton-card-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    margin: 16px 0;
+    position: relative;
+    z-index: 3;
+}
+
+.skeleton-icon-small {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+.skeleton-skill-tag {
+    width: 80px;
+    height: 24px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+.skeleton-skill-tag-small {
+    width: 50px;
+    height: 24px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+.skeleton-capacity-badge {
+    width: 80px;
+    height: 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+.skeleton-view-button {
+    width: 100px;
+    height: 32px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+/* ================================
+   MODAL SKELETON LOADING - MATCHING LOGAKTIVITAS
+   ================================ */
+.modal-skeleton-loading {
+    animation: fadeIn 0.4s ease;
+    position: relative;
+}
+
+.modal-hero-skeleton {
+    background: linear-gradient(135deg, #5e72e4 0%, #825ee4 100%);
+    height: 220px;
+    margin: -1.5rem -1.5rem 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ✅ ENHANCED SHIMMER untuk modal hero */
+.modal-hero-skeleton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.15) 20%,
+        rgba(255, 255, 255, 0.3) 60%,
+        rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+    z-index: 1;
+}
+
+.skeleton-hero-badge {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+    position: relative;
+}
+
+.skeleton-hero-badge::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #d0d0d0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    border-radius: 8px;
+    transform: translate(-50%, -50%);
+}
+
+.skeleton-hero-title {
+    width: 300px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    z-index: 2;
+    position: relative;
+}
+
+.skeleton-hero-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.3) 50%, transparent 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    border-radius: 6px;
+}
+
+.skeleton-hero-company {
+    width: 200px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    z-index: 2;
+    position: relative;
+}
+
+.skeleton-hero-company::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.2) 50%, transparent 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    border-radius: 4px;
+}
+
+.skeleton-meta-item {
+    width: 120px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    position: relative;
+}
+
+.skeleton-meta-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.2) 50%, transparent 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    border-radius: 4px;
+}
+
+.modal-content-skeleton {
+    padding: 1.5rem;
+    position: relative;
+}
+
+/* ✅ ENHANCED SHIMMER untuk modal content */
+.modal-content-skeleton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.2) 60%,
+        rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2.5s infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.skeleton-highlight-card {
+    display: flex;
+    align-items: center;
+    background: #f8f9fe;
+    border-radius: 12px;
+    padding: 1rem;
+    flex: 1;
+    min-width: 180px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ✅ ENHANCED SHIMMER untuk highlight cards */
+.skeleton-highlight-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.3) 20%,
+        rgba(255, 255, 255, 0.6) 60%,
+        rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+    z-index: 1;
+}
+
+.skeleton-highlight-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #d0d0d0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    z-index: 2;
+    position: relative;
+}
+
+.skeleton-section-title {
+    width: 200px;
+    height: 24px;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+.skeleton-description-block {
+    background: #f8f9fe;
+    padding: 1rem;
+    border-left: 3px solid #e0e0e0;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ✅ ENHANCED SHIMMER untuk description block */
+.skeleton-description-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.4) 20%,
+        rgba(255, 255, 255, 0.7) 60%,
+        rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+    z-index: 1;
+}
+
+.skeleton-description-block .skeleton-text {
+    position: relative;
+    z-index: 2;
+}
+
+.skeleton-skill-pill {
+    width: 90px;
+    height: 32px;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+.skeleton-skill-pill-small {
+    width: 60px;
+    height: 32px;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 2s infinite;
+}
+
+/* ===================================
+   DOCUMENT UPLOAD MODAL STYLES
+   =================================== */
+
+.upload-instructions {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1rem;
+    border-left: 4px solid #007bff;
+}
+
+.documents-container {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    padding: 1.5rem;
+}
+
+.document-upload-item {
+    background: #fff;
+    border: 2px dashed #dee2e6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.document-upload-item:hover {
+    border-color: #007bff;
+    background: #f8f9fa;
+}
+
+.document-upload-item.has-file {
+    border-style: solid;
+    border-color: #28a745;
+    background: #f8fff9;
+}
+
+.document-upload-item.uploading {
+    border-color: #ffc107;
+    background: #fffbf0;
+}
+
+.document-upload-item.error {
+    border-color: #dc3545;
+    background: #fff5f5;
+}
+
+.upload-area {
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.upload-area .upload-icon {
+    font-size: 2rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.upload-area.has-file .upload-icon {
+    color: #28a745;
+}
+
+.upload-area .upload-text {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.upload-area.has-file .upload-text {
+    color: #28a745;
+    font-weight: 500;
+}
+
+.document-info {
+    display: none;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+    margin-top: 1rem;
+}
+
+.document-upload-item.has-file .document-info {
+    display: block;
+}
+
+.document-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.file-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-size {
+    font-size: 0.8rem;
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.document-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-remove-document {
+    border: none;
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-remove-document:hover {
+    background: #c82333;
+    transform: scale(1.1);
+}
+
+.document-type-select {
+    margin-top: 1rem;
+}
+
+.document-type-select select {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.upload-progress {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    border-left: 4px solid #007bff;
+}
+
+.progress {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* ✅ RESPONSIVE: Mobile optimization */
+@media (max-width: 768px) {
+    .upload-instructions .row {
+        text-align: center;
+    }
+    
+    .document-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .document-actions {
+        align-self: flex-end;
+    }
+    
+    .modal-dialog.modal-lg {
+        margin: 0.5rem;
+    }
+}
+
+/* ✅ ANIMATION: Smooth transitions */
+.document-upload-item {
+    animation: slideInUp 0.3s ease;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-out {
+    animation: slideOutDown 0.3s ease forwards;
+}
+
+@keyframes slideOutDown {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Accessibility and performance enhancements */
+@media (prefers-reduced-motion: reduce) {
+    .skeleton-text,
+    .skeleton-company-logo,
+    .skeleton-skill-tag,
+    .skeleton-highlight-icon,
+    .skeleton-hero-badge,
+    .skeleton-hero-title,
+    .skeleton-hero-company,
+    .skeleton-meta-item,
+    .skeleton-section-title,
+    .skeleton-skill-pill {
+        animation: none;
+        background: #f1f5f9;
+    }
+    
+    .lowongan-skeleton-card::before,
+    .modal-hero-skeleton::before,
+    .modal-content-skeleton::before,
+    .skeleton-highlight-card::before,
+    .skeleton-description-block::before {
+        animation: none;
+    }
+}
+
+/* Performance optimization */
+.skeleton-text,
+.skeleton-company-logo,
+.skeleton-skill-tag,
+.skeleton-highlight-icon,
+.skeleton-hero-badge,
+.skeleton-hero-title,
+.skeleton-hero-company,
+.skeleton-meta-item,
+.skeleton-section-title,
+.skeleton-skill-pill,
+.lowongan-skeleton-card,
+.modal-skeleton-loading,
+.lowongan-card-wrapper {
+    will-change: background-position;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.document-item {
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.document-item:hover {
+    background: #f8f9fa;
+    border-color: #0d6efd !important;
+}
+
+.document-checkbox:checked + label {
+    color: #0d6efd;
+}
+
+.selected-document-item {
+    border-left: 3px solid #0d6efd;
+}

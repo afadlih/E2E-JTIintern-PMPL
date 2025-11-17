@@ -1,0 +1,192 @@
+/* Import fonts if needed */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+/* Profile header styling - updated for icon avatar */
+.avatar-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.profile {
+    background: transparent !important ;
+    box-shadow: none !important;
+}
+
+.avatar-profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-profile i.fas.fa-user-circle {
+    font-size: 90px;
+    color: #5988ff;
+}
+
+.avatar-edit {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5e72e4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+    /* Ensure it's above the avatar */
+}
+
+.avatar-edit:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Profile completion card */
+.profile-incomplete-card {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-left: 5px solid #ffc107;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.warning-icon {
+    color: #ffc107;
+    font-size: 24px;
+}
+
+.badge.bg-light-success {
+    background-color: rgba(40, 199, 111, 0.1) !important;
+    color: #28c76f !important;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+}
+
+#minat-container {
+    min-height: 30px;
+}
+
+.minat-button {
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e9ecef;
+    background-color: #fff;
+    color: #344767;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.minat-button.active {
+    background-color: rgba(40, 199, 111, 0.1);
+    border-color: #28c76f;
+    color: #28c76f;
+    padding-right: 2rem;
+}
+
+.minat-button .remove-minat {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    color: #dc3545;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
+}
+
+.minat-button.active .remove-minat {
+    display: block;
+}
+
+.minat-button:hover {
+    border-color: #28c76f;
+}
+
+.skill-button {
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e9ecef;
+    background-color: #fff;
+    color: #344767;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin: 0.25rem;
+}
+
+.skill-button.active {
+    background-color: rgba(32, 107, 196, 0.1);
+    border-color: #206bc4;
+    color: #206bc4;
+    padding-right: 2rem;
+}
+
+.skill-button .remove-skill {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    color: #dc3545;
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
+}
+
+.skill-button.active .remove-skill {
+    display: block;
+}
+
+.skill-button:hover {
+    border-color: #206bc4;
+}
+
+#skills-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#edit-profile-btn {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 10px 20px;
+    color: #344767;
+    font-size: 14px;
+    font-weight: 500;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#edit-profile-btn:hover {
+    background-color: #5988ff;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#edit-profile-btn:hover::before,
+#edit-profile-btn:hover::after {
+    width: 100%;
+}
+
+#edit-profile-btn i {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}

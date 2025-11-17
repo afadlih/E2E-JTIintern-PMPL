@@ -1,0 +1,1533 @@
+/* ================================
+   RESET & BASE STYLES
+   ================================ */
+* {
+    box-sizing: border-box;
+}
+
+/* ================================
+   MAIN LAYOUT - SAMAKAN DENGAN LOGAKTIVITAS
+   ================================ */
+.main-content {
+    position: relative;
+    /* ✅ HAPUS: padding-top: 2rem; - KONFLIK! */
+}
+
+.container-fluid {
+    max-width: 1400px !important; /* ✅ SAMA: Dengan lowongan.css */
+    margin: 0 auto;
+    padding-left: 1.5rem !important; /* ✅ STANDAR: Bootstrap default */
+    padding-right: 1.5rem !important; /* ✅ STANDAR: Bootstrap default */
+    padding-top: 2rem !important;
+}
+
+.container-fluid.px-10 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+/* ✅ TAMBAH: Consistent body layout seperti logaktivitas */
+body.g-sidenav-show .main-content {
+    margin-left: 17rem;
+    transition: margin-left 0.15s ease-in-out;
+}
+
+@media (max-width: 1199.98px) {
+    body.g-sidenav-show .main-content {
+        margin-left: 0;
+    }
+
+    .container-fluid {
+        padding-top: 2rem; /* ✅ KONSISTEN: sama dengan logaktivitas */
+    }
+}
+
+@media (max-width: 991.98px) {
+    .container-fluid {
+        padding-top: 1.75rem; /* ✅ RESPONSIVE: sedikit kurangi untuk mobile */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .container-fluid {
+        padding-top: 1.5rem; /* ✅ MOBILE: sama dengan logaktivitas */
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container-fluid {
+        padding-top: 1.25rem; /* ✅ SMALL MOBILE: optimal spacing */
+    }
+}
+
+/* ================================
+   CARD STYLES - UNIFIED & CONSISTENT
+   ================================ */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.75rem;
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+    transition: all 0.15s ease-in-out;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card.h-100 {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+/* ================================
+   UNIFIED SKELETON LOADING SYSTEM - EXACT MATCH WITH LOGAKTIVITAS
+   ================================ */
+
+/* ✅ BASE SKELETON ANIMATION - sama persis dengan logaktivitas */
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+/* ✅ BASE SKELETON CLASSES - EXACT MATCH WITH WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-text,
+.skeleton-icon,
+.skeleton-avatar,
+.skeleton-badge,
+.skeleton-button,
+.skeleton-button-sm,
+.skeleton-progress-bar,
+.skeleton-icon-large,
+.skeleton-button-primary,
+.skeleton-button-outline,
+.skeleton-input,
+.skeleton-textarea,
+.skeleton-upload-area,
+.skeleton-icon-box,
+.skeleton-search-box,
+.skeleton-image,
+.skeleton-timeline-dot,
+.skeleton-timeline-content,
+.skeleton-status-card {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border-radius: 6px !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ✅ TEXT SKELETON VARIANTS - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-text-xs {
+    height: 12px !important;
+    border-radius: 4px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-text-sm {
+    height: 14px !important;
+    border-radius: 4px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-text-md {
+    height: 16px !important;
+    border-radius: 5px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-text-lg {
+    height: 20px !important;
+    border-radius: 5px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-text-xl {
+    height: 28px !important;
+    border-radius: 6px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ✅ FORM ELEMENT SKELETONS - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-input {
+    height: 42px !important;
+    border-radius: 8px !important;
+}
+
+.skeleton-textarea {
+    height: 100px !important;
+    border-radius: 8px !important;
+}
+
+.skeleton-button {
+    height: 44px !important;
+    border-radius: 8px !important;
+}
+
+.skeleton-button-sm {
+    height: 32px !important;
+    width: 120px !important;
+    border-radius: 6px !important;
+}
+
+.skeleton-upload-area {
+    height: 120px !important;
+    border-radius: 8px !important;
+}
+
+/* ✅ ICON BOX SKELETON - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-icon-box {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+}
+
+/* ✅ BADGE SKELETON - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-badge {
+    height: 24px !important;
+    border-radius: 12px !important;
+}
+
+/* ✅ SEARCH BOX SKELETON - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-search-box {
+    height: 38px !important;
+    width: 250px !important;
+    border-radius: 6px !important;
+}
+
+/* ✅ STATUS CARD SKELETON - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-status-card {
+    height: 60px !important;
+    width: 200px !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1rem !important;
+}
+
+/* ✅ IMAGE SKELETON - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-image {
+    height: 120px !important;
+    width: 100% !important;
+    border-radius: 8px !important;
+}
+
+/* ✅ SKELETON ICON - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ✅ SKELETON ICON LARGE - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-icon-large {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 20px !important;
+    margin: 0 auto !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ✅ SKELETON BUTTON PRIMARY - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-button-primary {
+    height: 44px !important;
+    width: 140px !important;
+    border-radius: 8px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-button-outline {
+    height: 44px !important;
+    width: 120px !important;
+    border-radius: 8px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: 1px solid #e0e0e0 !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ✅ SKELETON PROGRESS BAR - WHITE TEXT LIKE LOGAKTIVITAS */
+.skeleton-progress-bar {
+    height: 8px !important;
+    width: 100% !important;
+    border-radius: 4px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ================================
+   TIMELINE SPECIFIC SKELETONS - EXACT MATCH WITH LOGAKTIVITAS
+   ================================ */
+
+/* ✅ TIMELINE MONTH SKELETON */
+.skeleton-timeline-month {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.skeleton-timeline-entries {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.skeleton-timeline-entries::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 100% 200% !important;
+    animation: skeleton-loading 2s infinite !important;
+}
+
+.skeleton-timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.skeleton-timeline-dot {
+    position: absolute;
+    left: -0.5rem;
+    top: 1.25rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(
+        45deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 200% !important;
+    animation: skeleton-loading 2s infinite !important;
+    z-index: 2;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-timeline-content {
+    background: #f8f9fe !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    border: 1px solid #edf1fd !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.skeleton-timeline-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: skeleton-shimmer 2s infinite;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* ================================
+   ENHANCED SKELETON SHIMMER EFFECTS - EXACT MATCH
+   ================================ */
+
+/* ✅ ENHANCED SHIMMER untuk containers - sama persis */
+.skeleton-enhanced {
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-enhanced::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ✅ PULSE EFFECT - sama persis */
+.skeleton-pulse {
+    animation: skeleton-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton-pulse {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.7;
+    }
+}
+
+/* ================================
+   LOADING TRANSITIONS - EXACT MATCH
+   ================================ */
+.skeleton-loader {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.skeleton-loader.fade-out {
+    opacity: 0;
+}
+
+.real-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.real-content.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ✅ LOADING COMPLETION EFFECT - sama persis */
+.skeleton-fade-out {
+    animation: skeleton-fade-out 0.4s ease forwards;
+}
+
+@keyframes skeleton-fade-out {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+}
+
+/* ✅ CONTENT FADE IN EFFECT - sama persis */
+.content-fade-in {
+    animation: content-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes content-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   CONTAINER TRANSITIONS - EXACT MATCH
+   ================================ */
+.header-skeleton,
+.form-skeleton,
+.timeline-skeleton {
+    transition: opacity 0.4s ease;
+}
+
+.real-header,
+.real-form,
+.real-timeline {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.real-header.loaded,
+.real-form.loaded,
+.real-timeline.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ✅ LOADING STATE CONTAINERS - sama persis */
+.skeleton-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ================================
+   MAGANG ACTIVE STATE ANIMATIONS
+   ================================ */
+@keyframes success-glow {
+    0% {
+        box-shadow: 0 0 5px rgba(45, 206, 137, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(45, 206, 137, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(45, 206, 137, 0.5);
+    }
+}
+
+@keyframes icon-bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-30px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05) translateY(0);
+    }
+    70% {
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes text-slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.magang-active-state {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: text-slide-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.magang-active-icon {
+    animation: success-glow 3s infinite,
+        icon-bounce-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+.magang-active-state h5 {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    animation: text-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
+}
+
+.magang-active-state p {
+    animation: text-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.8s both;
+}
+
+.magang-active-state .d-flex {
+    animation: text-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) 1s both;
+}
+
+.magang-active-state .btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+}
+
+.magang-active-state .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ================================
+   CARD BODY & STATS CONSISTENCY
+   ================================ */
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 120px;
+}
+
+.stats-row .card-body,
+.stats-row .card-body.p-1,
+.stats-row .card-body.p-2,
+.stats-row .card-body.p-3,
+.stats-row .card-body.p-4,
+.stats-row .card-body.p-5 {
+    padding: 1.25rem 1.5rem !important;
+    min-height: 120px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.stats-row {
+    display: flex;
+    align-items: stretch;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
+.stats-row > [class*="col-"] {
+    display: flex;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.stats-row .card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+.skeleton-loader,
+.real-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80px;
+}
+
+.skeleton-loader .row,
+.real-content .row {
+    flex: 1;
+    align-items: center;
+    margin: 0;
+}
+
+.numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-height: 60px;
+}
+
+.numbers p {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #67748e;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.numbers h4,
+.numbers h5 {
+    margin-bottom: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #344767;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.stats-row .col-4 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+.icon-shape {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+.icon-shape i {
+    font-size: 1.125rem;
+    line-height: 1;
+}
+
+.icon-shape .text-lg {
+    font-size: 1.25rem;
+}
+
+/* ================================
+   GRADIENTS
+   ================================ */
+.bg-gradient-primary {
+    background-image: linear-gradient(310deg, #5e72e4 0%, #825ee4 100%);
+}
+
+.bg-gradient-success {
+    background-image: linear-gradient(310deg, #2dce89 0%, #2dcecc 100%);
+}
+
+.bg-gradient-warning {
+    background-image: linear-gradient(310deg, #fb6340 0%, #fbb140 100%);
+}
+
+.bg-gradient-danger {
+    background-image: linear-gradient(310deg, #f5365c 0%, #f56036 100%);
+}
+
+.bg-gradient-info {
+    background-image: linear-gradient(310deg, #11cdef 0%, #1171ef 100%);
+}
+
+/* ================================
+   TOAST NOTIFICATIONS
+   ================================ */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 500;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    min-width: 300px;
+}
+
+.toast-notification.show {
+    transform: translateX(0);
+}
+
+.toast-notification.toast-success {
+    background: linear-gradient(135deg, #2dce89 0%, #2dcecc 100%);
+}
+
+.toast-notification.toast-error {
+    background: linear-gradient(135deg, #f5365c 0%, #f56036 100%);
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+}
+
+/* ================================
+   ANIMATIONS
+   ================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-row {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-row.loaded {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ================================
+   RESPONSIVE DESIGN - MATCHING LOGAKTIVITAS
+   ================================ */
+@media (max-width: 1199.98px) {
+    .stats-row .card-body {
+        min-height: 100px !important;
+        padding: 1rem 1.25rem !important;
+    }
+
+    .skeleton-search-box {
+        width: 200px !important;
+    }
+
+    .skeleton-status-card {
+        width: 160px !important;
+        height: 50px !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .stats-row {
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .stats-row > [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .stats-row .card {
+        margin-bottom: 1rem;
+        height: auto;
+    }
+
+    .stats-row .card-body {
+        min-height: 90px !important;
+        padding: 1rem !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .stats-row .card-body {
+        min-height: 80px !important;
+        padding: 0.875rem 1rem !important;
+    }
+
+    .numbers h4,
+    .numbers h5 {
+        font-size: 1.5rem;
+    }
+
+    .icon-shape {
+        width: 40px;
+        height: 40px;
+    }
+
+    .skeleton-text-xl {
+        width: 240px !important;
+        height: 24px !important;
+    }
+
+    .skeleton-icon-large {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .skeleton-button-primary,
+    .skeleton-button-outline {
+        height: 34px !important;
+    }
+
+    .magang-active-state {
+        padding: 1.5rem;
+    }
+
+    .magang-active-state .d-flex {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+    }
+
+    .magang-active-state .btn {
+        width: 160px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .stats-row .card-body {
+        min-height: 70px !important;
+        padding: 0.75rem !important;
+    }
+
+    .numbers p {
+        font-size: 0.75rem;
+    }
+
+    .numbers h4,
+    .numbers h5 {
+        font-size: 1.25rem;
+    }
+
+    .skeleton-text-xl {
+        width: 200px !important;
+        height: 20px !important;
+    }
+
+    .skeleton-icon-large {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .skeleton-button-primary {
+        width: 120px !important;
+    }
+
+    .skeleton-button-outline {
+        width: 100px !important;
+    }
+
+    .magang-active-state {
+        padding: 1rem;
+    }
+}
+
+/* ================================
+   ACCESSIBILITY & PERFORMANCE - EXACT MATCH
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+    .skeleton-text,
+    .skeleton-icon,
+    .skeleton-avatar,
+    .skeleton-badge,
+    .skeleton-button,
+    .skeleton-button-sm,
+    .skeleton-progress-bar,
+    .skeleton-icon-large,
+    .skeleton-input,
+    .skeleton-textarea,
+    .skeleton-upload-area,
+    .skeleton-icon-box,
+    .skeleton-search-box,
+    .skeleton-image,
+    .skeleton-timeline-dot,
+    .skeleton-timeline-content,
+    .skeleton-status-card {
+        animation: none !important;
+        background: #f1f5f9 !important;
+    }
+
+    .skeleton-enhanced::after {
+        animation: none !important;
+    }
+
+    .real-content,
+    .skeleton-loader {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ✅ PERFORMANCE OPTIMIZATION - sama persis */
+.skeleton-text,
+.skeleton-icon,
+.skeleton-avatar,
+.skeleton-badge,
+.skeleton-button,
+.skeleton-button-sm,
+.skeleton-progress-bar,
+.skeleton-icon-large,
+.skeleton-input,
+.skeleton-textarea,
+.skeleton-upload-area,
+.skeleton-icon-box,
+.skeleton-search-box,
+.skeleton-image,
+.skeleton-timeline-dot,
+.skeleton-timeline-content,
+.skeleton-status-card,
+.skeleton-loader,
+.real-content {
+    will-change: background-position;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+/* ================================
+   DARK MODE SUPPORT - EXACT MATCH
+   ================================ */
+@media (prefers-color-scheme: dark) {
+    .skeleton-text,
+    .skeleton-icon,
+    .skeleton-avatar,
+    .skeleton-badge,
+    .skeleton-button,
+    .skeleton-button-sm,
+    .skeleton-progress-bar,
+    .skeleton-icon-large,
+    .skeleton-input,
+    .skeleton-textarea,
+    .skeleton-upload-area,
+    .skeleton-icon-box,
+    .skeleton-search-box,
+    .skeleton-image,
+    .skeleton-timeline-dot,
+    .skeleton-timeline-content,
+    .skeleton-status-card {
+        background: linear-gradient(
+            90deg,
+            #374151 25%,
+            #4b5563 50%,
+            #374151 75%
+        ) !important;
+        background-size: 200% 100% !important;
+    }
+}
+
+/* ================================
+   PERFORMANCE OPTIMIZATIONS
+   ================================ */
+.skeleton-loader * {
+    will-change: transform, opacity;
+}
+
+.real-content * {
+    will-change: transform, opacity;
+}
+
+.skeleton-loader {
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stats-card .skeleton-loader,
+.stats-card .real-content {
+    min-height: 80px;
+}
+
+.magang-card .skeleton-loader,
+.magang-card .real-content {
+    min-height: 200px;
+}
+
+.table-card .skeleton-loader,
+.table-card .real-content {
+    min-height: 300px;
+}
+
+/* ✅ TAMBAHKAN CSS untuk modal detail */
+.detail-lamaran-modal {
+    border-radius: 12px !important;
+}
+
+.detail-content-wrapper {
+    text-align: left !important;
+    font-size: 14px;
+}
+
+.company-logo-large .avatar {
+    width: 80px !important;
+    height: 80px !important;
+}
+
+.info-card {
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.description-content {
+    border-left: 4px solid #007bff;
+    margin-left: 4px;
+}
+
+.modal-footer-actions {
+    border-top: 1px solid #e9ecef;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+/* ✅ Card header controls styling */
+.card-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.filter-container {
+    position: relative;
+}
+
+.filter-container select {
+    background-color: #fff;
+    border: 1px solid #d2d6da;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    height: 32px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-container select:focus {
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.25);
+}
+
+/* ✅ Refresh button enhancement */
+#refreshLamaranBtn {
+    height: 32px;
+    min-width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#refreshLamaranBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#refreshLamaranBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ✅ Filter animations */
+.lamaran-row {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-empty-state {
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 1rem;
+    padding: 2rem 1rem;
+}
+
+/* ✅ Loading states */
+.fa-spin {
+    animation: fa-spin 1s infinite linear;
+}
+
+@keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ✅ ENHANCED toast animations */
+.toast-notification {
+    animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ✅ Status badge improvements */
+.status-badge {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ✅ Table row hover improvements */
+.lamaran-row:hover {
+    background-color: #f8f9fa !important;
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Responsive improvements */
+@media (max-width: 768px) {
+    .card-header-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+
+    .filter-container select,
+    #refreshLamaranBtn {
+        width: 100%;
+    }
+}
+
+/* Completion Modal Styles */
+.completion-modal-content {
+    text-align: left;
+}
+
+.completion-icon {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.completion-modal-content .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.completion-modal-content .alert-info {
+    background-color: #e7f3ff;
+    border-color: #b8daff;
+    color: #004085;
+}
+
+.completion-modal-content .input-group-text {
+    background-color: #f8f9fa;
+    border-color: #ced4da;
+}
+
+/* Progress bar completion effect */
+.progress-bar[style*="width: 100%"] {
+    background: linear-gradient(45deg, #28a745, #20c997, #28a745) !important;
+    animation: progressComplete 0.5s ease-in-out;
+}
+
+@keyframes progressComplete {
+    0% {
+        transform: scaleX(0.95);
+    }
+    50% {
+        transform: scaleX(1.02);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* File input styling */
+.completion-modal-content input[type="file"] {
+    border: 2px dashed #ced4da;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.completion-modal-content input[type="file"]:hover {
+    border-color: #28a745;
+    background-color: #e8f5e8;
+}
+
+.completion-modal-content input[type="file"]:focus {
+    border-color: #28a745;
+    background-color: #e8f5e8;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* ✅ ADD: Styling untuk magang card yang sudah disesuaikan */
+
+/* Company Info Styling */
+.company-info .company-logo {
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.company-info .company-logo:hover {
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+
+/* Progress Section */
+.progress-section .progress {
+    border-radius: 10px;
+    background-color: #f8f9fa;
+}
+
+.progress-section .progress-bar {
+    border-radius: 10px;
+    transition: width 0.8s ease;
+}
+
+/* Info Details */
+.info-details .info-item {
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.info-details .info-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+/* Supervisor Card */
+.supervisor-card {
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.supervisor-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+}
+
+/* Action Buttons */
+.action-buttons .btn {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Evaluasi Section */
+.evaluasi-section .alert {
+    border-radius: 12px;
+}
+
+.evaluasi-section .card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.evaluasi-section .form-control {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.evaluasi-section .form-control:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+/* Animation untuk card appearance */
+#real-magang {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .company-info .d-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .company-info .company-logo {
+        margin-bottom: 15px;
+    }
+
+    .info-details .col-md-6 {
+        margin-bottom: 10px;
+    }
+
+    .action-buttons .btn {
+        margin-bottom: 8px;
+    }
+}

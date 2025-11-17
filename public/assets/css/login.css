@@ -1,0 +1,180 @@
+/* Reset dengan pendekatan lebih agresif */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Langsung override layout asli yang menyebabkan masalah */
+body,
+body.g-sidenav-show,
+body.bg-gray-100 {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden !important;
+}
+
+/* Fix main-content yang mengikuti layout utama */
+.main-content {
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f9fa;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Reset margin dan padding pada container utama */
+.page-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Atur container agar tidak menambah padding berlebih */
+.container {
+    height: 100%;
+    padding: 0;
+}
+
+/* Atur row untuk mengisi container sempurna */
+.row {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Panel login kiri */
+.col-xl-4.col-lg-5.col-md-7 {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Panel kanan - override spesifik untuk position absolute */
+.col-6.position-absolute {
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+}
+
+/* Position relative juga perlu diatur ulang */
+.position-relative.h-100 {
+    height: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important; /* Hapus border radius yang mungkin menyebabkan margin */
+}
+
+/* Card styling */
+.card.card-plain {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin: 0; /* Hapus margin pada card */
+}
+
+.card.card-plain:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* Form input styling tetap sama */
+.form-control {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    padding: 12px 15px;
+}
+
+.form-control:focus {
+    border-color: #5988ff;
+    box-shadow: 0 0 0 0.2rem rgba(89, 136, 255, 0.25);
+    transform: scale(1.02);
+}
+
+/* Button effects tetap sama */
+.btn {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(89, 136, 255, 0.3);
+}
+
+/* Animations */
+.page-header {
+    animation: pageLoad 1s ease-out;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Logo animation */
+.position-relative img {
+    animation: logoFloat 4s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes logoFloat {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 991.98px) {
+    .main-content {
+        overflow-y: auto !important; /* Allow scrolling on small screens */
+    }
+
+    .col-xl-4.col-lg-5.col-md-7 {
+        margin: 0 auto;
+    }
+
+    .card.card-plain {
+        margin: 2rem 0;
+    }
+}

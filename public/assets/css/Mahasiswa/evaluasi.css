@@ -1,0 +1,1113 @@
+/* ================================
+   EXISTING STYLES
+   ================================ */
+.container-fluid {
+    padding-top: 2rem;
+}
+
+.card-evaluation {
+    transition: transform 0.2s;
+}
+
+.card-evaluation:hover {
+    transform: translateY(-5px);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.score-badge {
+    background: #f8f9fa;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* ================================
+   SKELETON LOADING SYSTEM - EXACT COPY FROM LOGAKTIVITAS
+   ================================ */
+
+/* ✅ BASE SKELETON ANIMATION - EXACT COPY */
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+/* ✅ SKELETON ELEMENTS - EXACT COPY FROM LOGAKTIVITAS */
+.skeleton-text,
+.skeleton-input,
+.skeleton-textarea,
+.skeleton-button,
+.skeleton-upload-area,
+.skeleton-icon-box,
+.skeleton-badge,
+.skeleton-search-box,
+.skeleton-image,
+.skeleton-timeline-dot,
+.skeleton-timeline-content,
+.skeleton-status-card {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border-radius: 6px !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ✅ TEXT SKELETON VARIANTS - EXACT COPY FROM LOGAKTIVITAS */
+.skeleton-text-xs {
+    height: 12px !important;
+    border-radius: 4px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-text-sm {
+    height: 14px !important;
+    border-radius: 4px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-text-md {
+    height: 16px !important;
+    border-radius: 5px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-text-lg {
+    height: 20px !important;
+    border-radius: 5px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-text-xl {
+    height: 28px !important;
+    border-radius: 6px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ✅ FORM ELEMENT SKELETONS - EXACT COPY FROM LOGAKTIVITAS */
+.skeleton-input {
+    height: 42px !important;
+    border-radius: 8px !important;
+}
+
+.skeleton-textarea {
+    height: 100px !important;
+    border-radius: 8px !important;
+}
+
+.skeleton-button {
+    height: 44px !important;
+    border-radius: 8px !important;
+}
+
+.skeleton-button-sm {
+    height: 32px !important;
+    width: 120px !important;
+    border-radius: 6px !important;
+}
+
+.skeleton-upload-area {
+    height: 120px !important;
+    border-radius: 8px !important;
+}
+
+/* ✅ ICON BOX SKELETON - EXACT COPY FROM LOGAKTIVITAS */
+.skeleton-icon-box {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+}
+
+/* ✅ BADGE SKELETON - EXACT COPY FROM LOGAKTIVITAS */
+.skeleton-badge {
+    height: 24px !important;
+    border-radius: 12px !important;
+}
+
+/* ✅ SEARCH BOX SKELETON - EXACT COPY FROM LOGAKTIVITAS */
+.skeleton-search-box {
+    height: 38px !important;
+    width: 250px !important;
+    border-radius: 6px !important;
+}
+
+/* ✅ STATUS CARD SKELETON - EXACT COPY FROM LOGAKTIVITAS */
+.skeleton-status-card {
+    height: 60px !important;
+    width: 200px !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1rem !important;
+}
+
+/* ✅ IMAGE SKELETON - EXACT COPY FROM LOGAKTIVITAS */
+.skeleton-image {
+    height: 120px !important;
+    width: 100% !important;
+    border-radius: 8px !important;
+}
+
+/* ✅ EVALUASI SPECIFIC SKELETONS */
+.skeleton-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-score-badge {
+    width: 60px !important;
+    height: 28px !important;
+    border-radius: 6px !important;
+    flex-shrink: 0 !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-date {
+    width: 100px !important;
+    height: 16px !important;
+    border-radius: 4px !important;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+    border: none !important;
+    outline: none !important;
+    color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* ================================
+   TIMELINE SPECIFIC SKELETONS - EXACT COPY FROM LOGAKTIVITAS
+   ================================ */
+
+/* ✅ TIMELINE MONTH SKELETON - EXACT COPY */
+.skeleton-timeline-month {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.skeleton-timeline-entries {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.skeleton-timeline-entries::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 100% 200% !important;
+    animation: skeleton-loading 2s infinite !important;
+}
+
+.skeleton-timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.skeleton-timeline-dot {
+    position: absolute;
+    left: -0.5rem;
+    top: 1.25rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(
+        45deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 200% !important;
+    animation: skeleton-loading 2s infinite !important;
+    z-index: 2;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.skeleton-timeline-content {
+    background: #f8f9fe !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    border: 1px solid #edf1fd !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.skeleton-timeline-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: skeleton-shimmer 2s infinite;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* ================================
+   ENHANCED SKELETON SHIMMER EFFECTS - EXACT COPY FROM LOGAKTIVITAS
+   ================================ */
+
+/* ✅ ENHANCED SHIMMER - EXACT COPY */
+.skeleton-enhanced {
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-enhanced::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ✅ PULSE EFFECT - EXACT COPY */
+.skeleton-pulse {
+    animation: skeleton-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes skeleton-pulse {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.7;
+    }
+}
+
+/* ================================
+   SKELETON LOADING STATES WITH STAGGER EFFECT - EXACT COPY
+   ================================ */
+.skeleton-timeline-item:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.skeleton-timeline-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skeleton-timeline-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* ================================
+   LOADING COMPLETION EFFECT - EXACT COPY FROM LOGAKTIVITAS
+   ================================ */
+.skeleton-fade-out {
+    animation: skeleton-fade-out 0.4s ease forwards;
+}
+
+@keyframes skeleton-fade-out {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+}
+
+/* ✅ CONTENT FADE IN EFFECT - EXACT COPY */
+.content-fade-in {
+    animation: content-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes content-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   CONTAINER TRANSITIONS - EXACT COPY FROM LOGAKTIVITAS
+   ================================ */
+.header-skeleton,
+.form-skeleton,
+.timeline-skeleton {
+    transition: opacity 0.4s ease;
+}
+
+.real-header,
+.real-form,
+.real-timeline {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.real-header.loaded,
+.real-form.loaded,
+.real-timeline.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ✅ LOADING STATE IMPROVEMENTS - EXACT COPY */
+.skeleton-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ================================
+   EVALUASI SKELETON CARD - CLEAN WHITE BACKGROUND
+   ================================ */
+
+/* ✅ EVALUASI SKELETON CARD - EXACT STYLING LIKE LOGAKTIVITAS */
+.evaluasi-skeleton-card {
+    background: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.3s ease !important;
+    height: 220px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.evaluasi-skeleton-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: skeleton-loading 2s infinite !important;
+}
+
+.evaluasi-skeleton-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ✅ SKELETON CARD SECTIONS - CLEAN WHITE */
+.skeleton-card-body {
+    padding: 1.5rem !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+}
+
+.skeleton-header-section {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 1rem !important;
+    background: transparent !important;
+}
+
+.skeleton-avatar-section {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 1 !important;
+    background: transparent !important;
+}
+
+.skeleton-avatar-text {
+    flex: 1 !important;
+    background: transparent !important;
+}
+
+.skeleton-meta-section {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 1rem !important;
+    background: transparent !important;
+}
+
+.skeleton-comment-section {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    background: transparent !important;
+}
+
+/* ================================
+   OTHER STYLES - CLEAN
+   ================================ */
+.skeleton-loading {
+    animation: fadeIn 0.6s ease;
+}
+
+.skeleton-card-wrapper {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.filter-loading-content {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-width: 300px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #5e72e4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.filter-loading-content p {
+    margin: 0;
+    color: #5e72e4;
+    font-weight: 500;
+}
+
+.empty-state-card {
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.empty-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.evaluation-card-wrapper {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.evaluation-card-wrapper.loaded {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.skeleton-card-wrapper:nth-child(1) {
+    animation-delay: 0s;
+}
+.skeleton-card-wrapper:nth-child(2) {
+    animation-delay: 0.15s;
+}
+.skeleton-card-wrapper:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.skeleton-card-wrapper:nth-child(4) {
+    animation-delay: 0.45s;
+}
+.skeleton-card-wrapper:nth-child(5) {
+    animation-delay: 0.6s;
+}
+.skeleton-card-wrapper:nth-child(6) {
+    animation-delay: 0.75s;
+}
+
+.skeleton-text:nth-child(1) {
+    animation-delay: 0s;
+}
+.skeleton-text:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.skeleton-text:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+#loading-container {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+.form-select:focus {
+    border-color: #5e72e4;
+    box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.15);
+}
+
+/* ================================
+   RESPONSIVE SKELETON STYLES - EXACT COPY FROM LOGAKTIVITAS
+   ================================ */
+@media (max-width: 992px) {
+    .col-lg-6 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .evaluasi-skeleton-card {
+        height: 200px;
+    }
+
+    .skeleton-card-body {
+        padding: 1.25rem;
+    }
+
+    .skeleton-avatar-section {
+        gap: 10px;
+    }
+
+    .skeleton-avatar {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .skeleton-search-box {
+        width: 200px !important;
+    }
+
+    .skeleton-status-card {
+        width: 160px !important;
+        height: 50px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .skeleton-header-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .skeleton-score-badge {
+        align-self: flex-end;
+    }
+
+    .skeleton-meta-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .evaluasi-skeleton-card {
+        height: 240px;
+    }
+
+    .filter-loading-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .skeleton-text-xl {
+        height: 24px !important;
+    }
+
+    .skeleton-timeline-entries {
+        padding-left: 1rem;
+    }
+
+    .skeleton-timeline-item {
+        padding-left: 1rem;
+    }
+
+    .skeleton-timeline-dot {
+        left: -0.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .evaluasi-skeleton-card {
+        height: 220px;
+    }
+
+    .skeleton-card-body {
+        padding: 1rem;
+    }
+
+    .skeleton-avatar {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    .empty-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .skeleton-text-xl {
+        width: 200px !important;
+        height: 20px !important;
+    }
+}
+
+/* ================================
+   ACCESSIBILITY & PERFORMANCE - EXACT COPY FROM LOGAKTIVITAS
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+    .skeleton-text,
+    .skeleton-input,
+    .skeleton-textarea,
+    .skeleton-button,
+    .skeleton-upload-area,
+    .skeleton-icon-box,
+    .skeleton-badge,
+    .skeleton-search-box,
+    .skeleton-image,
+    .skeleton-timeline-dot,
+    .skeleton-timeline-content,
+    .skeleton-status-card,
+    .skeleton-avatar,
+    .skeleton-score-badge,
+    .skeleton-date,
+    .skeleton-button-sm,
+    .skeleton-text-xs,
+    .skeleton-text-sm,
+    .skeleton-text-md,
+    .skeleton-text-lg,
+    .skeleton-text-xl {
+        animation: none !important;
+        background: #f1f5f9 !important;
+    }
+
+    .skeleton-enhanced::after {
+        animation: none !important;
+    }
+
+    .skeleton-card-wrapper,
+    .evaluation-card-wrapper {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .evaluasi-skeleton-card:hover {
+        transform: none !important;
+    }
+
+    .empty-icon {
+        animation: none !important;
+    }
+}
+
+/* ================================
+   TIMELINE STYLING FOR LOGBOOK
+   ================================ */
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: #e9ecef;
+    background: linear-gradient(
+        to bottom,
+        #5e72e4 0%,
+        rgba(94, 114, 228, 0.3) 100%
+    );
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -9px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #5e72e4;
+    box-shadow: 0 0 0 4px rgba(94, 114, 228, 0.2);
+    z-index: 1;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item:hover:before {
+    background: #11cdef;
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+}
+
+.timeline-item .card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.timeline-item .card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.timeline-item .card-body {
+    padding: 15px;
+}
+
+.month-group h6 {
+    font-weight: 600;
+    color: #5e72e4;
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.month-group h6:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #5e72e4;
+}
+
+/* Badge styling for date */
+.timeline-item .badge {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Image in timeline */
+.timeline-item img {
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.timeline-item img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal styling */
+#logAktivitasModal .modal-body {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+#logAktivitasModal .modal-header {
+    background: linear-gradient(to right, #5e72e4, #825ee4);
+    color: white;
+    border-bottom: none;
+    padding: 15px 20px;
+}
+
+#logAktivitasModal .modal-title {
+    font-weight: 600;
+}
+
+#logAktivitasModal .modal-content {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#logAktivitasModal .btn-close {
+    color: white;
+    background: transparent
+        url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e")
+        center/1em auto no-repeat;
+}
+
+/* Empty state for no logs */
+#logAktivitasModal .text-center.py-4 {
+    padding: 40px 0;
+}
+
+#logAktivitasModal .text-center.py-4 i {
+    color: #cfd8dc;
+    margin-bottom: 15px;
+}
+
+#logAktivitasModal .text-center.py-4 p {
+    color: #90a4ae;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 15px;
+    }
+
+    .timeline-item:before {
+        width: 12px;
+        height: 12px;
+        left: -7px;
+    }
+
+    .timeline-item {
+        padding-left: 10px;
+    }
+
+    #logAktivitasModal .modal-body {
+        padding: 15px;
+    }
+
+    .month-group h6 {
+        font-size: 16px;
+    }
+}
+
+/* Full image view styling */
+.swal2-popup.swal2-modal img {
+    max-height: 80vh;
+    object-fit: contain;
+}
