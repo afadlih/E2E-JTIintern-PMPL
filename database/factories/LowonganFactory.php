@@ -37,6 +37,7 @@ class LowonganFactory extends Factory
             'kapasitas' => fake()->numberBetween(1, 10),
             'min_ipk' => fake()->randomFloat(2, 2.5, 3.5),
             'deskripsi' => fake()->paragraph(3),
+            'jenis_id' => Jenis::factory()
         ];
     }
 
