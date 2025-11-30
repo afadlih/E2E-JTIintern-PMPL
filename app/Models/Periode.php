@@ -17,6 +17,7 @@ class Periode extends Model
         'waktu', // Kolom yang dapat diisi
         'tgl_mulai', // Tanggal mulai periode]
         'tgl_selesai', // Tanggal selesai periode
+        'status', // Status periode (aktif/nonaktif)
         'created_at', // Tanggal dibuat
         'updated_at', // Tanggal diperbarui
     ];

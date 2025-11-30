@@ -17,9 +17,7 @@ class Lamaran extends Model
         'id_mahasiswa',
         'id_lowongan',
         'id_dosen',
-        'status',
         'auth',
-        'catatan',
         'tanggal_lamaran'
     ];
 

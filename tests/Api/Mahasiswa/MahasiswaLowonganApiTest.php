@@ -155,8 +155,8 @@ class MahasiswaLowonganApiTest extends TestCase
 
         // Verify database
         $this->assertDatabaseHas('t_lamaran', [
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $lowongan->id_lowongan,
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $lowongan->id_lowongan,
             'status' => 'pending',
         ]);
     }
@@ -178,8 +178,8 @@ class MahasiswaLowonganApiTest extends TestCase
 
         // Sudah apply sebelumnya
         Lamaran::factory()->create([
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $lowongan->id_lowongan,
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $lowongan->id_lowongan,
         ]);
 
         // Act
@@ -215,8 +215,8 @@ class MahasiswaLowonganApiTest extends TestCase
         $mahasiswaLain = Mahasiswa::factory()->count(2)->create();
         foreach ($mahasiswaLain as $mhs) {
             Lamaran::factory()->create([
-                'mahasiswa_id' => $mhs->id_mahasiswa,
-                'lowongan_id' => $lowongan->id_lowongan,
+                'id_mahasiswa' => $mhs->id_mahasiswa,
+                'id_lowongan' => $lowongan->id_lowongan,
                 'status' => 'diterima',
             ]);
         }
@@ -249,8 +249,8 @@ class MahasiswaLowonganApiTest extends TestCase
         ]);
 
         Lamaran::factory()->count(2)->create([
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $lowongan->id_lowongan,
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $lowongan->id_lowongan,
         ]);
 
         // Act
@@ -289,8 +289,8 @@ class MahasiswaLowonganApiTest extends TestCase
         ]);
 
         Lamaran::factory()->create([
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $lowongan->id_lowongan,
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $lowongan->id_lowongan,
             'status' => 'pending',
         ]);
 
@@ -325,8 +325,8 @@ class MahasiswaLowonganApiTest extends TestCase
         ]);
 
         Lamaran::factory()->create([
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $lowongan->id_lowongan,
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $lowongan->id_lowongan,
             'status' => 'diterima',
         ]);
 

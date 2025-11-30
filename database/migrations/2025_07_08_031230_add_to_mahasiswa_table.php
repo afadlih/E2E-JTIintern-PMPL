@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('m_mahasiswa', function (Blueprint $table) {
-            $table->string('cv_path')->nullable()->after('cv');
-            $table->timestamp('cv_updated_at')->nullable();
+            if (!Schema::hasColumn('m_mahasiswa', 'cv_path')) {
+                $table->string('cv_path')->nullable()->after('cv');
+            }
+            if (!Schema::hasColumn('m_mahasiswa', 'cv_updated_at')) {
+                $table->timestamp('cv_updated_at')->nullable();
+            }
         });
     }
 

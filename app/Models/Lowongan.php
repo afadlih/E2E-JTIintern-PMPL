@@ -19,13 +19,15 @@ class Lowongan extends Model
 
     protected $fillable = [
         'judul_lowongan',
+        'nama_lowongan',
         'perusahaan_id',
         'periode_id',
         'jenis_id',
         'kapasitas',
+        'kuota',
         'min_ipk',
         'deskripsi',
-
+        'status',
     ];
 
     // ✅ TAMBAHKAN: Cast min_ipk sebagai decimal
