@@ -88,6 +88,12 @@ Route::middleware(['auth', 'role:admin,superadmin'])->group(function () {
     Route::get('/data-perusahaan', [PerusahaanController::class, 'index'])->name('data-perusahaan');
     Route::get('/detail-perusahaan/{id}', [PerusahaanController::class, 'showDetail']);
     Route::get('/plotting', [PageController::class, 'plotting'])->name('plotting');
+    Route::get('/dataLowongan', function() {
+        return view('pages.data_lowongan');
+    })->name('dataLowongan');
+    Route::get('/lowongan', function() {
+        return view('pages.data_lowongan');
+    })->name('admin.lowongan');
     Route::get('/{page}', [PageController::class, 'index'])->name('page');
 });
 
