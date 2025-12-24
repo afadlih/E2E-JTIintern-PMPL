@@ -9,8 +9,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('m_mahasiswa', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_kelas')->after('nim')->nullable();
-            $table->foreign('id_kelas')->references('id_kelas')->on('m_kelas')->onDelete('set null');
+            // Only add column if it doesn't exist
+            if (!Schema::hasColumn('m_mahasiswa', 'id_kelas')) {
+                $table->unsignedBigInteger('id_kelas')->after('nim')->nullable();
+                $table->foreign('id_kelas')->references('id_kelas')->on('m_kelas')->onDelete('set null');
+            }
         });
     }
 

@@ -11,6 +11,9 @@ return new class extends Migration
         Schema::create('m_periode', function (Blueprint $table) {
             $table->id('periode_id'); // Primary key
             $table->string('waktu', 255);
+            $table->date('tgl_mulai')->nullable();
+            $table->date('tgl_selesai')->nullable();
+            $table->string('status', 20)->default('aktif');
             $table->timestamps();
         });
     }

@@ -15,12 +15,19 @@ return new class extends Migration
             $table->foreign('kode_prodi')->references('kode_prodi')->on('m_prodi')->onDelete('cascade');
             $table->foreignId('skill_id')->nullable()->constrained('m_skill', 'skill_id')->onDelete('set null');
             $table->foreignId('jenis_id')->nullable()->constrained('m_jenis', 'jenis_id')->onDelete('set null');
+            $table->unsignedBigInteger('id_kelas')->nullable();
+            $table->unsignedBigInteger('kelas_id')->nullable();
             $table->integer('nim')->unique();
+            $table->string('nama', 100)->nullable();
             $table->string('alamat', 50)->nullable();
+            $table->unsignedBigInteger('wilayah_id')->nullable();
             $table->float('ipk', 5, 2)->nullable();
             $table->string('telp', 25)->nullable();
             $table->string('cv', 50)->nullable();
+            $table->string('cv_path', 255)->nullable();
+            $table->timestamp('cv_updated_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

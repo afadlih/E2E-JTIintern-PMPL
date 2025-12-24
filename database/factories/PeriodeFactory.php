@@ -26,6 +26,7 @@ class PeriodeFactory extends Factory
             'waktu' => 'Periode ' . fake()->randomElement(['Ganjil', 'Genap']) . ' ' . date('Y', $startDate->getTimestamp()),
             'tgl_mulai' => $startDate->format('Y-m-d'),
             'tgl_selesai' => $endDate->format('Y-m-d'),
+            'status' => 'aktif',
         ];
     }
 

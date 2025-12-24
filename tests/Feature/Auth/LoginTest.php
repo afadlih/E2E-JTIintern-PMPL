@@ -35,7 +35,7 @@ class LoginTest extends TestCase
         $user = User::factory()->create([
             'email' => 'admin@test.com',
             'password' => Hash::make('password123'),
-            'level' => 'superadmin',
+            'role' => 'admin',
         ]);
 
         // Act: Submit login form
@@ -92,7 +92,7 @@ class LoginTest extends TestCase
         $user = User::factory()->create([
             'email' => 'mahasiswa@test.com',
             'password' => Hash::make('password123'),
-            'level' => 'mahasiswa',
+            'role' => 'mahasiswa',
         ]);
 
         // Act
@@ -115,7 +115,7 @@ class LoginTest extends TestCase
         $user = User::factory()->create([
             'email' => 'dosen@test.com',
             'password' => Hash::make('password123'),
-            'level' => 'dosen',
+            'role' => 'dosen',
         ]);
 
         // Act

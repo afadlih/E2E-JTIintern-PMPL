@@ -24,8 +24,11 @@ class MahasiswaFactory extends Factory
         return [
             'id_user' => User::factory()->mahasiswa(),
             'nim' => fake()->unique()->numberBetween(2141720001, 2141729999),
+            'nama' => fake()->name(),
             'id_kelas' => \App\Models\Kelas::factory(),
-            'alamat' => fake()->streetAddress(), // Max 40 chars
+            'kelas_id' => null,
+            'alamat' => fake()->streetAddress(),
+            'wilayah_id' => fake()->numberBetween(1, 100),
             'ipk' => fake()->randomFloat(2, 2.5, 4.0),
             'telp' => fake()->phoneNumber(),
         ];

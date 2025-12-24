@@ -32,8 +32,8 @@ class MahasiswaModelTest extends TestCase
 
         // Buat 3 lamaran untuk mahasiswa ini
         Lamaran::factory()->count(3)->create([
-            'mahasiswa_id' => $mahasiswa->id_mahasiswa,
-            'lowongan_id' => $lowongan->id_lowongan,
+            'id_mahasiswa' => $mahasiswa->id_mahasiswa,
+            'id_lowongan' => $lowongan->id_lowongan,
         ]);
 
         // Act
@@ -55,17 +55,17 @@ class MahasiswaModelTest extends TestCase
 
         // Mahasiswa sudah apply lowongan1
         Lamaran::factory()->create([
-            'mahasiswa_id' => $mahasiswa->id_mahasiswa,
-            'lowongan_id' => $lowongan1->id_lowongan,
+            'id_mahasiswa' => $mahasiswa->id_mahasiswa,
+            'id_lowongan' => $lowongan1->id_lowongan,
         ]);
 
         // Act & Assert
         $sudahApply1 = $mahasiswa->lamaran()
-            ->where('lowongan_id', $lowongan1->id_lowongan)
+            ->where('id_lowongan', $lowongan1->id_lowongan)
             ->exists();
 
         $sudahApply2 = $mahasiswa->lamaran()
-            ->where('lowongan_id', $lowongan2->id_lowongan)
+            ->where('id_lowongan', $lowongan2->id_lowongan)
             ->exists();
 
         $this->assertTrue($sudahApply1); // Sudah apply
@@ -134,24 +134,21 @@ class MahasiswaModelTest extends TestCase
         $lowongan = Lowongan::factory()->create();
 
         // Buat 2 pending, 1 diterima, 1 ditolak
-        Lamaran::factory()->count(2)->create([
-            'mahasiswa_id' => $mahasiswa->id_mahasiswa,
-            'status' => 'pending',
+        Lamaran::factory()->count(2)->pending()->create([
+            'id_mahasiswa' => $mahasiswa->id_mahasiswa,
         ]);
 
-        Lamaran::factory()->create([
-            'mahasiswa_id' => $mahasiswa->id_mahasiswa,
-            'status' => 'diterima',
+        Lamaran::factory()->diterima()->create([
+            'id_mahasiswa' => $mahasiswa->id_mahasiswa,
         ]);
 
-        Lamaran::factory()->create([
-            'mahasiswa_id' => $mahasiswa->id_mahasiswa,
-            'status' => 'ditolak',
+        Lamaran::factory()->ditolak()->create([
+            'id_mahasiswa' => $mahasiswa->id_mahasiswa,
         ]);
 
         // Act
         $pendingCount = $mahasiswa->lamaran()
-            ->where('status', 'pending')
+            ->where('auth', 'menunggu')
             ->count();
 
         // Assert
@@ -167,14 +164,13 @@ class MahasiswaModelTest extends TestCase
         $mahasiswa = Mahasiswa::factory()->create();
 
         // Buat lamaran yang diterima (status magang aktif)
-        Lamaran::factory()->create([
-            'mahasiswa_id' => $mahasiswa->id_mahasiswa,
-            'status' => 'diterima',
+        Lamaran::factory()->diterima()->create([
+            'id_mahasiswa' => $mahasiswa->id_mahasiswa,
         ]);
 
         // Act
         $statusMagangAktif = $mahasiswa->lamaran()
-            ->where('status', 'diterima')
+            ->where('auth', 'diterima')
             ->exists();
 
         // Assert
@@ -187,11 +183,11 @@ class MahasiswaModelTest extends TestCase
     public function test_filter_mahasiswa_by_kelas()
     {
         // Arrange
-        $mahasiswaKelas1 = Mahasiswa::factory()->count(3)->create(['kelas_id' => 1]);
-        $mahasiswaKelas2 = Mahasiswa::factory()->count(2)->create(['kelas_id' => 2]);
+        $mahasiswaKelas1 = Mahasiswa::factory()->count(3)->create(['id_kelas' => 1]);
+        $mahasiswaKelas2 = Mahasiswa::factory()->count(2)->create(['id_kelas' => 2]);
 
         // Act
-        $mahasiswaKelas1Result = Mahasiswa::where('kelas_id', 1)->get();
+        $mahasiswaKelas1Result = Mahasiswa::where('id_kelas', 1)->get();
 
         // Assert
         $this->assertEquals(3, $mahasiswaKelas1Result->count());

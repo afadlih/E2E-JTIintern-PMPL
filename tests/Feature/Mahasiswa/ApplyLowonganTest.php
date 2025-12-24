@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
  * Feature Test: Mahasiswa Apply Lowongan
  *
  * Test full workflow mahasiswa apply lowongan magang
+ * @group api
  *
  * Command untuk menjalankan:
  * php artisan test --filter ApplyLowonganTest
@@ -28,6 +29,9 @@ class ApplyLowonganTest extends TestCase
     protected $mahasiswa;
     protected $user;
     protected $lowongan;
+    protected $perusahaan;
+    protected $periode;
+    protected $jenis;
 
     protected function setUp(): void
     {
@@ -37,38 +41,42 @@ class ApplyLowonganTest extends TestCase
         $this->user = User::factory()->create([
             'email' => 'mahasiswa@test.com',
             'password' => Hash::make('password'),
-            'level' => 'mahasiswa',
+            'role' => 'mahasiswa',
         ]);
 
         // Setup data mahasiswa
         $this->mahasiswa = Mahasiswa::factory()->create([
-            'user_id' => $this->user->id_user,
+            'id_user' => $this->user->id_user,
             'nim' => '2141720001',
             'nama' => 'Test Mahasiswa',
             'ipk' => 3.5,
         ]);
 
         // Setup perusahaan
-        $perusahaan = Perusahaan::factory()->create([
+        $this->perusahaan = Perusahaan::factory()->create([
             'nama_perusahaan' => 'PT Test Company',
         ]);
 
         // Setup periode
-        $periode = Periode::factory()->create([
-            'tahun' => 2025,
-            'semester' => 'Ganjil',
-            'status' => 'active',
+        $this->periode = Periode::factory()->create([
+            'waktu' => 'Periode Ganjil 2025',
+            'status' => 'aktif',
         ]);
 
-        // Setup lowongan
-        $this->lowongan = Lowongan::factory()->create([
-            'perusahaan_id' => $perusahaan->id_perusahaan,
-            'periode_id' => $periode->id_periode,
-            'judul' => 'Full Stack Developer',
-            'deskripsi' => 'Mencari mahasiswa untuk magang sebagai developer',
-            'kapasitas' => 5,
-            'status' => 'active',
-        ]);
+        // Setup jenis
+        $this->jenis = \App\Models\Jenis::factory()->create();
+
+        // Setup lowongan - menggunakan for() untuk set relationships
+        $this->lowongan = Lowongan::factory()
+            ->for($this->perusahaan, 'perusahaan')
+            ->for($this->periode, 'periode')
+            ->for($this->jenis, 'jenis')
+            ->create([
+                'judul_lowongan' => 'Full Stack Developer',
+                'deskripsi' => 'Mencari mahasiswa untuk magang sebagai developer',
+                'kapasitas' => 5,
+                'status' => 'aktif',
+            ]);
     }
 
     /**
@@ -101,7 +109,7 @@ class ApplyLowonganTest extends TestCase
 
         // Assert
         $response->assertStatus(200);
-        $response->assertSee($this->lowongan->judul);
+        $response->assertSee($this->lowongan->judul_lowongan);
         $response->assertSee($this->lowongan->deskripsi);
     }
 
@@ -130,9 +138,9 @@ class ApplyLowonganTest extends TestCase
 
         // Verifikasi data tersimpan di database
         $this->assertDatabaseHas('t_lamaran', [
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $this->lowongan->id_lowongan,
-            'status' => 'pending',
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $this->lowongan->id_lowongan,
+            'auth' => 'menunggu',
         ]);
     }
 
@@ -144,10 +152,9 @@ class ApplyLowonganTest extends TestCase
         // Arrange: Sudah apply sebelumnya
         $this->actingAs($this->user);
 
-        Lamaran::factory()->create([
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $this->lowongan->id_lowongan,
-            'status' => 'pending',
+        Lamaran::factory()->pending()->create([
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $this->lowongan->id_lowongan,
         ]);
 
         // Act: Apply lagi
@@ -161,8 +168,8 @@ class ApplyLowonganTest extends TestCase
 
         // Verifikasi hanya ada 1 lamaran di database
         $this->assertEquals(1, Lamaran::where([
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $this->lowongan->id_lowongan,
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $this->lowongan->id_lowongan,
         ])->count());
     }
 
@@ -172,14 +179,21 @@ class ApplyLowonganTest extends TestCase
     public function test_mahasiswa_tidak_bisa_apply_lowongan_penuh()
     {
         // Arrange: Lowongan dengan kapasitas 1, sudah ada 1 lamaran diterima
-        $lowonganPenuh = Lowongan::factory()->create([
-            'kapasitas' => 1,
-            'status' => 'active',
-        ]);
+        $perusahaan = Perusahaan::factory()->create();
+        $periode = Periode::factory()->create(['waktu' => 'Periode Ganjil 2025', 'status' => 'aktif']);
+        $jenis = \App\Models\Jenis::factory()->create();
 
-        Lamaran::factory()->create([
-            'lowongan_id' => $lowonganPenuh->id_lowongan,
-            'status' => 'diterima',
+        $lowonganPenuh = Lowongan::factory()
+            ->for($perusahaan, 'perusahaan')
+            ->for($periode, 'periode')
+            ->for($jenis, 'jenis')
+            ->create([
+                'kapasitas' => 1,
+                'status' => 'aktif',
+            ]);
+
+        Lamaran::factory()->diterima()->create([
+            'id_lowongan' => $lowonganPenuh->id_lowongan,
         ]);
 
         $this->actingAs($this->user);
@@ -195,8 +209,8 @@ class ApplyLowonganTest extends TestCase
 
         // Verifikasi tidak ada lamaran baru dari mahasiswa ini
         $this->assertDatabaseMissing('t_lamaran', [
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $lowonganPenuh->id_lowongan,
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $lowonganPenuh->id_lowongan,
         ]);
     }
 
@@ -208,10 +222,9 @@ class ApplyLowonganTest extends TestCase
         // Arrange: Sudah apply lowongan
         $this->actingAs($this->user);
 
-        $lamaran = Lamaran::factory()->create([
-            'mahasiswa_id' => $this->mahasiswa->id_mahasiswa,
-            'lowongan_id' => $this->lowongan->id_lowongan,
-            'status' => 'pending',
+        $lamaran = Lamaran::factory()->pending()->create([
+            'id_mahasiswa' => $this->mahasiswa->id_mahasiswa,
+            'id_lowongan' => $this->lowongan->id_lowongan,
         ]);
 
         // Act: Request halaman lamaran saya
@@ -219,8 +232,8 @@ class ApplyLowonganTest extends TestCase
 
         // Assert
         $response->assertStatus(200);
-        $response->assertSee($this->lowongan->judul);
-        $response->assertSee('pending');
+        $response->assertSee($this->lowongan->judul_lowongan);
+        $response->assertSee('menunggu');
     }
 
     /**
@@ -243,7 +256,7 @@ class ApplyLowonganTest extends TestCase
     {
         // Arrange: Login sebagai admin
         $admin = User::factory()->create([
-            'level' => 'superadmin',
+            'role' => 'admin',
         ]);
         $this->actingAs($admin);
 
