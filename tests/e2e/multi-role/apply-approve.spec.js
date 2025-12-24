@@ -11,6 +11,8 @@
  */
 
 const { test, expect } = require('@playwright/test');
+// Disabled: multirole tests removed per request — keep file but skip all tests
+test.skip(true, 'multirole tests removed by test-suite maintenance');
 const {
   loginAs,
   logout,

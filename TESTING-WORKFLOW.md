@@ -159,15 +159,15 @@ BASE_URL=http://127.0.0.1:8000
 
 # Credentials untuk Admin
 ADMIN_EMAIL=admin@example.com
-ADMIN_PASSWORD=secret
+ADMIN_PASSWORD=admin
 
 # Credentials untuk Mahasiswa
-MAHASISWA_EMAIL=mahasiswa1@example.com
-MAHASISWA_PASSWORD=secret
+MAHASISWA_EMAIL=2341720074@student.com
+MAHASISWA_PASSWORD=2341720074
 
 # Credentials untuk Dosen
-DOSEN_EMAIL=dosen1@example.com
-DOSEN_PASSWORD=secret
+DOSEN_EMAIL=1980031@gmail.com
+DOSEN_PASSWORD=1980031
 ```
 
 **PENTING:** Pastikan credentials ini sesuai dengan data di database Anda!
@@ -1891,9 +1891,9 @@ npx playwright test path/to/new-test.spec.js
 
 | Role | Email | Password | Dashboard URL |
 |------|-------|----------|---------------|
-| Admin | admin@example.com | secret | /dashboard |
-| Mahasiswa | mahasiswa1@example.com | secret | /mahasiswa/dashboard |
-| Dosen | dosen1@example.com | secret | /dosen/dashboard |
+| Admin | admin@example.com | admin | /dashboard |
+| Mahasiswa | 2341720074@student.com | 2341720074 | /mahasiswa/dashboard |
+| Dosen | 1980031@gmail.com | 1980031 | /dosen/dashboard |
 
 ---
 
@@ -1920,6 +1920,9 @@ node tests\setup-auth.js
 
 # Start server
 php artisan serve --host=127.0.0.1 --port=8000
+
+# Run full E2E workflow (runs mahasiswa tests first so applications exist for admin checks)
+npm run test:e2e:ordered
 ```
 
 ---

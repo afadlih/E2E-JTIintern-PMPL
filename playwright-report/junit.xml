@@ -1,0 +1,416 @@
+<testsuites id="" name="" tests="38" failures="0" skipped="22" errors="0" time="107.954793">
+<testsuite name="admin\approve-lamaran.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="admin" tests="4" failures="0" skipped="4" time="10.496" errors="0">
+<testcase name="Admin - Manajemen Lamaran › E2E_ADM_LAMARAN_001: View daftar lamaran masuk" classname="admin\approve-lamaran.spec.js" time="3.06">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Admin - Manajemen Lamaran › E2E_ADM_LAMARAN_002: Approve lamaran" classname="admin\approve-lamaran.spec.js" time="1.82">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Admin - Manajemen Lamaran › E2E_ADM_LAMARAN_003: Reject lamaran" classname="admin\approve-lamaran.spec.js" time="2.612">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Admin - Manajemen Lamaran › E2E_ADM_LAMARAN_004: Filter lamaran by status" classname="admin\approve-lamaran.spec.js" time="3.004">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="admin\lowongan.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="admin" tests="5" failures="0" skipped="3" time="12.031" errors="0">
+<testcase name="Admin - Manajemen Lowongan › E2E_ADM_LOW_001: View daftar lowongan" classname="admin\lowongan.spec.js" time="3.726">
+<system-out>
+<![CDATA[📸 Screenshot saved: playwright-report/screenshots/admin-lowongan-list-2025-12-08T15-49-27-773Z.png
+]]>
+</system-out>
+</testcase>
+<testcase name="Admin - Manajemen Lowongan › E2E_ADM_LOW_002: Create lowongan baru" classname="admin\lowongan.spec.js" time="3.232">
+<system-out>
+<![CDATA[[TEST START] E2E_ADM_LOW_002: Create lowongan baru
+  > Button Tambah Lowongan ditemukan
+  > Form modal ditemukan (read-only)
+📸 Screenshot saved: playwright-report/screenshots/admin-lowongan-create-readonly-2025-12-08T15-49-31-040Z.png
+[TEST END] E2E_ADM_LOW_002: Create lowongan baru (read-only)
+]]>
+</system-out>
+</testcase>
+<testcase name="Admin - Manajemen Lowongan › E2E_ADM_LOW_003: Update lowongan (deskripsi &amp; kapasitas)" classname="admin\lowongan.spec.js" time="1.546">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Admin - Manajemen Lowongan › E2E_ADM_LOW_004: Toggle status publish/unpublish" classname="admin\lowongan.spec.js" time="1.738">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Admin - Manajemen Lowongan › E2E_ADM_LOW_005: Delete lowongan" classname="admin\lowongan.spec.js" time="1.789">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="admin\mahasiswa.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="admin" tests="5" failures="0" skipped="2" time="10.593" errors="0">
+<testcase name="Admin - Manajemen Mahasiswa › E2E_ADM_002: Menambahkan data mahasiswa baru" classname="admin\mahasiswa.spec.js" time="3.622">
+<system-out>
+<![CDATA[
+[TEST START] E2E_ADM_002: Menambahkan data mahasiswa baru
+Step 1: Navigasi ke menu Data Mahasiswa
+Step 2: Verifikasi halaman data mahasiswa
+  > Halaman mahasiswa ditemukan
+Step 3: Verifikasi tombol Tambah Mahasiswa (read-only)
+📸 Screenshot saved: playwright-report/screenshots/admin-mahasiswa-create-readonly-2025-12-08T15-49-39-739Z.png
+]]>
+</system-out>
+</testcase>
+<testcase name="Admin - Manajemen Mahasiswa › E2E_ADM_003: Import data mahasiswa via CSV" classname="admin\mahasiswa.spec.js" time="1.797">
+<system-out>
+<![CDATA[
+[TEST START] E2E_ADM_003: Import data mahasiswa via CSV
+Step 1: Navigasi ke menu Data Mahasiswa
+  > Halaman mahasiswa dimuat
+Step 2: Klik tombol Import
+  > Button Import tidak ditemukan (read-only)
+📸 Screenshot saved: playwright-report/screenshots/admin-import-readonly-2025-12-08T15-49-41-538Z.png
+]]>
+</system-out>
+</testcase>
+<testcase name="Admin - Manajemen Mahasiswa › E2E_ADM_UPDATE: Update data mahasiswa existing" classname="admin\mahasiswa.spec.js" time="1.793">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Admin - Manajemen Mahasiswa › E2E_ADM_DELETE: Hapus data mahasiswa" classname="admin\mahasiswa.spec.js" time="1.611">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Admin - Manajemen Mahasiswa › E2E_ADM_VIEW: Verifikasi daftar mahasiswa tampil" classname="admin\mahasiswa.spec.js" time="1.77">
+<system-out>
+<![CDATA[
+[TEST START] E2E_ADM_VIEW: Verifikasi daftar mahasiswa tampil
+Step 1: Navigasi ke Data Mahasiswa
+  > Halaman mahasiswa dimuat
+Step 2: Verifikasi tabel ada data
+  > Ditemukan 1 baris data
+Step 3: Verifikasi kolom tabel
+  > Kolom NIM dan Nama ditemukan
+📸 Screenshot saved: playwright-report/screenshots/admin-mahasiswa-table-2025-12-08T15-49-46-760Z.png
+  > Screenshot tersimpan
+[TEST END] E2E_ADM_VIEW: PASSED
+
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="mahasiswa\apply-lowongan.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="mahasiswa" tests="3" failures="0" skipped="3" time="10.525" errors="0">
+<testcase name="Mahasiswa - Apply Lowongan Flow › E2E_MHS_APPLY_001: Apply lowongan dan verify di lamaran tracking" classname="mahasiswa\apply-lowongan.spec.js" time="4.17">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Mahasiswa - Apply Lowongan Flow › E2E_MHS_APPLY_002: Verifikasi status lamaran pending setelah apply" classname="mahasiswa\apply-lowongan.spec.js" time="3.14">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Mahasiswa - Apply Lowongan Flow › E2E_MHS_APPLY_003: Verifikasi detail lamaran di tracking" classname="mahasiswa\apply-lowongan.spec.js" time="3.215">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="mahasiswa\logbook-photo.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="mahasiswa" tests="1" failures="0" skipped="1" time="2.687" errors="0">
+<testcase name="Mahasiswa - Upload Foto Logbook › E2E_MHS_LOGPHOTO_001: Upload foto pada entri logbook" classname="mahasiswa\logbook-photo.spec.js" time="2.687">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="mahasiswa\lowongan.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="mahasiswa" tests="4" failures="0" skipped="1" time="34.243" errors="0">
+<testcase name="Mahasiswa - Fitur Lowongan Magang › E2E_MHS_003: Melihat daftar lowongan dan rekomendasi SPK" classname="mahasiswa\lowongan.spec.js" time="16.92">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Mahasiswa - Fitur Lowongan Magang › E2E_MHS_004: Apply lowongan dan tracking status lamaran" classname="mahasiswa\lowongan.spec.js" time="10.413">
+<system-out>
+<![CDATA[
+[TEST START] E2E_MHS_004: Apply lowongan dan tracking status
+Step 1: Navigasi ke halaman lowongan
+  > Halaman lowongan dimuat
+Step 2: Pilih lowongan pertama
+  > Lowongan pertama ditemukan
+Step 3: Buka detail lowongan
+Step 4: Cari button Lamar
+  > Button Lamar ditemukan (read-only). Not clicking.
+Step 11: Ambil screenshot hasil
+  > Screenshot tersimpan
+[TEST END] E2E_MHS_004: PASSED
+
+]]>
+</system-out>
+</testcase>
+<testcase name="Mahasiswa - Fitur Lowongan Magang › E2E_MHS_002: Melengkapi profil mahasiswa (Skills, Minat, CV)" classname="mahasiswa\lowongan.spec.js" time="3.677">
+<system-out>
+<![CDATA[
+[TEST START] E2E_MHS_002: Melengkapi profil mahasiswa
+Step 1: Navigasi ke halaman profil
+  > Berhasil masuk ke halaman profil
+Step 2: Verifikasi form profil
+  > Profil heading tidak ditemukan, lanjut verify content
+Step 3: Verifikasi section skills (read-only)
+  > Skills section tidak ditemukan
+Step 4: Upload CV
+  > Form upload CV tidak ditemukan
+Step 5: Simpan perubahan profil
+Step 6: Ambil screenshot
+  > Screenshot tersimpan
+[TEST END] E2E_MHS_002: PASSED
+
+]]>
+</system-out>
+</testcase>
+<testcase name="Mahasiswa - Fitur Lowongan Magang › E2E_MHS_005: Mengisi logbook magang harian" classname="mahasiswa\lowongan.spec.js" time="3.233">
+<system-out>
+<![CDATA[
+[TEST START] E2E_MHS_005: Mengisi logbook magang harian
+Step 1: Navigasi ke halaman logbook
+  > Berhasil masuk ke halaman logbook
+Step 2: Klik button Tambah Logbook
+  > Button Tambah Logbook tidak ditemukan
+Step 5: Ambil screenshot
+  > Screenshot tersimpan
+[TEST END] E2E_MHS_005: PASSED
+
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="mahasiswa\profile-view.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="mahasiswa" tests="7" failures="0" skipped="1" time="11.673" errors="0">
+<testcase name="Mahasiswa - Profile Management › E2E_MHS_PROFILE_001: View profile page" classname="mahasiswa\profile-view.spec.js" time="1.592">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Mahasiswa - Profile Management › E2E_MHS_PROFILE_002: Check profile information populated" classname="mahasiswa\profile-view.spec.js" time="1.717">
+<system-out>
+<![CDATA[
+[TEST START] E2E_MHS_PROFILE_002: Profile info
+Step 1: Navigate ke profile
+Step 2: Verifikasi ada data profil
+  > Ditemukan 7 input fields
+  > ✅ Field berisi nilai: MUHAMMAD AMMAR HAFIZH
+📸 Screenshot saved: playwright-report/screenshots/mahasiswa-profile-info-2025-12-08T15-50-38-718Z.png
+[TEST END] E2E_MHS_PROFILE_002: PASSED
+]]>
+</system-out>
+</testcase>
+<testcase name="Mahasiswa - Profile Management › E2E_MHS_PROFILE_003: Find edit button" classname="mahasiswa\profile-view.spec.js" time="1.746">
+<system-out>
+<![CDATA[
+[TEST START] E2E_MHS_PROFILE_003: Edit button
+Step 1: Navigate ke profile
+Step 2: Cari edit button
+  > ⚠️ Edit button tidak ditemukan
+[TEST END] E2E_MHS_PROFILE_003: PASSED
+]]>
+</system-out>
+</testcase>
+<testcase name="Mahasiswa - Profile Management › E2E_MHS_PROFILE_004: Check skill section" classname="mahasiswa\profile-view.spec.js" time="1.802">
+<system-out>
+<![CDATA[
+[TEST START] E2E_MHS_PROFILE_004: Skill section
+Step 1: Navigate ke profile
+Step 2: Cari skill section
+  > ⚠️ Skill section tidak ditemukan
+📸 Screenshot saved: playwright-report/screenshots/mahasiswa-skill-section-2025-12-08T15-50-42-345Z.png
+[TEST END] E2E_MHS_PROFILE_004: PASSED
+]]>
+</system-out>
+</testcase>
+<testcase name="Dosen - Profile Management › E2E_DSN_PROFILE_001: View dosen profile" classname="mahasiswa\profile-view.spec.js" time="1.679">
+<system-out>
+<![CDATA[
+[TEST START] E2E_DSN_PROFILE_001: View dosen profile
+Step 1: Navigate ke profile dosen
+  > Profile page dimuat
+Step 2: Verifikasi form ada
+  > ✅ Ditemukan 13 input fields
+📸 Screenshot saved: playwright-report/screenshots/dosen-profile-view-2025-12-08T15-50-44-063Z.png
+[TEST END] E2E_DSN_PROFILE_001: PASSED
+]]>
+</system-out>
+</testcase>
+<testcase name="Dosen - Profile Management › E2E_DSN_PROFILE_002: Check phone field" classname="mahasiswa\profile-view.spec.js" time="1.706">
+<system-out>
+<![CDATA[
+[TEST START] E2E_DSN_PROFILE_002: Phone field
+Step 1: Navigate ke profile
+Step 2: Cari phone field
+  > ⚠️ Phone field tidak ditemukan
+📸 Screenshot saved: playwright-report/screenshots/dosen-phone-field-2025-12-08T15-50-45-774Z.png
+[TEST END] E2E_DSN_PROFILE_002: PASSED
+]]>
+</system-out>
+</testcase>
+<testcase name="Dosen - Profile Management › E2E_DSN_PROFILE_003: View biodata section" classname="mahasiswa\profile-view.spec.js" time="1.431">
+<system-out>
+<![CDATA[
+[TEST START] E2E_DSN_PROFILE_003: Biodata section
+Step 1: Navigate ke profile
+Step 2: Cari biodata section
+  > ✅ Biodata section ditemukan (4 items)
+📸 Screenshot saved: playwright-report/screenshots/dosen-biodata-section-2025-12-08T15-50-47-224Z.png
+[TEST END] E2E_DSN_PROFILE_003: PASSED
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="dosen\monitoring.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="dosen" tests="5" failures="0" skipped="3" time="11.854" errors="0">
+<testcase name="Dosen - Monitoring dan Evaluasi › E2E_DSN_002: Melihat daftar mahasiswa bimbingan" classname="dosen\monitoring.spec.js" time="2.686">
+<system-out>
+<![CDATA[
+[TEST START] E2E_DSN_002: Melihat daftar mahasiswa bimbingan
+Step 1: Navigasi ke menu Mahasiswa Bimbingan
+Step 2: Verifikasi halaman mahasiswa bimbingan
+  > Halaman mahasiswa bimbingan ditemukan
+Step 3: Verifikasi data mahasiswa
+  > Mahasiswa cards exist tapi mungkin hidden
+  - Nama: ❌
+  - Status: ❌
+  - Perusahaan: ❌
+📸 Screenshot saved: playwright-report/screenshots/dosen-mahasiswa-list-2025-12-08T15-50-50-981Z.png
+]]>
+</system-out>
+</testcase>
+<testcase name="Dosen - Monitoring dan Evaluasi › E2E_DSN_003: Melakukan evaluasi mahasiswa" classname="dosen\monitoring.spec.js" time="1.687">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dosen - Monitoring dan Evaluasi › E2E_DSN_005: Monitoring logbook mahasiswa" classname="dosen\monitoring.spec.js" time="2.507">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dosen - Monitoring dan Evaluasi › E2E_DSN_004: Update profil dosen" classname="dosen\monitoring.spec.js" time="4.188">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Dosen - Monitoring dan Evaluasi › E2E_DSN_001: Verifikasi dashboard dosen" classname="dosen\monitoring.spec.js" time="0.786">
+<system-out>
+<![CDATA[
+[TEST START] E2E_DSN_001: Verifikasi dashboard dosen
+Step 1: Verifikasi heading dashboard
+  > Dashboard heading ditemukan
+Step 2: Verifikasi statistik dashboard
+  > Tidak ada statistik
+Step 3: Verifikasi menu navigasi
+  > Menu Mahasiswa: Ditemukan
+  > Menu Evaluasi: Tidak ditemukan
+  > Menu Profil: Ditemukan
+📸 Screenshot saved: playwright-report/screenshots/dosen-dashboard-overview-2025-12-08T15-51-00-229Z.png
+  > Screenshot tersimpan
+[TEST END] E2E_DSN_001: PASSED
+
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="multi-role\apply-approve.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="multi-role" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="Multi-Role: Apply &amp; Approve Workflow › E2E_MULTI_004: Mahasiswa apply, admin approve, mahasiswa verifikasi" classname="multi-role\apply-approve.spec.js" time="0">
+<properties>
+<property name="skip" value="multirole tests removed by test-suite maintenance">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Multi-Role: Apply &amp; Approve Workflow › E2E_MULTI_001: Admin create mahasiswa, mahasiswa login pertama kali" classname="multi-role\apply-approve.spec.js" time="0">
+<properties>
+<property name="skip" value="multirole tests removed by test-suite maintenance">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="multi-role\notifications.spec.js" timestamp="2025-12-08T15:49:12.728Z" hostname="multi-role" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="Multi-Role - Notifikasi › E2E_MULTI_NOTIF_001: Admin memicu notifikasi approve lamaran → Mahasiswa membaca" classname="multi-role\notifications.spec.js" time="0">
+<properties>
+<property name="skip" value="multirole tests removed by test-suite maintenance">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Multi-Role - Notifikasi › E2E_MULTI_NOTIF_002: Mahasiswa submit logbook → Dosen melihat notifikasi" classname="multi-role\notifications.spec.js" time="0">
+<properties>
+<property name="skip" value="multirole tests removed by test-suite maintenance">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

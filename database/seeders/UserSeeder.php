@@ -20,76 +20,82 @@ class UserSeeder extends Seeder
          $mahasiswa_users = [
         [
             'name' => 'Moch Ammar',
-            'email' => 'mahasiswa1@example.com',
+            'email' => 'sample_mahasiswa1@example.com',
             'password' => Hash::make('mahasiswa'),
             'role' => 'mahasiswa',
         ],
         [
             'name' => 'Indira Nafa',
-            'email' => 'mahasiswa2@example.com',
+            'email' => 'sample_mahasiswa2@example.com',
             'password' => Hash::make('mahasiswa'),
             'role' => 'mahasiswa',
         ],
         [
             'name' => 'Austriech',
-            'email' => 'mahasiswa3@example.com',
+            'email' => 'sample_mahasiswa3@example.com',
             'password' => Hash::make('mahasiswa'),
             'role' => 'mahasiswa',
         ],
         [
             'name' => 'Moch Fauzi',
-            'email' => 'mahasiswa4@example.com',
+            'email' => 'sample_mahasiswa4@example.com',
             'password' => Hash::make('mahasiswa'),
             'role' => 'mahasiswa',
         ]
     ];
-        // Membuat user admin
-        // DB::table('m_user')->insert([
-        //     'name' => 'Admin User',
-        //     'email' => 'admin@example.com',
-        //     'email_verified_at' => now(),
-        //     'password' => Hash::make('admin'), // Ganti 'password' dengan password yang lebih kuat
-        //     'role' => 'admin',
-        //     'remember_token' => Str::random(10),
-        //     'created_at' => now(),
-        //     'updated_at' => now(),
-        // ]);
+        // Membuat atau update user admin, dosen, dan contoh mahasiswa secara idempotent
+        // Menggunakan kredensial yang umum dipakai di environment test / developer
+        DB::table('m_user')->updateOrInsert(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Admin User',
+                'email_verified_at' => now(),
+                'password' => Hash::make('admin'), // plain password: 'admin'
+                'role' => 'admin',
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
 
-        // // Membuat user dosen
-        // DB::table('m_user')->insert([
-        //     'name' => 'Dosen User',
-        //     'email' => 'dosen@example.com',
-        //     'email_verified_at' => now(),
-        //     'password' => Hash::make('dosen'),  // Ganti 'password' dengan password yang lebih kuat
-        //     'role' => 'dosen',
-        //     'remember_token' => Str::random(10),
-        //     'created_at' => now(),
-        //     'updated_at' => now(),
-        // ]);
+        DB::table('m_user')->updateOrInsert(
+            ['email' => '1980031@gmail.com'],
+            [
+                'name' => 'Dosen User',
+                'email_verified_at' => now(),
+                'password' => Hash::make('1980031'), // plain password: '1980031'
+                'role' => 'dosen',
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
 
-        // // Membuat user mahasiswa
-        // DB::table('m_user')->insert([
-        //     'name' => 'Mahasiswa User',
-        //     'email' => 'mahasiswa@example.com',
-        //     'email_verified_at' => now(),
-        //     'password' => Hash::make('mahasiswa'),  // Ganti 'password' dengan password yang lebih kuat
-        //     'role' => 'mahasiswa',
-        //     'remember_token' => Str::random(10),
-        //     'created_at' => now(),
-        //     'updated_at' => now(),
-        // ]);
+        DB::table('m_user')->updateOrInsert(
+            ['email' => '2341720074@student.com'],
+            [
+                'name' => 'Mahasiswa User',
+                'email_verified_at' => now(),
+                'password' => Hash::make('2341720074'), // plain password: '2341720074'
+                'role' => 'mahasiswa',
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
 
-         foreach ($mahasiswa_users as $user) {
-        DB::table('m_user')->insert([
-            'name' => $user['name'],
-            'email' => $user['email'],
-            'email_verified_at' => now(),
-            'password' => $user['password'],
-            'role' => $user['role'],
-            'remember_token' => Str::random(10),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-    }
+        foreach ($mahasiswa_users as $user) {
+            DB::table('m_user')->insert([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'email_verified_at' => now(),
+                // override to use 'secret' so tests are consistent
+                'password' => Hash::make('secret'),
+                'role' => $user['role'],
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

@@ -10,18 +10,18 @@
 async function loginAs(page, role, credentials) {
   const roleConfig = {
     admin: {
-      email: credentials?.admin?.email || process.env.ADMIN_EMAIL || 'admin@polinema.ac.id',
-      password: credentials?.admin?.password || process.env.ADMIN_PASSWORD || 'password123',
+      email: credentials?.admin?.email || process.env.ADMIN_EMAIL || 'admin@example.com',
+      password: credentials?.admin?.password || process.env.ADMIN_PASSWORD || 'admin',
       expectedUrl: '/dashboard'
     },
     mahasiswa: {
-      email: credentials?.mahasiswa?.email || process.env.MAHASISWA_EMAIL || 'mahasiswa@polinema.ac.id',
-      password: credentials?.mahasiswa?.password || process.env.MAHASISWA_PASSWORD || 'password123',
+      email: credentials?.mahasiswa?.email || process.env.MAHASISWA_EMAIL || '2341720074@student.com',
+      password: credentials?.mahasiswa?.password || process.env.MAHASISWA_PASSWORD || '2341720074',
       expectedUrl: '/mahasiswa/dashboard'
     },
     dosen: {
-      email: credentials?.dosen?.email || process.env.DOSEN_EMAIL || 'dosen@polinema.ac.id',
-      password: credentials?.dosen?.password || process.env.DOSEN_PASSWORD || 'password123',
+      email: credentials?.dosen?.email || process.env.DOSEN_EMAIL || '1980031@gmail.com',
+      password: credentials?.dosen?.password || process.env.DOSEN_PASSWORD || '1980031',
       expectedUrl: '/dosen/dashboard'
     }
   };
@@ -61,8 +61,8 @@ async function logout(page) {
  */
 async function expectSuccessNotification(page, messagePattern = /berhasil|success|sukses/i) {
   const notification = page.locator(
-    `text=${messagePattern}, .alert-success, .toast-success, .notification-success`
-  ).first();
+    `text=${messagePattern}`
+  ).or(page.locator('.alert-success, .toast-success, .notification-success')).first();
 
   await notification.waitFor({ state: 'visible', timeout: 10000 });
   return notification;
@@ -73,8 +73,8 @@ async function expectSuccessNotification(page, messagePattern = /berhasil|succes
  */
 async function expectErrorNotification(page, messagePattern = /error|gagal|failed/i) {
   const notification = page.locator(
-    `text=${messagePattern}, .alert-error, .alert-danger, .toast-error, .notification-error`
-  ).first();
+    `text=${messagePattern}`
+  ).or(page.locator('.alert-danger, .alert-error, .toast-error, .notification-error')).first();
 
   await notification.waitFor({ state: 'visible', timeout: 10000 });
   return notification;
@@ -284,6 +284,79 @@ async function createAuthenticatedContext(browser, role) {
   });
 }
 
+/**
+ * Safe submit helper: prefer calling form.requestSubmit() scoped to a form so
+ * we don't accidentally click a global submit/logout button. If selector is a
+ * form, it'll requestSubmit that form. If it's a button, it will try to find
+ * the nearest form ancestor and requestSubmit it. Falls back to clicking the
+ * button if no form is found.
+ */
+async function safeSubmit(page, selector, options = {}) {
+  const timeout = options.timeout || 5000;
+  // Try to treat selector as form first
+  try {
+    const isForm = await page.$eval(selector, el => el && el.tagName && el.tagName.toLowerCase() === 'form').catch(() => false);
+    if (isForm) {
+      await page.evalOnSelector(selector, form => form.requestSubmit());
+      return true;
+    }
+  } catch (e) {
+    // ignore
+  }
+
+  // If selector is a button, try to find enclosing form
+  try {
+    const button = await page.$(selector);
+    if (button) {
+      const formHandle = await button.evaluateHandle(btn => btn.closest('form'));
+      const hasForm = await formHandle.jsonValue().then(v => !!v).catch(() => false);
+      if (hasForm) {
+        // requestSubmit on the form
+        await page.evaluate((btn) => {
+          const f = document.querySelector(btn)?.closest('form');
+          if (f) f.requestSubmit();
+        }, selector);
+        return true;
+      }
+    }
+  } catch (e) {
+    // ignore
+  }
+
+  // Last resort: click the selector
+  try {
+    const el = page.locator(selector).first();
+    if (await el.isVisible({ timeout })) {
+      await el.click();
+      return true;
+    }
+  } catch (e) {
+    // ignore
+  }
+
+  return false;
+}
+
+/**
+ * Wait for select options then select a value or index
+ */
+async function selectWhenReady(page, selectSelector, valueOrIndex = 0, options = {}) {
+  const timeout = options.timeout || 5000;
+  await page.waitForSelector(selectSelector, { timeout });
+  // Wait for at least one non-empty option (excluding placeholders)
+  await page.waitForFunction((sel) => {
+    const el = document.querySelector(sel);
+    if (!el) return false;
+    return Array.from(el.options).some(o => o.value && o.value !== '');
+  }, selectSelector, { timeout }).catch(() => {});
+
+  if (typeof valueOrIndex === 'number') {
+    await page.selectOption(selectSelector, { index: valueOrIndex });
+  } else {
+    await page.selectOption(selectSelector, valueOrIndex);
+  }
+}
+
 module.exports = {
   loginAs,
   logout,
@@ -300,4 +373,6 @@ module.exports = {
   waitForCondition,
   generateRandomData,
   createAuthenticatedContext,
+  safeSubmit,
+  selectWhenReady,
 };
