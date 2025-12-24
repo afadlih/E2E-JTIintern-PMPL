@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "D:\\Apps\\laragon\\www\\E2E-JTIintern-PMPL\\playwright.config.js",
-    "rootDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/tests",
+    "configFile": "D:\\Script\\E2E-JTIintern-PMPL\\playwright.config.js",
+    "rootDir": "D:/Script/E2E-JTIintern-PMPL/tests/e2e",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -10,7 +10,9 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 1
+    },
     "preserveOutput": "always",
     "reporter": [
       [
@@ -22,12 +24,20 @@
       ],
       [
         "list",
-        null
+        {
+          "printSteps": true
+        }
       ],
       [
         "json",
         {
           "outputFile": "playwright-report/test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "playwright-report/junit.xml"
         }
       ]
     ],
@@ -38,13 +48,15 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/test-results",
+        "outputDir": "D:/Script/E2E-JTIintern-PMPL/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "setup",
         "name": "setup",
-        "testDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/tests",
+        "testDir": "D:/Script/E2E-JTIintern-PMPL/tests/e2e",
         "testIgnore": [
           "**/setup-auth.js",
           "**/utils/**",
@@ -54,16 +66,18 @@
         "testMatch": [
           "/setup-auth\\.js/"
         ],
-        "timeout": 30000
+        "timeout": 60000
       },
       {
-        "outputDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/test-results",
+        "outputDir": "D:/Script/E2E-JTIintern-PMPL/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "admin",
         "name": "admin",
-        "testDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/tests/admin",
+        "testDir": "D:/Script/E2E-JTIintern-PMPL/tests/e2e/admin",
         "testIgnore": [
           "**/setup-auth.js",
           "**/utils/**",
@@ -73,16 +87,18 @@
         "testMatch": [
           "**/*.spec.js"
         ],
-        "timeout": 30000
+        "timeout": 60000
       },
       {
-        "outputDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/test-results",
+        "outputDir": "D:/Script/E2E-JTIintern-PMPL/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "mahasiswa",
         "name": "mahasiswa",
-        "testDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/tests/mahasiswa",
+        "testDir": "D:/Script/E2E-JTIintern-PMPL/tests/e2e/mahasiswa",
         "testIgnore": [
           "**/setup-auth.js",
           "**/utils/**",
@@ -92,16 +108,18 @@
         "testMatch": [
           "**/*.spec.js"
         ],
-        "timeout": 30000
+        "timeout": 60000
       },
       {
-        "outputDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/test-results",
+        "outputDir": "D:/Script/E2E-JTIintern-PMPL/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "dosen",
         "name": "dosen",
-        "testDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/tests/dosen",
+        "testDir": "D:/Script/E2E-JTIintern-PMPL/tests/e2e/dosen",
         "testIgnore": [
           "**/setup-auth.js",
           "**/utils/**",
@@ -111,16 +129,18 @@
         "testMatch": [
           "**/*.spec.js"
         ],
-        "timeout": 30000
+        "timeout": 60000
       },
       {
-        "outputDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/test-results",
+        "outputDir": "D:/Script/E2E-JTIintern-PMPL/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "multi-role",
         "name": "multi-role",
-        "testDir": "D:/Apps/laragon/www/E2E-JTIintern-PMPL/tests/multi-role",
+        "testDir": "D:/Script/E2E-JTIintern-PMPL/tests/e2e/multi-role",
         "testIgnore": [
           "**/setup-auth.js",
           "**/utils/**",
@@ -130,17 +150,573 @@
         "testMatch": [
           "**/*.spec.js"
         ],
-        "timeout": 30000
+        "timeout": 60000
       }
     ],
     "shard": null,
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.56.1",
-    "workers": 6,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
+    {
+      "title": "admin\\approve-lamaran.spec.js",
+      "file": "admin/approve-lamaran.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Admin - Manajemen Lamaran",
+          "file": "admin/approve-lamaran.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E_ADM_LAMARAN_001: View daftar lamaran masuk",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\approve-lamaran.spec.js",
+                        "line": 87,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 3060,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_LAMARAN_001: View daftar lamaran\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman lamaran/aplikasi\n"
+                        },
+                        {
+                          "text": "  > Navigasi ke /dashboard\n"
+                        },
+                        {
+                          "text": "Step 2: Cari menu lamaran\n"
+                        },
+                        {
+                          "text": "Step 3: Verifikasi data lamaran\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Tidak ada lamaran ditemukan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_ADM_LAMARAN_001: SKIPPED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:13.509Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\approve-lamaran.spec.js",
+                            "line": 87,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2d92a121187d7c825ebb-1a084b0ec17f5c06ceec",
+              "file": "admin/approve-lamaran.spec.js",
+              "line": 7,
+              "column": 7
+            },
+            {
+              "title": "E2E_ADM_LAMARAN_002: Approve lamaran",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\approve-lamaran.spec.js",
+                        "line": 116,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1820,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_LAMARAN_002: Approve lamaran\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman lamaran\n"
+                        },
+                        {
+                          "text": "Step 2: Cari action button approve\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Tidak ada approve button ditemukan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_ADM_LAMARAN_002: SKIPPED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:16.678Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\approve-lamaran.spec.js",
+                            "line": 116,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2d92a121187d7c825ebb-b09a03a82289d4c51f6a",
+              "file": "admin/approve-lamaran.spec.js",
+              "line": 95,
+              "column": 7
+            },
+            {
+              "title": "E2E_ADM_LAMARAN_003: Reject lamaran",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\approve-lamaran.spec.js",
+                        "line": 184,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 2612,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_LAMARAN_003: Reject lamaran\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke dashboard\n"
+                        },
+                        {
+                          "text": "Step 2: Cari reject button\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Tidak ada reject button ditemukan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_ADM_LAMARAN_003: SKIPPED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:18.525Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\approve-lamaran.spec.js",
+                            "line": 184,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2d92a121187d7c825ebb-3665c898f324d845b36a",
+              "file": "admin/approve-lamaran.spec.js",
+              "line": 163,
+              "column": 7
+            },
+            {
+              "title": "E2E_ADM_LAMARAN_004: Filter lamaran by status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\approve-lamaran.spec.js",
+                        "line": 240,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 3004,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_LAMARAN_004: Filter lamaran\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman lamaran\n"
+                        },
+                        {
+                          "text": "Step 2: Cari filter status\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Filter tidak ditemukan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_ADM_LAMARAN_004: SKIPPED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:21.183Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\approve-lamaran.spec.js",
+                            "line": 240,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2d92a121187d7c825ebb-f0f3f747f1249cddbd8e",
+              "file": "admin/approve-lamaran.spec.js",
+              "line": 221,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "admin\\lowongan.spec.js",
+      "file": "admin/lowongan.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Admin - Manajemen Lowongan",
+          "file": "admin/lowongan.spec.js",
+          "line": 124,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E_ADM_LOW_001: View daftar lowongan",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3726,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/admin-lowongan-list-2025-12-08T15-49-27-773Z.png\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:24.233Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4abd2ee9064421414fae-f5e10992b14eebabeb8e",
+              "file": "admin/lowongan.spec.js",
+              "line": 130,
+              "column": 3
+            },
+            {
+              "title": "E2E_ADM_LOW_002: Create lowongan baru",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3232,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[TEST START] E2E_ADM_LOW_002: Create lowongan baru\n"
+                        },
+                        {
+                          "text": "  > Button Tambah Lowongan ditemukan\n"
+                        },
+                        {
+                          "text": "  > Form modal ditemukan (read-only)\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/admin-lowongan-create-readonly-2025-12-08T15-49-31-040Z.png\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_ADM_LOW_002: Create lowongan baru (read-only)\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:27.990Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4abd2ee9064421414fae-4809da11ee4602685d62",
+              "file": "admin/lowongan.spec.js",
+              "line": 138,
+              "column": 3
+            },
+            {
+              "title": "E2E_ADM_LOW_003: Update lowongan (deskripsi & kapasitas)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\lowongan.spec.js",
+                        "line": 172,
+                        "column": 51
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1546,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:31.238Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\lowongan.spec.js",
+                            "line": 172,
+                            "column": 51
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4abd2ee9064421414fae-4603d2eaf59488af20e3",
+              "file": "admin/lowongan.spec.js",
+              "line": 168,
+              "column": 3
+            },
+            {
+              "title": "E2E_ADM_LOW_004: Toggle status publish/unpublish",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\lowongan.spec.js",
+                        "line": 191,
+                        "column": 53
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1738,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:32.796Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\lowongan.spec.js",
+                            "line": 191,
+                            "column": 53
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4abd2ee9064421414fae-ebdd19ceec5792114e76",
+              "file": "admin/lowongan.spec.js",
+              "line": 188,
+              "column": 3
+            },
+            {
+              "title": "E2E_ADM_LOW_005: Delete lowongan",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\lowongan.spec.js",
+                        "line": 201,
+                        "column": 34
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "admin",
+                  "projectName": "admin",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1789,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:34.544Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\lowongan.spec.js",
+                            "line": 201,
+                            "column": 34
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4abd2ee9064421414fae-17758aa93f0d40e64115",
+              "file": "admin/lowongan.spec.js",
+              "line": 197,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
     {
       "title": "admin\\mahasiswa.spec.js",
       "file": "admin/mahasiswa.spec.js",
@@ -151,7 +727,7 @@
         {
           "title": "Admin - Manajemen Mahasiswa",
           "file": "admin/mahasiswa.spec.js",
-          "line": 21,
+          "line": 23,
           "column": 6,
           "specs": [
             {
@@ -160,18 +736,51 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "admin",
                   "projectName": "admin",
-                  "results": [],
-                  "status": "skipped"
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3622,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_002: Menambahkan data mahasiswa baru\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke menu Data Mahasiswa\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi halaman data mahasiswa\n"
+                        },
+                        {
+                          "text": "  > Halaman mahasiswa ditemukan\n"
+                        },
+                        {
+                          "text": "Step 3: Verifikasi tombol Tambah Mahasiswa (read-only)\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/admin-mahasiswa-create-readonly-2025-12-08T15-49-39-739Z.png\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:36.347Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "d74df723361c2ba7ae48-253696bdd828a968685e",
               "file": "admin/mahasiswa.spec.js",
-              "line": 32,
+              "line": 34,
               "column": 3
             },
             {
@@ -180,18 +789,51 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "admin",
                   "projectName": "admin",
-                  "results": [],
-                  "status": "skipped"
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1797,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_003: Import data mahasiswa via CSV\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke menu Data Mahasiswa\n"
+                        },
+                        {
+                          "text": "  > Halaman mahasiswa dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Klik tombol Import\n"
+                        },
+                        {
+                          "text": "  > Button Import tidak ditemukan (read-only)\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/admin-import-readonly-2025-12-08T15-49-41-538Z.png\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:39.981Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "d74df723361c2ba7ae48-ede564346dcaea3f135e",
               "file": "admin/mahasiswa.spec.js",
-              "line": 97,
+              "line": 91,
               "column": 3
             },
             {
@@ -200,18 +842,66 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\mahasiswa.spec.js",
+                        "line": 158,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "admin",
                   "projectName": "admin",
-                  "results": [],
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1793,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_UPDATE: Update data mahasiswa existing\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke Data Mahasiswa\n"
+                        },
+                        {
+                          "text": "  > Halaman mahasiswa dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Klik tombol Edit\n"
+                        },
+                        {
+                          "text": "  > Button Edit tidak ditemukan, test diskip\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:41.788Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\mahasiswa.spec.js",
+                            "line": 158,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
                   "status": "skipped"
                 }
               ],
               "id": "d74df723361c2ba7ae48-cc90652acb7cc63aeaca",
               "file": "admin/mahasiswa.spec.js",
-              "line": 141,
+              "line": 128,
               "column": 3
             },
             {
@@ -220,18 +910,69 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\mahasiswa.spec.js",
+                        "line": 197,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "admin",
                   "projectName": "admin",
-                  "results": [],
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1611,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_DELETE: Hapus data mahasiswa\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke Data Mahasiswa\n"
+                        },
+                        {
+                          "text": "  > Halaman mahasiswa dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Klik tombol Hapus\n"
+                        },
+                        {
+                          "text": "  > Ditemukan 0 button hapus\n"
+                        },
+                        {
+                          "text": "  > Button Hapus tidak ditemukan, test diskip\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:43.592Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\admin\\mahasiswa.spec.js",
+                            "line": 197,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
                   "status": "skipped"
                 }
               ],
               "id": "d74df723361c2ba7ae48-b94d8136b915d781d70d",
               "file": "admin/mahasiswa.spec.js",
-              "line": 174,
+              "line": 165,
               "column": 3
             },
             {
@@ -240,18 +981,356 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "admin",
                   "projectName": "admin",
-                  "results": [],
-                  "status": "skipped"
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1770,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_ADM_VIEW: Verifikasi daftar mahasiswa tampil\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke Data Mahasiswa\n"
+                        },
+                        {
+                          "text": "  > Halaman mahasiswa dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi tabel ada data\n"
+                        },
+                        {
+                          "text": "  > Ditemukan 1 baris data\n"
+                        },
+                        {
+                          "text": "Step 3: Verifikasi kolom tabel\n"
+                        },
+                        {
+                          "text": "  > Kolom NIM dan Nama ditemukan\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/admin-mahasiswa-table-2025-12-08T15-49-46-760Z.png\n"
+                        },
+                        {
+                          "text": "  > Screenshot tersimpan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_ADM_VIEW: PASSED\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:45.214Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "d74df723361c2ba7ae48-49c6f2d95f87b2048c0d",
               "file": "admin/mahasiswa.spec.js",
-              "line": 207,
+              "line": 204,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "mahasiswa\\apply-lowongan.spec.js",
+      "file": "mahasiswa/apply-lowongan.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Mahasiswa - Apply Lowongan Flow",
+          "file": "mahasiswa/apply-lowongan.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E_MHS_APPLY_001: Apply lowongan dan verify di lamaran tracking",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\apply-lowongan.spec.js",
+                        "line": 26,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 4170,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_APPLY_001: Apply lowongan\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman lowongan\n"
+                        },
+                        {
+                          "text": "  > Halaman lowongan dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Cari lowongan pertama yang tersedia\n"
+                        },
+                        {
+                          "text": "  > Tidak ada lowongan tersedia, skip test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:47.977Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\apply-lowongan.spec.js",
+                            "line": 26,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6224b576a530aed7d954-7776017ff7db8b669369",
+              "file": "mahasiswa/apply-lowongan.spec.js",
+              "line": 7,
+              "column": 7
+            },
+            {
+              "title": "E2E_MHS_APPLY_002: Verifikasi status lamaran pending setelah apply",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\apply-lowongan.spec.js",
+                        "line": 160,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 3140,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_APPLY_002: Verifikasi status lamaran\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman tracking lamaran\n"
+                        },
+                        {
+                          "text": "  > Halaman lamaran dibuka\n"
+                        },
+                        {
+                          "text": "Step 2: Cari lamaran dengan status pending\n"
+                        },
+                        {
+                          "text": "  > Ditemukan 0 status pending\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Tidak ada status pending ditemukan (mungkin belum update)\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_MHS_APPLY_002: SKIPPED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:52.253Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\apply-lowongan.spec.js",
+                            "line": 160,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6224b576a530aed7d954-e5b614e80be429bcd07f",
+              "file": "mahasiswa/apply-lowongan.spec.js",
+              "line": 131,
+              "column": 7
+            },
+            {
+              "title": "E2E_MHS_APPLY_003: Verifikasi detail lamaran di tracking",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\apply-lowongan.spec.js",
+                        "line": 206,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 3215,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_APPLY_003: Detail lamaran tracking\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman lamaran\n"
+                        },
+                        {
+                          "text": "Step 2: Cari button detail lamaran\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Tidak ada button detail ditemukan\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:55.402Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\apply-lowongan.spec.js",
+                            "line": 206,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6224b576a530aed7d954-7a2c662c8ba7f78a8c9e",
+              "file": "mahasiswa/apply-lowongan.spec.js",
+              "line": 164,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "mahasiswa\\logbook-photo.spec.js",
+      "file": "mahasiswa/logbook-photo.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Mahasiswa - Upload Foto Logbook",
+          "file": "mahasiswa/logbook-photo.spec.js",
+          "line": 19,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E_MHS_LOGPHOTO_001: Upload foto pada entri logbook",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\logbook-photo.spec.js",
+                        "line": 40,
+                        "column": 50
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 2687,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:49:58.629Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\logbook-photo.spec.js",
+                            "line": 40,
+                            "column": 50
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "88c18cd93127fa0738aa-df64297e5b23aee44138",
+              "file": "mahasiswa/logbook-photo.spec.js",
+              "line": 25,
               "column": 3
             }
           ]
@@ -277,12 +1356,78 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\lowongan.spec.js",
+                        "line": 62,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "mahasiswa",
                   "projectName": "mahasiswa",
-                  "results": [],
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 16920,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_003: Melihat daftar lowongan dan rekomendasi SPK\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke menu Lowongan\n"
+                        },
+                        {
+                          "text": "  > Berhasil masuk ke halaman lowongan\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi halaman lowongan\n"
+                        },
+                        {
+                          "text": "  > Heading lowongan ditemukan\n"
+                        },
+                        {
+                          "text": "Step 3: Tunggu daftar lowongan dimuat\n"
+                        },
+                        {
+                          "text": "  > Timeout menunggu card, skip step ini\n"
+                        },
+                        {
+                          "text": "  > Lowongan card ditemukan\n"
+                        },
+                        {
+                          "text": "Step 4: Hitung jumlah lowongan\n"
+                        },
+                        {
+                          "text": "  > Ditemukan 0 lowongan\n"
+                        },
+                        {
+                          "text": "  > Tidak ada lowongan, test skip\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:01.337Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\lowongan.spec.js",
+                            "line": 62,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
                   "status": "skipped"
                 }
               ],
@@ -297,18 +1442,66 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 90000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "mahasiswa",
                   "projectName": "mahasiswa",
-                  "results": [],
-                  "status": "skipped"
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10413,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_004: Apply lowongan dan tracking status\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman lowongan\n"
+                        },
+                        {
+                          "text": "  > Halaman lowongan dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Pilih lowongan pertama\n"
+                        },
+                        {
+                          "text": "  > Lowongan pertama ditemukan\n"
+                        },
+                        {
+                          "text": "Step 3: Buka detail lowongan\n"
+                        },
+                        {
+                          "text": "Step 4: Cari button Lamar\n"
+                        },
+                        {
+                          "text": "  > Button Lamar ditemukan (read-only). Not clicking.\n"
+                        },
+                        {
+                          "text": "Step 11: Ambil screenshot hasil\n"
+                        },
+                        {
+                          "text": "  > Screenshot tersimpan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_MHS_004: PASSED\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:18.270Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "4abd2ee9064421414fae-7f8188c727a0efd34f58",
               "file": "mahasiswa/lowongan.spec.js",
-              "line": 72,
+              "line": 94,
               "column": 3
             },
             {
@@ -317,22 +1510,220 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "mahasiswa",
                   "projectName": "mahasiswa",
-                  "results": [],
-                  "status": "skipped"
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3677,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_002: Melengkapi profil mahasiswa\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman profil\n"
+                        },
+                        {
+                          "text": "  > Berhasil masuk ke halaman profil\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi form profil\n"
+                        },
+                        {
+                          "text": "  > Profil heading tidak ditemukan, lanjut verify content\n"
+                        },
+                        {
+                          "text": "Step 3: Verifikasi section skills (read-only)\n"
+                        },
+                        {
+                          "text": "  > Skills section tidak ditemukan\n"
+                        },
+                        {
+                          "text": "Step 4: Upload CV\n"
+                        },
+                        {
+                          "text": "  > Form upload CV tidak ditemukan\n"
+                        },
+                        {
+                          "text": "Step 5: Simpan perubahan profil\n"
+                        },
+                        {
+                          "text": "Step 6: Ambil screenshot\n"
+                        },
+                        {
+                          "text": "  > Screenshot tersimpan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_MHS_002: PASSED\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:28.698Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "4abd2ee9064421414fae-260d1a2acfd86fccbae4",
               "file": "mahasiswa/lowongan.spec.js",
-              "line": 138,
+              "line": 173,
               "column": 3
             },
             {
               "title": "E2E_MHS_005: Mengisi logbook magang harian",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3233,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_005: Mengisi logbook magang harian\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke halaman logbook\n"
+                        },
+                        {
+                          "text": "  > Berhasil masuk ke halaman logbook\n"
+                        },
+                        {
+                          "text": "Step 2: Klik button Tambah Logbook\n"
+                        },
+                        {
+                          "text": "  > Button Tambah Logbook tidak ditemukan\n"
+                        },
+                        {
+                          "text": "Step 5: Ambil screenshot\n"
+                        },
+                        {
+                          "text": "  > Screenshot tersimpan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_MHS_005: PASSED\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:32.388Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4abd2ee9064421414fae-3c6424ea7516d7dad1e1",
+              "file": "mahasiswa/lowongan.spec.js",
+              "line": 241,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "mahasiswa\\profile-view.spec.js",
+      "file": "mahasiswa/profile-view.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Mahasiswa - Profile Management",
+          "file": "mahasiswa/profile-view.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E_MHS_PROFILE_001: View profile page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\profile-view.spec.js",
+                        "line": 34,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1592,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_PROFILE_001: View profile\n"
+                        },
+                        {
+                          "text": "Step 1: Navigate ke halaman profile\n"
+                        },
+                        {
+                          "text": "  > Profile page dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi form fields\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Tidak ada form fields ditemukan\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:35.641Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\mahasiswa\\profile-view.spec.js",
+                            "line": 34,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "80497a7536dc9334e8c7-015611b70dda71b95a63",
+              "file": "mahasiswa/profile-view.spec.js",
+              "line": 7,
+              "column": 7
+            },
+            {
+              "title": "E2E_MHS_PROFILE_002: Check profile information populated",
               "ok": true,
               "tags": [],
               "tests": [
@@ -342,14 +1733,323 @@
                   "expectedStatus": "passed",
                   "projectId": "mahasiswa",
                   "projectName": "mahasiswa",
-                  "results": [],
-                  "status": "skipped"
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1717,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_PROFILE_002: Profile info\n"
+                        },
+                        {
+                          "text": "Step 1: Navigate ke profile\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi ada data profil\n"
+                        },
+                        {
+                          "text": "  > Ditemukan 7 input fields\n"
+                        },
+                        {
+                          "text": "  > ✅ Field berisi nilai: MUHAMMAD AMMAR HAFIZH\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/mahasiswa-profile-info-2025-12-08T15-50-38-718Z.png\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_MHS_PROFILE_002: PASSED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:37.243Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
-              "id": "4abd2ee9064421414fae-3c6424ea7516d7dad1e1",
-              "file": "mahasiswa/lowongan.spec.js",
-              "line": 197,
-              "column": 3
+              "id": "80497a7536dc9334e8c7-b868968cb29a35c07657",
+              "file": "mahasiswa/profile-view.spec.js",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "E2E_MHS_PROFILE_003: Find edit button",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1746,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_PROFILE_003: Edit button\n"
+                        },
+                        {
+                          "text": "Step 1: Navigate ke profile\n"
+                        },
+                        {
+                          "text": "Step 2: Cari edit button\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Edit button tidak ditemukan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_MHS_PROFILE_003: PASSED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:38.970Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "80497a7536dc9334e8c7-659028d52f68a115d581",
+              "file": "mahasiswa/profile-view.spec.js",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "E2E_MHS_PROFILE_004: Check skill section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1802,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_MHS_PROFILE_004: Skill section\n"
+                        },
+                        {
+                          "text": "Step 1: Navigate ke profile\n"
+                        },
+                        {
+                          "text": "Step 2: Cari skill section\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Skill section tidak ditemukan\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/mahasiswa-skill-section-2025-12-08T15-50-42-345Z.png\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_MHS_PROFILE_004: PASSED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:40.727Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "80497a7536dc9334e8c7-4239b2b696c1ca397393",
+              "file": "mahasiswa/profile-view.spec.js",
+              "line": 98,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Dosen - Profile Management",
+          "file": "mahasiswa/profile-view.spec.js",
+          "line": 129,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E_DSN_PROFILE_001: View dosen profile",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1679,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_DSN_PROFILE_001: View dosen profile\n"
+                        },
+                        {
+                          "text": "Step 1: Navigate ke profile dosen\n"
+                        },
+                        {
+                          "text": "  > Profile page dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi form ada\n"
+                        },
+                        {
+                          "text": "  > ✅ Ditemukan 13 input fields\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/dosen-profile-view-2025-12-08T15-50-44-063Z.png\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_DSN_PROFILE_001: PASSED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:42.539Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "80497a7536dc9334e8c7-fd76c9add9f4ac6b785a",
+              "file": "mahasiswa/profile-view.spec.js",
+              "line": 132,
+              "column": 7
+            },
+            {
+              "title": "E2E_DSN_PROFILE_002: Check phone field",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1706,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_DSN_PROFILE_002: Phone field\n"
+                        },
+                        {
+                          "text": "Step 1: Navigate ke profile\n"
+                        },
+                        {
+                          "text": "Step 2: Cari phone field\n"
+                        },
+                        {
+                          "text": "  > ⚠️ Phone field tidak ditemukan\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/dosen-phone-field-2025-12-08T15-50-45-774Z.png\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_DSN_PROFILE_002: PASSED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:44.226Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "80497a7536dc9334e8c7-017a31d09cfbc28885ba",
+              "file": "mahasiswa/profile-view.spec.js",
+              "line": 159,
+              "column": 7
+            },
+            {
+              "title": "E2E_DSN_PROFILE_003: View biodata section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mahasiswa",
+                  "projectName": "mahasiswa",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1431,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_DSN_PROFILE_003: Biodata section\n"
+                        },
+                        {
+                          "text": "Step 1: Navigate ke profile\n"
+                        },
+                        {
+                          "text": "Step 2: Cari biodata section\n"
+                        },
+                        {
+                          "text": "  > ✅ Biodata section ditemukan (4 items)\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/dosen-biodata-section-2025-12-08T15-50-47-224Z.png\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_DSN_PROFILE_003: PASSED\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:45.942Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "80497a7536dc9334e8c7-9e28078368111542abb0",
+              "file": "mahasiswa/profile-view.spec.js",
+              "line": 188,
+              "column": 7
             }
           ]
         }
@@ -374,13 +2074,58 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "dosen",
                   "projectName": "dosen",
-                  "results": [],
-                  "status": "skipped"
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2686,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_DSN_002: Melihat daftar mahasiswa bimbingan\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke menu Mahasiswa Bimbingan\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi halaman mahasiswa bimbingan\n"
+                        },
+                        {
+                          "text": "  > Halaman mahasiswa bimbingan ditemukan\n"
+                        },
+                        {
+                          "text": "Step 3: Verifikasi data mahasiswa\n"
+                        },
+                        {
+                          "text": "  > Mahasiswa cards exist tapi mungkin hidden\n"
+                        },
+                        {
+                          "text": "  - Nama: ❌\n"
+                        },
+                        {
+                          "text": "  - Status: ❌\n"
+                        },
+                        {
+                          "text": "  - Perusahaan: ❌\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/dosen-mahasiswa-list-2025-12-08T15-50-50-981Z.png\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:48.356Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "4b41766db592da0efe21-b49d42180ca689bc8e4c",
@@ -394,18 +2139,81 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "timeout": 90000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\dosen\\monitoring.spec.js",
+                        "line": 131,
+                        "column": 14
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "dosen",
                   "projectName": "dosen",
-                  "results": [],
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 1687,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_DSN_003: Melakukan evaluasi mahasiswa\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke menu Evaluasi\n"
+                        },
+                        {
+                          "text": "  > Halaman evaluasi dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi halaman evaluasi\n"
+                        },
+                        {
+                          "text": "  > Evaluasi page loaded\n"
+                        },
+                        {
+                          "text": "  > Heading evaluasi ditemukan\n"
+                        },
+                        {
+                          "text": "Step 3: Cek daftar mahasiswa\n"
+                        },
+                        {
+                          "text": "  > Ditemukan 4 mahasiswa untuk evaluasi\n"
+                        },
+                        {
+                          "text": "Step 4: Klik tombol Evaluasi\n"
+                        },
+                        {
+                          "text": "  > Button Evaluasi tidak ditemukan, test diskip\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:51.148Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\dosen\\monitoring.spec.js",
+                            "line": 131,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
                   "status": "skipped"
                 }
               ],
               "id": "4b41766db592da0efe21-a3105b18956b69a0f4fe",
               "file": "dosen/monitoring.spec.js",
-              "line": 63,
+              "line": 70,
               "column": 3
             },
             {
@@ -414,18 +2222,69 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\dosen\\monitoring.spec.js",
+                        "line": 213,
+                        "column": 14
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "dosen",
                   "projectName": "dosen",
-                  "results": [],
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 2507,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_DSN_005: Monitoring logbook mahasiswa\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke Mahasiswa Bimbingan\n"
+                        },
+                        {
+                          "text": "  > Halaman mahasiswa bimbingan dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Klik detail mahasiswa\n"
+                        },
+                        {
+                          "text": "  > Ditemukan 2 mahasiswa bimbingan\n"
+                        },
+                        {
+                          "text": "  > Button Detail tidak ditemukan, test diskip\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:52.847Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\dosen\\monitoring.spec.js",
+                            "line": 213,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
                   "status": "skipped"
                 }
               ],
               "id": "4b41766db592da0efe21-f764a27be7acb8673457",
               "file": "dosen/monitoring.spec.js",
-              "line": 114,
+              "line": 143,
               "column": 3
             },
             {
@@ -434,18 +2293,66 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "timeout": 45000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\dosen\\monitoring.spec.js",
+                        "line": 246,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "dosen",
                   "projectName": "dosen",
-                  "results": [],
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 4188,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_DSN_004: Update profil dosen\n"
+                        },
+                        {
+                          "text": "Step 1: Navigasi ke Profil\n"
+                        },
+                        {
+                          "text": "  > Halaman profil dimuat\n"
+                        },
+                        {
+                          "text": "Step 2: Update nomor telepon\n"
+                        },
+                        {
+                          "text": "  > Input telepon tidak ditemukan, test diskip\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:55.366Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\dosen\\monitoring.spec.js",
+                            "line": 246,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
                   "status": "skipped"
                 }
               ],
               "id": "4b41766db592da0efe21-c9cbec354a57598e7005",
               "file": "dosen/monitoring.spec.js",
-              "line": 172,
+              "line": 224,
               "column": 3
             },
             {
@@ -454,18 +2361,69 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
+                  "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "dosen",
                   "projectName": "dosen",
-                  "results": [],
-                  "status": "skipped"
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 786,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n[TEST START] E2E_DSN_001: Verifikasi dashboard dosen\n"
+                        },
+                        {
+                          "text": "Step 1: Verifikasi heading dashboard\n"
+                        },
+                        {
+                          "text": "  > Dashboard heading ditemukan\n"
+                        },
+                        {
+                          "text": "Step 2: Verifikasi statistik dashboard\n"
+                        },
+                        {
+                          "text": "  > Tidak ada statistik\n"
+                        },
+                        {
+                          "text": "Step 3: Verifikasi menu navigasi\n"
+                        },
+                        {
+                          "text": "  > Menu Mahasiswa: Ditemukan\n"
+                        },
+                        {
+                          "text": "  > Menu Evaluasi: Tidak ditemukan\n"
+                        },
+                        {
+                          "text": "  > Menu Profil: Ditemukan\n"
+                        },
+                        {
+                          "text": "📸 Screenshot saved: playwright-report/screenshots/dosen-dashboard-overview-2025-12-08T15-51-00-229Z.png\n"
+                        },
+                        {
+                          "text": "  > Screenshot tersimpan\n"
+                        },
+                        {
+                          "text": "[TEST END] E2E_DSN_001: PASSED\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:50:59.563Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
                 }
               ],
               "id": "4b41766db592da0efe21-b6d3897ea8d45deda536",
               "file": "dosen/monitoring.spec.js",
-              "line": 201,
+              "line": 253,
               "column": 3
             }
           ]
@@ -482,7 +2440,7 @@
         {
           "title": "Multi-Role: Apply & Approve Workflow",
           "file": "multi-role/apply-approve.spec.js",
-          "line": 22,
+          "line": 24,
           "column": 6,
           "specs": [
             {
@@ -491,18 +2449,42 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "multirole tests removed by test-suite maintenance",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\multi-role\\apply-approve.spec.js",
+                        "line": 15,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "multi-role",
                   "projectName": "multi-role",
-                  "results": [],
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:51:00.357Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
                   "status": "skipped"
                 }
               ],
               "id": "0b5a5e88145ffb8d8e00-2c6e0c4e3507e8c46ef0",
               "file": "multi-role/apply-approve.spec.js",
-              "line": 28,
+              "line": 30,
               "column": 3
             },
             {
@@ -511,18 +2493,147 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "multirole tests removed by test-suite maintenance",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\multi-role\\apply-approve.spec.js",
+                        "line": 15,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
                   "projectId": "multi-role",
                   "projectName": "multi-role",
-                  "results": [],
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:51:00.357Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
                   "status": "skipped"
                 }
               ],
               "id": "0b5a5e88145ffb8d8e00-32902796f87307b1e47a",
               "file": "multi-role/apply-approve.spec.js",
-              "line": 208,
+              "line": 258,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "multi-role\\notifications.spec.js",
+      "file": "multi-role/notifications.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Multi-Role - Notifikasi",
+          "file": "multi-role/notifications.spec.js",
+          "line": 24,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E_MULTI_NOTIF_001: Admin memicu notifikasi approve lamaran → Mahasiswa membaca",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "multirole tests removed by test-suite maintenance",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\multi-role\\notifications.spec.js",
+                        "line": 13,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "multi-role",
+                  "projectName": "multi-role",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:51:00.357Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "f6eacf2b8e2b45284b7c-c9755e020f8e6a31068d",
+              "file": "multi-role/notifications.spec.js",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "E2E_MULTI_NOTIF_002: Mahasiswa submit logbook → Dosen melihat notifikasi",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "multirole tests removed by test-suite maintenance",
+                      "location": {
+                        "file": "D:\\Script\\E2E-JTIintern-PMPL\\tests\\e2e\\multi-role\\notifications.spec.js",
+                        "line": 13,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "multi-role",
+                  "projectName": "multi-role",
+                  "results": [
+                    {
+                      "workerIndex": -1,
+                      "parallelIndex": -1,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-08T15:51:00.357Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "f6eacf2b8e2b45284b7c-82976a0c406e57a6bf81",
+              "file": "multi-role/notifications.spec.js",
+              "line": 66,
               "column": 3
             }
           ]
@@ -532,10 +2643,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-17T10:02:11.847Z",
-    "duration": 496.77599999999984,
-    "expected": 0,
-    "skipped": 16,
+    "startTime": "2025-12-08T15:49:12.549Z",
+    "duration": 107954.79299999999,
+    "expected": 16,
+    "skipped": 22,
     "unexpected": 0,
     "flaky": 0
   }
