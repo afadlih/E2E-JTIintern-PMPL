@@ -4,31 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Mahasiswa extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $table = 'm_mahasiswa';
     protected $primaryKey = 'id_mahasiswa';
-    public $incrementing = true;
-    protected $keyType = 'int';
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
-        'id_user',
         'nim',
-        'nama',
-        'kode_prodi',
+        'id_user',
         'id_kelas',
-        'kelas_id',
-        'alamat',
-        'wilayah_id',
         'ipk',
-        'telp',
+        'alamat',
+        'no_telepon',
+        'email',
         'cv',
-        'cv_path',
-        'cv_updated_at',
+        'cv_updated_at'
     ];
 
     public function user()

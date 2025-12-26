@@ -13,7 +13,7 @@ class MPerusahaanSeeder extends Seeder
             [
                 'nama_perusahaan' => 'PT Telkom Indonesia',
                 'alamat_perusahaan' => 'Jl. Japati No.1, Bandung',
-                'kota' => 'Bandung',
+                'wilayah_id' => 1, // Surabaya
                 'contact_person' => '0221234567',
                 'email' => 'info@telkom.co.id',
                 'instagram' => 'telkomindonesia',
@@ -24,7 +24,7 @@ class MPerusahaanSeeder extends Seeder
             [
                 'nama_perusahaan' => 'PT Gojek Indonesia',
                 'alamat_perusahaan' => 'Pasaraya Blok M, Jakarta Selatan',
-                'kota' => 'Jakarta',
+                'wilayah_id' => 1, // Surabaya
                 'contact_person' => '0217654321',
                 'email' => 'info@gojek.com',
                 'instagram' => 'gojekindonesia',
@@ -35,7 +35,7 @@ class MPerusahaanSeeder extends Seeder
             [
                 'nama_perusahaan' => 'PT Bukalapak',
                 'alamat_perusahaan' => 'Jl. Kemang Timur No.22, Jakarta Selatan',
-                'kota' => 'Jakarta',
+                'wilayah_id' => 2, // Malang
                 'contact_person' => '0219876543',
                 'email' => 'info@bukalapak.com',
                 'instagram' => 'bukalapak',
@@ -46,7 +46,7 @@ class MPerusahaanSeeder extends Seeder
             [
                 'nama_perusahaan' => 'PT Tokopedia',
                 'alamat_perusahaan' => 'Jl. Karet Pasar Baru Barat No.5, Jakarta Selatan',
-                'kota' => 'Jakarta',
+                'wilayah_id' => 2, // Malang
                 'contact_person' => '0218765432',
                 'email' => 'info@tokopedia.com',
                 'instagram' => 'tokopedia',
@@ -57,7 +57,7 @@ class MPerusahaanSeeder extends Seeder
             [
                 'nama_perusahaan' => 'PT Traveloka Indonesia',
                 'alamat_perusahaan' => 'Jl. Kebon Sirih No.17-19, Jakarta Pusat',
-                'kota' => 'Jakarta',
+                'wilayah_id' => 3, // Sidoarjo
                 'contact_person' => '0216543210',
                 'email' => 'info@traveloka.com',
                 'instagram' => 'traveloka',

@@ -160,7 +160,9 @@ class LoginApiTest extends TestCase
     public function test_api_logout_berhasil()
     {
         // Arrange
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'password' => bcrypt('password123'),
+        ]);
         $token = $user->createToken('test-token')->plainTextToken;
 
         // Act

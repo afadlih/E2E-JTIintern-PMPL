@@ -1,0 +1,120 @@
+name: Testing - API, Unit, Integration & E2E
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      deployment_url:
+        description: 'Deployment URL for E2E tests'
+        required: false
+        default: 'http://localhost'
+
+jobs:
+  phpunit-tests:
+    name: PHP Tests (Unit, Integration, API)
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: testing
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: mbstring, xml, ctype, iconv, intl, pdo_mysql, dom, filter, gd, json
+        coverage: none
+
+    - name: Copy .env
+      run: |
+        cp .env.example .env
+        php artisan key:generate
+
+    - name: Install Composer Dependencies
+      run: composer install --prefer-dist --no-interaction --no-progress
+
+    - name: Run Database Migrations
+      env:
+        DB_CONNECTION: mysql
+        DB_HOST: 127.0.0.1
+        DB_PORT: 3306
+        DB_DATABASE: testing
+        DB_USERNAME: root
+        DB_PASSWORD: password
+      run: php artisan migrate --force
+
+    - name: Run PHPUnit Tests
+      env:
+        DB_CONNECTION: mysql
+        DB_HOST: 127.0.0.1
+        DB_PORT: 3306
+        DB_DATABASE: testing
+        DB_USERNAME: root
+        DB_PASSWORD: password
+      run: |
+        vendor/bin/phpunit --testsuite=Unit --testdox
+        vendor/bin/phpunit --testsuite=Integration --testdox
+        vendor/bin/phpunit --testsuite=Api --testdox
+
+    - name: Upload Test Reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: phpunit-reports
+        path: tests/reports/
+        retention-days: 30
+
+  e2e-tests:
+    name: E2E Tests (Deployment)
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    needs: phpunit-tests
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: mbstring, xml, ctype, iconv, intl, dom, filter, gd, json
+        coverage: none
+
+    - name: Install Composer Dependencies
+      run: composer install --prefer-dist --no-interaction --no-progress
+
+    - name: Run E2E Tests (Local)
+      env:
+        E2E_BASE_URL: ${{ github.event.inputs.deployment_url || 'http://localhost' }}
+      run: vendor/bin/phpunit --testsuite=E2E --testdox
+      continue-on-error: true
+
+    - name: Upload E2E Test Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: e2e-test-results
+        path: tests/reports/
+        retention-days: 30

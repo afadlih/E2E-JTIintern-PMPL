@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('m_mahasiswa', function (Blueprint $table) {
-            // Create the foreign key column (wilayah_id is the PK in m_wilayah table)
+            // Create the foreign key column (referencing wilayah_id in m_wilayah table)
             $table->unsignedBigInteger('id_wilayah')->nullable()->after('alamat');
 
             // Add foreign key constraint
             $table->foreign('id_wilayah')
-                  ->references('wilayah_id')  // The primary key column in m_wilayah is wilayah_id
+                  ->references('wilayah_id')  // FIX: Primary key is wilayah_id, not id_wilayah
                   ->on('m_wilayah')
                   ->onDelete('set null');  // If a region is deleted, set student's region to null
         });

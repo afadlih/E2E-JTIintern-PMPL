@@ -1,70 +1,147 @@
-Helper Functions (Tests\Unit\Helpers\HelperFunctions)
- [x] Format nim with valid input
- [x] Calculate ipk average
- [x] Validate email format
- [x] Generate random password
- [x] Sanitize user input
- [x] Calculate percentage
- [x] String contains case insensitive
- [x] Array to comma separated string
- [x] Value is within range
- [x] Round number to decimal places
+Admin Authorization (Tests\Api\Admin\AdminAuthorization)
+ [x] Api admin mahasiswa unauthorized no token
+ [x] Api admin mahasiswa unauthorized invalid token
+ [x] Api periode unauthorized no token
+ [x] Api periode post unauthorized
+ [x] Api admin endpoint with expired token
 
-Login (Tests\Feature\Auth\Login)
- [x] Admin dapat login dengan credentials benar
- [x] Login gagal dengan password salah
- [x] Mahasiswa redirect ke mahasiswa dashboard
- [x] Dosen redirect ke dosen dashboard
- [x] Login validation email required
- [x] Login validation password required
- [x] User dapat logout
- [x] Login dengan remember me
+Admin Mahasiswa Api (Tests\Api\Admin\AdminMahasiswaApi)
+ [x] Api get all mahasiswa
+ [x] Api create mahasiswa berhasil
+ [x] Api create mahasiswa nim duplicate
+ [x] Api search mahasiswa
+ [x] Api create mahasiswa missing fields
 
-Mahasiswa CRUD (Tests\Feature\Admin\MahasiswaCRUD)
- [x] Admin dapat melihat daftar mahasiswa
- [x] Admin berhasil menambah mahasiswa baru
- [x] Admin tidak bisa menambah mahasiswa nim duplikat
- [x] Admin berhasil update data mahasiswa
- [x] Admin berhasil menghapus mahasiswa
- [x] Tambah mahasiswa validation nim required
- [x] Tambah mahasiswa validation email invalid
- [x] Admin dapat search mahasiswa
- [x] Guest tidak bisa akses halaman admin
- [x] Mahasiswa tidak bisa akses halaman admin
+Admin Mahasiswa Search (Tests\Api\Admin\AdminMahasiswaSearch)
+ [x] Api search mahasiswa empty query
+ [x] Api search mahasiswa special characters
+ [x] Api search mahasiswa very long query
+ [x] Api filter mahasiswa invalid kelas id
+ [x] Api mahasiswa list pagination
 
-Mahasiswa Model (Tests\Unit\Models\MahasiswaModel)
- [x] Mahasiswa memiliki relasi lamaran
- [x] Check mahasiswa sudah apply lowongan
- [x] Filter mahasiswa by ipk minimal
- [x] Mahasiswa full name accessor
- [x] Mahasiswa eligible untuk apply
- [x] Count lamaran pending mahasiswa
- [x] Mahasiswa dengan status magang aktif
- [x] Filter mahasiswa by kelas
- [x] Nim format validation
- [x] Mahasiswa dapat di soft delete
+Admin Mahasiswa Validation (Tests\Api\Admin\AdminMahasiswaValidation)
+ [x] Api mahasiswa validation name max length
+ [x] Api mahasiswa validation email format invalid
+ [x] Api mahasiswa validation password min length
+ [x] Api mahasiswa validation id kelas invalid
+ [x] Api mahasiswa validation nim format
 
-SPKRecommendation Service (Tests\Unit\Services\SPKRecommendationService)
- [x] CalculateEDASRecommendation dengan data valid
- [x] CalculateEDASRecommendation mahasiswa tidak ditemukan
- [x] CalculateEDASRecommendation tidak ada lowongan
- [x] CalculateSAWRecommendation dengan data valid
- [x] CalculateSAWRecommendation profil tidak lengkap
- [x] GetCriteriaWeights valid configuration
- [ ] CalculateEDASRecommendation handle database exception
- [x] CalculateEDASRecommendation ranking sorted by score
- [x] CalculateEDASRecommendation dengan kapasitas penuh
- [x] CalculateEDASRecommendation performance dengan banyak lowongan
+Admin Periode Api (Tests\Api\Admin\AdminPeriodeApi)
+ [x] Api get periode list
+ [x] Api create periode berhasil
+ [x] Api create periode validation error
+ [x] Api get periode by id
+ [x] Api get periode not found
 
-Validation Logic (Tests\Unit\Services\ValidationLogic)
- [x] Validate nim format valid
- [x] Validate nim format invalid kurang 10 digit
- [x] Validate nim format invalid dengan huruf
- [x] Validate ipk range valid
- [x] Validate ipk range invalid
- [x] Check mahasiswa eligible ipk minimal
- [x] Calculate average rating
- [x] Calculate average array kosong
- [x] Check capacity lowongan penuh
- [x] Check capacity lowongan tersedia
+Admin Periode Validation (Tests\Api\Admin\AdminPeriodeValidation)
+ [x] Api periode validation waktu required
+ [x] Api periode validation tgl mulai date format
+ [x] Api periode validation tgl selesai after tgl mulai
+ [x] Api periode validation all fields empty
+ [x] Api periode get nonexistent id
+
+Array Validation (Tests\Api\Validation\ArrayValidation)
+ [x] Api login username array
+ [x] Api login password array
+ [x] Api login both fields arrays
+ [x] Api login username empty array
+ [x] Api login password empty array
+ [x] Api login username nested array
+ [x] Api login username associative array
+ [x] Api login password associative array
+ [x] Api login username mixed array
+ [x] Api login entire payload nested
+
+Auth Validation (Tests\Api\Auth\AuthValidation)
+ [x] Api login validation email format
+ [x] Api login validation email required
+ [x] Api login validation password required
+ [x] Api login with non existent user
+ [x] Api get user without authentication
+
+Boolean Validation (Tests\Api\Validation\BooleanValidation)
+ [x] Api login username boolean true
+ [x] Api login username boolean false
+ [x] Api login password boolean true
+ [x] Api login password boolean false
+ [x] Api login both fields boolean true
+ [x] Api login both fields boolean false
+ [x] Api login username string true
+ [x] Api login username string false
+ [x] Api login password string yes
+ [x] Api login password string no
+
+Edge Case (Tests\Api\Validation\EdgeCase)
+ [x] Api login request without content type
+ [x] Api login username with leading spaces
+ [x] Api login username with trailing spaces
+ [x] Api login password with leading spaces
+ [x] Api login password with trailing spaces
+ [x] Api login case sensitive username
+ [x] Api login username minimum one char
+ [x] Api login password minimum one char
+ [x] Api login username with underscore
+ [x] Api login username with hyphen
+
+Login Api (Tests\Api\Auth\LoginApi)
+ [x] Api login admin berhasil
+ [x] Api login credentials salah
+ [x] Api login mahasiswa berhasil
+ [x] Api login tanpa username
+ [x] Api login tanpa password
+ [x] Api logout berhasil
+ [x] Api get authenticated user
+ [x] Api get user tanpa token
+ [x] Api login dosen berhasil
+ [x] Api logout tanpa token
+
+Login Edge Case (Tests\Api\Auth\LoginEdgeCase)
+ [x] Api login username null
+ [x] Api login password null
+ [x] Api login both fields null
+ [x] Api login empty json body
+ [x] Api login extra fields ignored
+
+Numeric Validation (Tests\Api\Validation\NumericValidation)
+ [x] Api login username numeric
+ [x] Api login password numeric
+ [x] Api login username zero
+ [x] Api login password zero
+ [x] Api login username negative number
+ [x] Api login username float
+ [x] Api login password float
+ [x] Api login username scientific notation
+ [x] Api login password large number
+ [x] Api login both fields numbers
+
+Special Character (Tests\Api\Validation\SpecialCharacter)
+ [x] Api login username with quotes
+ [x] Api login username with single quotes
+ [x] Api login username with backslash
+ [x] Api login username with percent
+ [x] Api login username with ampersand
+ [x] Api login password with equals
+ [x] Api login password with plus
+ [x] Api login password with asterisk
+ [x] Api login username with dollar
+ [x] Api login username with exclamation
+
+String Validation (Tests\Api\Validation\StringValidation)
+ [x] Api login username only spaces
+ [x] Api login username very long
+ [x] Api login password only spaces
+ [x] Api login username with newlines
+ [x] Api login username with tabs
+ [x] Api login password with unicode
+ [x] Api login username with emoji
+ [x] Api login both fields empty strings
+ [x] Api login username with sql comment
+ [x] Api login username with html tags
+
+Token Management (Tests\Api\Auth\TokenManagement)
+ [x] Api access without token
+ [x] Api access with empty token
+ [x] Api access with malformed token
+ [x] Api logout without token
+ [x] Api get user without token
 

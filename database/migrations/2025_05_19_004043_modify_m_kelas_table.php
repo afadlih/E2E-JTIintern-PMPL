@@ -9,21 +9,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        // Get the actual foreign key name
-        $foreignKey = DB::select("
-            SELECT CONSTRAINT_NAME 
-            FROM information_schema.KEY_COLUMN_USAGE 
-            WHERE TABLE_SCHEMA = '" . env('DB_DATABASE') . "' 
-            AND TABLE_NAME = 'm_mahasiswa' 
-            AND COLUMN_NAME = 'kode_prodi' 
-            AND REFERENCED_TABLE_NAME = 'm_prodi'
-        ");
-
-        Schema::table('m_mahasiswa', function (Blueprint $table) use ($foreignKey) {
+        Schema::table('m_mahasiswa', function (Blueprint $table) {
             if (Schema::hasColumn('m_mahasiswa', 'kode_prodi')) {
-                if (!empty($foreignKey)) {
-                    $table->dropForeign($foreignKey[0]->CONSTRAINT_NAME);
-                }
+                // Drop foreign key first using Laravel naming convention
+                $table->dropForeign(['kode_prodi']);
+                // Then drop the column
                 $table->dropColumn('kode_prodi');
             }
         });

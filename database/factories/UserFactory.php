@@ -21,40 +21,9 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => bcrypt('password'), // password
-            'role' => 'mahasiswa', // default role
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
-    }
-
-    /**
-     * Indicate admin role
-     */
-    public function admin(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'role' => 'admin',
-        ]);
-    }
-
-    /**
-     * Indicate mahasiswa role
-     */
-    public function mahasiswa(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'role' => 'mahasiswa',
-        ]);
-    }
-
-    /**
-     * Indicate dosen role
-     */
-    public function dosen(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'role' => 'dosen',
-        ]);
     }
 
     /**
@@ -66,6 +35,51 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Indicate that the user is an admin.
+     *
+     * @return $this
+     */
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'admin',
+            'name' => 'Admin User',
+            'email' => fake()->unique()->safeEmail(),
+            'password' => bcrypt('password123'),
+        ]);
+    }
+
+    /**
+     * Indicate that the user is a mahasiswa.
+     *
+     * @return $this
+     */
+    public function mahasiswa(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'mahasiswa',
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'password' => bcrypt('password123'),
+        ]);
+    }
+
+    /**
+     * Indicate that the user is a dosen.
+     *
+     * @return $this
+     */
+    public function dosen(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'dosen',
+            'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'password' => bcrypt('password123'),
         ]);
     }
 }

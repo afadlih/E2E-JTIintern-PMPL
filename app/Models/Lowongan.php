@@ -19,15 +19,13 @@ class Lowongan extends Model
 
     protected $fillable = [
         'judul_lowongan',
-        'nama_lowongan',
         'perusahaan_id',
         'periode_id',
         'jenis_id',
         'kapasitas',
-        'kuota',
         'min_ipk',
         'deskripsi',
-        'status',
+
     ];
 
     // ✅ TAMBAHKAN: Cast min_ipk sebagai decimal
@@ -59,6 +57,12 @@ class Lowongan extends Model
     {
         return $this->belongsToMany(Skill::class, 't_skill_lowongan', 'id_lowongan', 'id_skill')
             ->withoutTimestamps(); // Since t_skill_lowongan doesn't have timestamps
+    }
+
+    // Relationship to Minat (interests)
+    public function minats()
+    {
+        return $this->belongsToMany(Minat::class, 't_minat_lowongan', 'id_lowongan', 'minat_id');
     }
 
     public function kapasitas()

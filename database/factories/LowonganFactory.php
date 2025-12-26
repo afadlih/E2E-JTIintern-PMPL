@@ -34,15 +34,18 @@ class LowonganFactory extends Factory
 
         return [
             'judul_lowongan' => $judul,
-            'nama_lowongan' => $judul,
-            'perusahaan_id' => Perusahaan::factory(),
-            'periode_id' => Periode::factory(),
-            'jenis_id' => Jenis::factory(),
+            'perusahaan_id' => function () {
+                return Perusahaan::factory()->create()->perusahaan_id;
+            },
+            'periode_id' => function () {
+                return Periode::factory()->create()->periode_id;
+            },
+            'jenis_id' => function () {
+                return Jenis::factory()->create()->jenis_id;
+            },
             'kapasitas' => $kapasitas,
-            'kuota' => $kapasitas,
             'min_ipk' => fake()->randomFloat(2, 2.5, 3.5),
             'deskripsi' => fake()->paragraph(3),
-            'status' => 'aktif',
         ];
     }
 

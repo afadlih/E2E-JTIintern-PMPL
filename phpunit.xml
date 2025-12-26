@@ -10,6 +10,12 @@
     <testsuite name="Api">
       <directory suffix="Test.php">./tests/Api</directory>
     </testsuite>
+    <testsuite name="Integration">
+      <directory suffix="Test.php">./tests/Integration</directory>
+    </testsuite>
+    <testsuite name="E2E">
+      <directory suffix="Test.php">./tests/E2E</directory>
+    </testsuite>
   </testsuites>
 
   <!-- Logging and Reports -->
@@ -33,6 +39,8 @@
     <env name="QUEUE_CONNECTION" value="sync"/>
     <env name="SESSION_DRIVER" value="array"/>
     <env name="TELESCOPE_ENABLED" value="false"/>
+    <!-- E2E Testing Configuration -->
+    <env name="E2E_BASE_URL" value="http://localhost"/>
   </php>
   <source>
     <include>

@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('m_mahasiswa', function (Blueprint $table) {
-            // Update kota column if needed
-            // This migration seems to be for updating kota field in m_mahasiswa
-        });
+        // Migration ini seharusnya untuk update kota di m_mahasiswa
+        // Tabel m_notifikasi dipindah ke migration 2025_06_08_082936_create_m_notifikasi_table.php
     }
 
     /**
@@ -22,8 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('m_mahasiswa', function (Blueprint $table) {
-            // Reverse the changes
-        });
+        // Rollback untuk update kota
     }
 };

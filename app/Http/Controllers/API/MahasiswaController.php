@@ -27,14 +27,14 @@ class MahasiswaController extends Controller
                 ->leftJoin('m_magang as mg', 'm.id_mahasiswa', '=', 'mg.id_mahasiswa')
                 ->select(
                     'm.id_mahasiswa',
-                    'u.name',
+                    'u.name as nama',
                     'u.email',
                     'm.nim',
                     'm.alamat',
                     'm.ipk',
                     'k.id_kelas',
                     'k.nama_kelas',
-                    DB::raw('CASE 
+                    DB::raw('CASE
                         WHEN mg.id_mahasiswa IS NOT NULL THEN "Sedang Magang"
                         ELSE "Belum Magang"
                     END as status_magang')
@@ -57,7 +57,7 @@ class MahasiswaController extends Controller
             $mahasiswa = $query->orderBy('u.name')->get();
 
             return response()->json([
-                'success' => true,
+                'status' => 'success',
                 'data' => $mahasiswa
             ]);
         } catch (\Exception $e) {
@@ -105,7 +105,7 @@ class MahasiswaController extends Controller
             DB::commit();
 
             return response()->json([
-                'success' => true,
+                'status' => 'success',
                 'message' => 'Mahasiswa berhasil ditambahkan.',
                 'data' => [
                     'user' => [
@@ -121,7 +121,7 @@ class MahasiswaController extends Controller
                         'alamat' => $mahasiswa->alamat,
                     ]
                 ]
-            ]);
+            ], 201);
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error creating mahasiswa: ' . $e->getMessage());
@@ -161,7 +161,7 @@ class MahasiswaController extends Controller
                 ->first();
 
             return response()->json([
-                'success' => true,
+                'status' => 'success',
                 'data' => [
                     'id_mahasiswa' => $mahasiswa->id_mahasiswa,
                     'name' => $mahasiswa->user->name,
@@ -179,7 +179,7 @@ class MahasiswaController extends Controller
         } catch (\Exception $e) {
             Log::error('Error fetching mahasiswa detail: ' . $e->getMessage());
             return response()->json([
-                'success' => false,
+                'status' => 'error',
                 'message' => 'Mahasiswa tidak ditemukan: ' . $e->getMessage()
             ], 404);
         }
@@ -366,7 +366,7 @@ class MahasiswaController extends Controller
                     $alamat = trim($row[2]);
                     $ipk = !empty(trim($row[3])) ? floatval(trim($row[3])) : null;
                     $nama_kelas = trim($row[4]);
-                    
+
                     // ✅ PERBAIKAN: Email handling yang lebih baik
                     $email = '';
                     if (isset($row[5]) && !empty(trim($row[5]))) {
@@ -472,7 +472,7 @@ class MahasiswaController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => "Import selesai. {$successCount} data berhasil diimpor" . 
+                'message' => "Import selesai. {$successCount} data berhasil diimpor" .
                             ($errorCount > 0 ? ", {$errorCount} data gagal" : ""),
                 'data' => [
                     'success_count' => $successCount,
@@ -542,7 +542,7 @@ class MahasiswaController extends Controller
                     'm.alamat',
                     'm.ipk',
                     'u.email',
-                    DB::raw('CASE 
+                    DB::raw('CASE
                         WHEN mg.id_mahasiswa IS NOT NULL THEN "Sedang Magang"
                         ELSE "Belum Magang"
                     END as status_magang')
@@ -563,7 +563,7 @@ class MahasiswaController extends Controller
             }
 
             $mahasiswa = $query->orderBy('u.name')->get();
-            
+
             if ($mahasiswa->isEmpty()) {
                 return response()->json([
                     'success' => false,
@@ -578,17 +578,17 @@ class MahasiswaController extends Controller
 
             $pdf = Pdf::loadHTML($html);
             $pdf->setPaper('a4', 'landscape');
-            
+
             Log::info('PDF generated successfully', [
                 'filename' => "data_mahasiswa_{$timestamp}.pdf",
                 'total_records' => $mahasiswa->count()
             ]);
 
             return $pdf->download("data_mahasiswa_{$timestamp}.pdf");
-            
+
         } catch (\Exception $e) {
             Log::error('Error exporting PDF: ' . $e->getMessage());
-            
+
             return response()->json([
                 'success' => false,
                 'message' => 'Terjadi kesalahan saat mengeksport PDF: ' . $e->getMessage()
@@ -603,7 +603,7 @@ class MahasiswaController extends Controller
     {
         $totalRecords = $mahasiswa->count();
         $filterInfo = '';
-        
+
         if ($request->filled('kelas') || $request->filled('search')) {
             $filterInfo = '<p><strong>Filter Diterapkan:</strong> ';
             if ($request->filled('kelas')) {

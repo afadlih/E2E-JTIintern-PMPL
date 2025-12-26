@@ -51,81 +51,168 @@
         </style>
     </head>
     <body>
-        <h2>Helper Functions (Tests\Unit\Helpers\HelperFunctions)</h2>
+        <h2>Admin Authorization (Tests\Api\Admin\AdminAuthorization)</h2>
         <ul>
-            <li class="success">Format nim with valid input</li>
-            <li class="success">Calculate ipk average</li>
-            <li class="success">Validate email format</li>
-            <li class="success">Generate random password</li>
-            <li class="success">Sanitize user input</li>
-            <li class="success">Calculate percentage</li>
-            <li class="success">String contains case insensitive</li>
-            <li class="success">Array to comma separated string</li>
-            <li class="success">Value is within range</li>
-            <li class="success">Round number to decimal places</li>
+            <li class="success">Api admin mahasiswa unauthorized no token</li>
+            <li class="success">Api admin mahasiswa unauthorized invalid token</li>
+            <li class="success">Api periode unauthorized no token</li>
+            <li class="success">Api periode post unauthorized</li>
+            <li class="success">Api admin endpoint with expired token</li>
         </ul>
-        <h2>Login (Tests\Feature\Auth\Login)</h2>
+        <h2>Admin Mahasiswa Api (Tests\Api\Admin\AdminMahasiswaApi)</h2>
         <ul>
-            <li class="success">Admin dapat login dengan credentials benar</li>
-            <li class="success">Login gagal dengan password salah</li>
-            <li class="success">Mahasiswa redirect ke mahasiswa dashboard</li>
-            <li class="success">Dosen redirect ke dosen dashboard</li>
-            <li class="success">Login validation email required</li>
-            <li class="success">Login validation password required</li>
-            <li class="success">User dapat logout</li>
-            <li class="success">Login dengan remember me</li>
+            <li class="success">Api get all mahasiswa</li>
+            <li class="success">Api create mahasiswa berhasil</li>
+            <li class="success">Api create mahasiswa nim duplicate</li>
+            <li class="success">Api search mahasiswa</li>
+            <li class="success">Api create mahasiswa missing fields</li>
         </ul>
-        <h2>Mahasiswa CRUD (Tests\Feature\Admin\MahasiswaCRUD)</h2>
+        <h2>Admin Mahasiswa Search (Tests\Api\Admin\AdminMahasiswaSearch)</h2>
         <ul>
-            <li class="success">Admin dapat melihat daftar mahasiswa</li>
-            <li class="success">Admin berhasil menambah mahasiswa baru</li>
-            <li class="success">Admin tidak bisa menambah mahasiswa nim duplikat</li>
-            <li class="success">Admin berhasil update data mahasiswa</li>
-            <li class="success">Admin berhasil menghapus mahasiswa</li>
-            <li class="success">Tambah mahasiswa validation nim required</li>
-            <li class="success">Tambah mahasiswa validation email invalid</li>
-            <li class="success">Admin dapat search mahasiswa</li>
-            <li class="success">Guest tidak bisa akses halaman admin</li>
-            <li class="success">Mahasiswa tidak bisa akses halaman admin</li>
+            <li class="success">Api search mahasiswa empty query</li>
+            <li class="success">Api search mahasiswa special characters</li>
+            <li class="success">Api search mahasiswa very long query</li>
+            <li class="success">Api filter mahasiswa invalid kelas id</li>
+            <li class="success">Api mahasiswa list pagination</li>
         </ul>
-        <h2>Mahasiswa Model (Tests\Unit\Models\MahasiswaModel)</h2>
+        <h2>Admin Mahasiswa Validation (Tests\Api\Admin\AdminMahasiswaValidation)</h2>
         <ul>
-            <li class="success">Mahasiswa memiliki relasi lamaran</li>
-            <li class="success">Check mahasiswa sudah apply lowongan</li>
-            <li class="success">Filter mahasiswa by ipk minimal</li>
-            <li class="success">Mahasiswa full name accessor</li>
-            <li class="success">Mahasiswa eligible untuk apply</li>
-            <li class="success">Count lamaran pending mahasiswa</li>
-            <li class="success">Mahasiswa dengan status magang aktif</li>
-            <li class="success">Filter mahasiswa by kelas</li>
-            <li class="success">Nim format validation</li>
-            <li class="success">Mahasiswa dapat di soft delete</li>
+            <li class="success">Api mahasiswa validation name max length</li>
+            <li class="success">Api mahasiswa validation email format invalid</li>
+            <li class="success">Api mahasiswa validation password min length</li>
+            <li class="success">Api mahasiswa validation id kelas invalid</li>
+            <li class="success">Api mahasiswa validation nim format</li>
         </ul>
-        <h2>SPKRecommendation Service (Tests\Unit\Services\SPKRecommendationService)</h2>
+        <h2>Admin Periode Api (Tests\Api\Admin\AdminPeriodeApi)</h2>
         <ul>
-            <li class="success">CalculateEDASRecommendation dengan data valid</li>
-            <li class="success">CalculateEDASRecommendation mahasiswa tidak ditemukan</li>
-            <li class="success">CalculateEDASRecommendation tidak ada lowongan</li>
-            <li class="success">CalculateSAWRecommendation dengan data valid</li>
-            <li class="success">CalculateSAWRecommendation profil tidak lengkap</li>
-            <li class="success">GetCriteriaWeights valid configuration</li>
-            <li class="defect">CalculateEDASRecommendation handle database exception</li>
-            <li class="success">CalculateEDASRecommendation ranking sorted by score</li>
-            <li class="success">CalculateEDASRecommendation dengan kapasitas penuh</li>
-            <li class="success">CalculateEDASRecommendation performance dengan banyak lowongan</li>
+            <li class="success">Api get periode list</li>
+            <li class="success">Api create periode berhasil</li>
+            <li class="success">Api create periode validation error</li>
+            <li class="success">Api get periode by id</li>
+            <li class="success">Api get periode not found</li>
         </ul>
-        <h2>Validation Logic (Tests\Unit\Services\ValidationLogic)</h2>
+        <h2>Admin Periode Validation (Tests\Api\Admin\AdminPeriodeValidation)</h2>
         <ul>
-            <li class="success">Validate nim format valid</li>
-            <li class="success">Validate nim format invalid kurang 10 digit</li>
-            <li class="success">Validate nim format invalid dengan huruf</li>
-            <li class="success">Validate ipk range valid</li>
-            <li class="success">Validate ipk range invalid</li>
-            <li class="success">Check mahasiswa eligible ipk minimal</li>
-            <li class="success">Calculate average rating</li>
-            <li class="success">Calculate average array kosong</li>
-            <li class="success">Check capacity lowongan penuh</li>
-            <li class="success">Check capacity lowongan tersedia</li>
+            <li class="success">Api periode validation waktu required</li>
+            <li class="success">Api periode validation tgl mulai date format</li>
+            <li class="success">Api periode validation tgl selesai after tgl mulai</li>
+            <li class="success">Api periode validation all fields empty</li>
+            <li class="success">Api periode get nonexistent id</li>
+        </ul>
+        <h2>Array Validation (Tests\Api\Validation\ArrayValidation)</h2>
+        <ul>
+            <li class="success">Api login username array</li>
+            <li class="success">Api login password array</li>
+            <li class="success">Api login both fields arrays</li>
+            <li class="success">Api login username empty array</li>
+            <li class="success">Api login password empty array</li>
+            <li class="success">Api login username nested array</li>
+            <li class="success">Api login username associative array</li>
+            <li class="success">Api login password associative array</li>
+            <li class="success">Api login username mixed array</li>
+            <li class="success">Api login entire payload nested</li>
+        </ul>
+        <h2>Auth Validation (Tests\Api\Auth\AuthValidation)</h2>
+        <ul>
+            <li class="success">Api login validation email format</li>
+            <li class="success">Api login validation email required</li>
+            <li class="success">Api login validation password required</li>
+            <li class="success">Api login with non existent user</li>
+            <li class="success">Api get user without authentication</li>
+        </ul>
+        <h2>Boolean Validation (Tests\Api\Validation\BooleanValidation)</h2>
+        <ul>
+            <li class="success">Api login username boolean true</li>
+            <li class="success">Api login username boolean false</li>
+            <li class="success">Api login password boolean true</li>
+            <li class="success">Api login password boolean false</li>
+            <li class="success">Api login both fields boolean true</li>
+            <li class="success">Api login both fields boolean false</li>
+            <li class="success">Api login username string true</li>
+            <li class="success">Api login username string false</li>
+            <li class="success">Api login password string yes</li>
+            <li class="success">Api login password string no</li>
+        </ul>
+        <h2>Edge Case (Tests\Api\Validation\EdgeCase)</h2>
+        <ul>
+            <li class="success">Api login request without content type</li>
+            <li class="success">Api login username with leading spaces</li>
+            <li class="success">Api login username with trailing spaces</li>
+            <li class="success">Api login password with leading spaces</li>
+            <li class="success">Api login password with trailing spaces</li>
+            <li class="success">Api login case sensitive username</li>
+            <li class="success">Api login username minimum one char</li>
+            <li class="success">Api login password minimum one char</li>
+            <li class="success">Api login username with underscore</li>
+            <li class="success">Api login username with hyphen</li>
+        </ul>
+        <h2>Login Api (Tests\Api\Auth\LoginApi)</h2>
+        <ul>
+            <li class="success">Api login admin berhasil</li>
+            <li class="success">Api login credentials salah</li>
+            <li class="success">Api login mahasiswa berhasil</li>
+            <li class="success">Api login tanpa username</li>
+            <li class="success">Api login tanpa password</li>
+            <li class="success">Api logout berhasil</li>
+            <li class="success">Api get authenticated user</li>
+            <li class="success">Api get user tanpa token</li>
+            <li class="success">Api login dosen berhasil</li>
+            <li class="success">Api logout tanpa token</li>
+        </ul>
+        <h2>Login Edge Case (Tests\Api\Auth\LoginEdgeCase)</h2>
+        <ul>
+            <li class="success">Api login username null</li>
+            <li class="success">Api login password null</li>
+            <li class="success">Api login both fields null</li>
+            <li class="success">Api login empty json body</li>
+            <li class="success">Api login extra fields ignored</li>
+        </ul>
+        <h2>Numeric Validation (Tests\Api\Validation\NumericValidation)</h2>
+        <ul>
+            <li class="success">Api login username numeric</li>
+            <li class="success">Api login password numeric</li>
+            <li class="success">Api login username zero</li>
+            <li class="success">Api login password zero</li>
+            <li class="success">Api login username negative number</li>
+            <li class="success">Api login username float</li>
+            <li class="success">Api login password float</li>
+            <li class="success">Api login username scientific notation</li>
+            <li class="success">Api login password large number</li>
+            <li class="success">Api login both fields numbers</li>
+        </ul>
+        <h2>Special Character (Tests\Api\Validation\SpecialCharacter)</h2>
+        <ul>
+            <li class="success">Api login username with quotes</li>
+            <li class="success">Api login username with single quotes</li>
+            <li class="success">Api login username with backslash</li>
+            <li class="success">Api login username with percent</li>
+            <li class="success">Api login username with ampersand</li>
+            <li class="success">Api login password with equals</li>
+            <li class="success">Api login password with plus</li>
+            <li class="success">Api login password with asterisk</li>
+            <li class="success">Api login username with dollar</li>
+            <li class="success">Api login username with exclamation</li>
+        </ul>
+        <h2>String Validation (Tests\Api\Validation\StringValidation)</h2>
+        <ul>
+            <li class="success">Api login username only spaces</li>
+            <li class="success">Api login username very long</li>
+            <li class="success">Api login password only spaces</li>
+            <li class="success">Api login username with newlines</li>
+            <li class="success">Api login username with tabs</li>
+            <li class="success">Api login password with unicode</li>
+            <li class="success">Api login username with emoji</li>
+            <li class="success">Api login both fields empty strings</li>
+            <li class="success">Api login username with sql comment</li>
+            <li class="success">Api login username with html tags</li>
+        </ul>
+        <h2>Token Management (Tests\Api\Auth\TokenManagement)</h2>
+        <ul>
+            <li class="success">Api access without token</li>
+            <li class="success">Api access with empty token</li>
+            <li class="success">Api access with malformed token</li>
+            <li class="success">Api logout without token</li>
+            <li class="success">Api get user without token</li>
         </ul>
     </body>
 </html>

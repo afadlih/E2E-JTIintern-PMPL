@@ -34,7 +34,7 @@ return new class extends Migration
             $table->index(['id_user', 'created_at']);
             $table->index('kategori');
 
-            // Foreign key constraint ke m_user (singular)
+            // Foreign key constraint
             $table->foreign('id_user')->references('id_user')->on('m_user')->onDelete('cascade');
         });
     }

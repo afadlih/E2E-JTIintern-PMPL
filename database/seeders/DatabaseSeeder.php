@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             MSkillSeeder::class,
             MProdiSeeder::class,
             MJenisSeeder::class,
+            MKelasSeeder::class, // Harus dipanggil sebelum MMahasiswaSeeder
             MMahasiswaSeeder::class,
             MDosenSeeder::class,
             MPerusahaanSeeder::class,

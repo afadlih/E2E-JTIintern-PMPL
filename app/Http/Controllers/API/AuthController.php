@@ -30,7 +30,7 @@ class AuthController extends Controller
                 'data' => [
                     'user' => $user,
                     'token' => $token,
-                    'role' => $user->role,
+                    'role' => $user->role
                 ]
             ]);
         }
@@ -39,11 +39,6 @@ class AuthController extends Controller
             'status' => 'error',
             'message' => 'Invalid credentials'
         ], 401);
-    }
-
-    public function user(Request $request)
-    {
-        return response()->json($request->user());
     }
 
     public function logout(Request $request)

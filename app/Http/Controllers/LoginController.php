@@ -58,9 +58,9 @@ class LoginController extends Controller
                     return redirect()->intended('/mahasiswa/dashboard');
                 default:
                     return redirect()->intended('/dashboard');
-            }
         }
-
+        
+    }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);

@@ -16,27 +16,27 @@ class DocumentSeeder extends Seeder
     {
         DB::table('m_dokumen')->insert([
             [
-                'id_user' => 3, // Pastikan user dengan ID 1 ada di tabel users
-                'file_name' => 'cv_admin.pdf',
-                'file_path' => 'uploads/documents/cv_admin.pdf',
+                'id_user' => 3, // First mahasiswa
+                'file_name' => 'cv_mahasiswa1.pdf',
+                'file_path' => 'uploads/documents/cv_mahasiswa1.pdf',
                 'file_type' => 'CV',
-                'description' => 'Curriculum Vitae for Admin User',
+                'description' => 'Curriculum Vitae for Mahasiswa 1',
                 'upload_date' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'id_user' => 3, // Pastikan user dengan ID 2 ada di tabel users
-                'file_name' => 'cover_letter_admin.pdf',
-                'file_path' => 'uploads/documents/cover_letter_admin.pdf',
+                'id_user' => 4, // Second mahasiswa
+                'file_name' => 'cover_letter_mahasiswa2.pdf',
+                'file_path' => 'uploads/documents/cover_letter_mahasiswa2.pdf',
                 'file_type' => 'Surat Pengantar',
-                'description' => 'Cover Letter for Admin User',
+                'description' => 'Cover Letter for Mahasiswa 2',
                 'upload_date' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'id_user' => 3, // Pastikan user dengan ID 3 ada di tabel users
+                'id_user' => 5, // Third mahasiswa
                 'file_name' => 'certificate_internship.pdf',
                 'file_path' => 'uploads/documents/certificate_internship.pdf',
                 'file_type' => 'Sertifikat',

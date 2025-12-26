@@ -23,7 +23,6 @@ use App\Http\Controllers\API\Dosen\DosenProfileController;
 use App\Http\Controllers\API\Dosen\ProfileController as DosenProfile;
 use App\Http\Controllers\API\NotificationController;
 use App\Http\Controllers\EvaluasiMagangController;
-use App\Http\Controllers\API\Admin\AdminMahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,11 +51,13 @@ Route::get('/wilayah', [WilayahController::class, 'index']);
 // 2. AUTHENTICATION ROUTES
 // =========================================================
 Route::post('/login', [AuthController::class, 'login']);
-// Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/user', [AuthController::class, 'user']);
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
 });
 
 // =========================================================
@@ -181,26 +182,17 @@ Route::middleware(['api', 'web', 'auth:sanctum', 'role:admin,superadmin'])->grou
     Route::get('/dashboard/summary', [DashboardController::class, 'getSummary']);
     Route::get('/dashboard/latest-applications', [DashboardController::class, 'getLatestApplications']);
 
-    // Admin Mahasiswa API Routes (for testing)
+    // Mahasiswa Management
     Route::prefix('admin')->group(function () {
-        Route::get('/mahasiswa', [AdminMahasiswaController::class, 'index']);
-        Route::get('/mahasiswa/search', [AdminMahasiswaController::class, 'search']); // BEFORE {id}
-        Route::get('/mahasiswa/filter/kelas', [AdminMahasiswaController::class, 'filterByKelas']); // BEFORE {id}
-        Route::get('/mahasiswa/{id}', [AdminMahasiswaController::class, 'show']);
-        Route::post('/mahasiswa', [AdminMahasiswaController::class, 'store']);
-        Route::put('/mahasiswa/{id}', [AdminMahasiswaController::class, 'update']);
-        Route::delete('/mahasiswa/{id}', [AdminMahasiswaController::class, 'destroy']);
+        Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+        Route::post('/mahasiswa', [MahasiswaController::class, 'store']);
+        Route::get('/mahasiswa/{id}', [MahasiswaController::class, 'show']);
+        Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
+        Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy']);
     });
-
-    // Mahasiswa Management (existing)
     Route::get('/export/pdf', [MahasiswaController::class, 'exportPDF']);
     Route::post('/import', [MahasiswaController::class, 'importCSV']);
     Route::get('/template', [MahasiswaController::class, 'downloadTemplate']);
-    Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-    Route::post('/mahasiswa', [MahasiswaController::class, 'store']);
-    Route::get('/mahasiswa/{id}', [MahasiswaController::class, 'show']);
-    Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
-    Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy']);
     Route::get('/kelas-options', [MahasiswaController::class, 'getKelasOptions']);
 
 
@@ -318,7 +310,7 @@ Route::middleware(['api', 'web', 'auth:sanctum', 'role:dosen'])->group(function 
     Route::post('dosen/profile/minat', [DosenProfile::class, 'updateMinat']);
     Route::get('dosen/profile/skills', [DosenProfile::class, 'getSkills']);
     Route::post('dosen/profile/skills', [DosenProfile::class, 'updateSkills']);
-    Route::post('/dosen/profile/update', [DosenProfile::class, 'update'])->name('dosen.profile.update');
+    Route::post('/dosen/profile/update', [DosenProfile::class, 'update'])->name('api.dosen.profile.update');
     Route::get('/periode-list', [DosenMaha::class, 'getPeriodeList']);
     Route::get('/dosen/magang/{magangId}/evaluation-status', [DosenMaha::class, 'checkEvaluationStatus']);
     Route::get('/mahasiswa/{id}/info', [DosenMaha::class, 'getMahasiswaInfo']);

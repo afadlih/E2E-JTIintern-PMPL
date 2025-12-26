@@ -19,4 +19,9 @@ class Minat extends Model
     {
         return $this->belongsToMany(Dosen::class, 't_minat_dosen', 'minat_id', 'dosen_id');
     }
+    
+    public function lowongans()
+    {
+        return $this->belongsToMany(Lowongan::class, 't_minat_lowongan', 'minat_id', 'id_lowongan');
+    }
 }

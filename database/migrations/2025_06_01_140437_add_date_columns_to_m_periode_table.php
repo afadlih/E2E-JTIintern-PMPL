@@ -14,12 +14,8 @@ class AddDateColumnsToMPeriodeTable extends Migration
     public function up()
     {
         Schema::table('m_periode', function (Blueprint $table) {
-            if (!Schema::hasColumn('m_periode', 'tgl_mulai')) {
-                $table->date('tgl_mulai')->nullable()->after('waktu');
-            }
-            if (!Schema::hasColumn('m_periode', 'tgl_selesai')) {
-                $table->date('tgl_selesai')->nullable()->after('tgl_mulai');
-            }
+            $table->date('tgl_mulai')->nullable()->after('waktu');
+            $table->date('tgl_selesai')->nullable()->after('tgl_mulai');
         });
     }
 
