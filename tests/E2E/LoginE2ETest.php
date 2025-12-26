@@ -24,34 +24,34 @@ class LoginE2ETest extends TestCase
 
     /**
      * Test E2E: Homepage dapat diakses
-     * 
+     *
      * @group e2e
      * @group e2e-basic
      */
     public function test_homepage_accessible(): void
     {
         $response = Http::get($this->getBaseUrl());
-        
+
         $this->assertEquals(200, $response->status(), 'Homepage should return 200 OK');
         $this->assertNotEmpty($response->body(), 'Homepage should have content');
     }
 
     /**
      * Test E2E: Login page dapat diakses
-     * 
+     *
      * @group e2e
      * @group e2e-auth
      */
     public function test_login_page_accessible(): void
     {
         $response = Http::get($this->getBaseUrl() . '/login');
-        
+
         $this->assertContains($response->status(), [200, 302], 'Login page should be accessible');
     }
 
     /**
      * Test E2E: API login endpoint tersedia
-     * 
+     *
      * @group e2e
      * @group e2e-api
      */
@@ -61,44 +61,44 @@ class LoginE2ETest extends TestCase
             'email' => 'test@example.com',
             'password' => 'wrongpassword'
         ]);
-        
+
         // Endpoint harus ada (bukan 404)
         $this->assertNotEquals(404, $response->status(), 'API login endpoint should exist');
-        
+
         // Untuk credentials salah, expect 401 atau 422
         $this->assertContains($response->status(), [401, 422], 'Invalid credentials should return 401 or 422');
     }
 
     /**
      * Test E2E: API health check
-     * 
+     *
      * @group e2e
      * @group e2e-api
      */
     public function test_api_health_check(): void
     {
         $response = Http::get($this->getBaseUrl() . '/api/health');
-        
+
         // Health check bisa return 200 atau 404 jika tidak diimplementasikan
         $this->assertContains($response->status(), [200, 404], 'API health endpoint check');
     }
 
     /**
      * Test E2E: Static assets dapat diakses
-     * 
+     *
      * @group e2e
      * @group e2e-basic
      */
     public function test_static_assets_accessible(): void
     {
         $response = Http::get($this->getBaseUrl() . '/robots.txt');
-        
+
         $this->assertContains($response->status(), [200, 404], 'Static files should be accessible or not found');
     }
 
     /**
      * Test E2E: API mendukung JSON response
-     * 
+     *
      * @group e2e
      * @group e2e-api
      */
@@ -111,7 +111,7 @@ class LoginE2ETest extends TestCase
             'email' => 'test@example.com',
             'password' => 'test'
         ]);
-        
+
         // Check if response is JSON
         $contentType = $response->header('Content-Type');
         $this->assertStringContainsString('application/json', $contentType ?? '', 'API should return JSON');
@@ -119,7 +119,7 @@ class LoginE2ETest extends TestCase
 
     /**
      * Test E2E: CORS headers check (untuk production deployment)
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      */
@@ -128,7 +128,7 @@ class LoginE2ETest extends TestCase
         $response = Http::withHeaders([
             'Origin' => 'https://example.com'
         ])->get($this->getBaseUrl() . '/api/login');
-        
+
         // Check CORS headers ada
         $this->assertTrue(
             $response->header('Access-Control-Allow-Origin') !== null ||
@@ -139,7 +139,7 @@ class LoginE2ETest extends TestCase
 
     /**
      * Test E2E: Rate limiting check
-     * 
+     *
      * @group e2e
      * @group e2e-security
      */
@@ -153,7 +153,7 @@ class LoginE2ETest extends TestCase
                 'password' => 'test'
             ])->status();
         }
-        
+
         // If rate limiting exists, should get 429 at some point
         // If not, all will be 422 (validation) or 401 (unauthorized)
         $this->assertTrue(

@@ -12,7 +12,7 @@ use App\Models\Kelas;
 /**
  * Integration Tests untuk User Authentication Flow
  * Testing integrasi antara User, Mahasiswa, dan Authentication
- * 
+ *
  * @group integration
  * @group integration-auth
  */
@@ -22,7 +22,7 @@ class UserAuthenticationIntegrationTest extends TestCase
 
     /**
      * Test integrasi: User creation dengan role mahasiswa
-     * 
+     *
      * @group integration
      */
     public function test_create_user_with_mahasiswa_role(): void
@@ -44,7 +44,7 @@ class UserAuthenticationIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Login flow complete
-     * 
+     *
      * @group integration
      * @group integration-api
      */
@@ -76,7 +76,7 @@ class UserAuthenticationIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Logout removes token
-     * 
+     *
      * @group integration
      */
     public function test_logout_removes_token(): void
@@ -103,7 +103,7 @@ class UserAuthenticationIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Failed login attempt
-     * 
+     *
      * @group integration
      */
     public function test_failed_login_attempt(): void
@@ -124,7 +124,7 @@ class UserAuthenticationIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Multiple login attempts tracking
-     * 
+     *
      * @group integration
      */
     public function test_multiple_login_attempts(): void
@@ -153,7 +153,7 @@ class UserAuthenticationIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Token expiration (if implemented)
-     * 
+     *
      * @group integration
      */
     public function test_token_usage(): void

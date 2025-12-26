@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 /**
  * End-to-End Tests untuk Deployment Environment
  * Tests khusus untuk verifikasi production/staging deployment
- * 
+ *
  * @group e2e
  * @group e2e-deployment
  */
@@ -21,7 +21,7 @@ class DeploymentE2ETest extends TestCase
 
     /**
      * Test E2E: Application is online and responding
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      * @group e2e-smoke
@@ -29,7 +29,7 @@ class DeploymentE2ETest extends TestCase
     public function test_application_is_online(): void
     {
         $response = Http::timeout(10)->get($this->getBaseUrl());
-        
+
         $this->assertTrue(
             $response->successful() || $response->redirect(),
             'Application should be online and responding'
@@ -38,7 +38,7 @@ class DeploymentE2ETest extends TestCase
 
     /**
      * Test E2E: HTTPS redirect (for production)
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      * @group e2e-security
@@ -47,9 +47,9 @@ class DeploymentE2ETest extends TestCase
     {
         if (str_starts_with($this->getBaseUrl(), 'https://')) {
             $httpUrl = str_replace('https://', 'http://', $this->getBaseUrl());
-            
+
             $response = Http::withoutRedirecting()->get($httpUrl);
-            
+
             // Production should redirect HTTP to HTTPS
             $this->assertContains(
                 $response->status(),
@@ -64,7 +64,7 @@ class DeploymentE2ETest extends TestCase
     /**
      * Test E2E: Database connection is working
      * Test via API yang butuh database
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      * @group e2e-database
@@ -76,7 +76,7 @@ class DeploymentE2ETest extends TestCase
             'email' => 'test@test.com',
             'password' => 'password'
         ]);
-        
+
         // If we get 422 (validation) or 401 (wrong creds), database is working
         // If we get 500, there might be database issues
         $this->assertNotEquals(500, $response->status(), 'No server errors - database connection works');
@@ -85,7 +85,7 @@ class DeploymentE2ETest extends TestCase
 
     /**
      * Test E2E: Response time acceptable
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      * @group e2e-performance
@@ -95,32 +95,32 @@ class DeploymentE2ETest extends TestCase
         $start = microtime(true);
         $response = Http::get($this->getBaseUrl());
         $duration = microtime(true) - $start;
-        
+
         // Response should be under 5 seconds
         $this->assertLessThan(5.0, $duration, 'Response time should be under 5 seconds');
-        
+
         // Log the actual time for monitoring
         echo "\nResponse time: " . round($duration, 3) . " seconds";
     }
 
     /**
      * Test E2E: Environment is properly configured
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      */
     public function test_environment_configured(): void
     {
         $response = Http::get($this->getBaseUrl() . '/api/test-endpoint-that-does-not-exist');
-        
+
         // Should get 404, not 500 or debug page
         $this->assertEquals(404, $response->status(), 'Unknown routes should return 404');
-        
+
         // In production, shouldn't see debug info in response
         if (str_contains($this->getBaseUrl(), 'localhost')) {
             $this->markTestSkipped('Debug mode check only for non-local environments');
         }
-        
+
         $body = $response->body();
         $this->assertStringNotContainsString('APP_KEY', $body, 'Should not expose environment variables');
         $this->assertStringNotContainsString('DB_PASSWORD', $body, 'Should not expose sensitive data');
@@ -128,7 +128,7 @@ class DeploymentE2ETest extends TestCase
 
     /**
      * Test E2E: Security headers present
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      * @group e2e-security
@@ -136,13 +136,13 @@ class DeploymentE2ETest extends TestCase
     public function test_security_headers_present(): void
     {
         $response = Http::get($this->getBaseUrl());
-        
+
         $headers = $response->headers();
-        
+
         // Check for common security headers
         $hasXFrameOptions = isset($headers['X-Frame-Options']) || isset($headers['x-frame-options']);
         $hasXContentTypeOptions = isset($headers['X-Content-Type-Options']) || isset($headers['x-content-type-options']);
-        
+
         // At least some security headers should be present in production
         if (!str_contains($this->getBaseUrl(), 'localhost')) {
             $this->assertTrue(
@@ -150,13 +150,13 @@ class DeploymentE2ETest extends TestCase
                 'Security headers should be configured in production'
             );
         }
-        
+
         $this->assertTrue(true, 'Security headers check completed');
     }
 
     /**
      * Test E2E: File upload limits configured
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      */
@@ -168,7 +168,7 @@ class DeploymentE2ETest extends TestCase
             'dummy content',
             'test.txt'
         )->post($this->getBaseUrl() . '/api/admin/mahasiswa/upload');
-        
+
         // Should get proper response (401 auth, 422 validation, 404 endpoint not found)
         // Should NOT get 500 due to misconfigured upload settings
         $this->assertNotEquals(500, $response->status(), 'File upload should be properly configured');
@@ -176,27 +176,27 @@ class DeploymentE2ETest extends TestCase
 
     /**
      * Test E2E: Session/Cookie handling
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      */
     public function test_session_cookie_handling(): void
     {
         $response = Http::get($this->getBaseUrl());
-        
+
         // Check if cookies are being set
         $setCookieHeader = $response->header('Set-Cookie');
-        
+
         if (str_contains($this->getBaseUrl(), 'localhost')) {
             $this->assertNotNull($setCookieHeader, 'Application should set session cookies');
         }
-        
+
         $this->assertTrue(true, 'Cookie handling check completed');
     }
 
     /**
      * Test E2E: API documentation accessible (if available)
-     * 
+     *
      * @group e2e
      * @group e2e-deployment
      */
@@ -208,7 +208,7 @@ class DeploymentE2ETest extends TestCase
             '/api/docs',
             '/swagger',
         ];
-        
+
         $found = false;
         foreach ($endpoints as $endpoint) {
             $response = Http::get($this->getBaseUrl() . $endpoint);
@@ -217,7 +217,7 @@ class DeploymentE2ETest extends TestCase
                 break;
             }
         }
-        
+
         // Documentation is optional
         $this->assertTrue(true, 'API documentation check completed');
     }

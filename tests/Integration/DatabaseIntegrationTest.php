@@ -9,7 +9,7 @@ use App\Models\User;
 /**
  * Integration Tests untuk Database Connections
  * Testing integrasi database operations
- * 
+ *
  * @group integration
  * @group integration-database
  */
@@ -19,7 +19,7 @@ class DatabaseIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Database connection works
-     * 
+     *
      * @group integration
      */
     public function test_database_connection(): void
@@ -29,7 +29,7 @@ class DatabaseIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Migrations run successfully
-     * 
+     *
      * @group integration
      */
     public function test_migrations_create_tables(): void
@@ -54,7 +54,7 @@ class DatabaseIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Transaction rollback works
-     * 
+     *
      * @group integration
      */
     public function test_transaction_rollback(): void
@@ -79,7 +79,7 @@ class DatabaseIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Foreign key constraints work
-     * 
+     *
      * @group integration
      */
     public function test_foreign_key_constraints(): void
@@ -97,7 +97,7 @@ class DatabaseIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Seeded data is consistent
-     * 
+     *
      * @group integration
      */
     public function test_seeded_data_consistency(): void
@@ -111,7 +111,7 @@ class DatabaseIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Bulk insert performance
-     * 
+     *
      * @group integration
      * @group integration-performance
      */
@@ -139,7 +139,7 @@ class DatabaseIntegrationTest extends TestCase
 
     /**
      * Test integrasi: Query optimization with indexes
-     * 
+     *
      * @group integration
      * @group integration-performance
      */
