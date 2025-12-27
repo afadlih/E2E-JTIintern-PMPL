@@ -72,4 +72,10 @@ class Mahasiswa extends Model
     {
         return $this->belongsToMany(Minat::class, 't_minat_mahasiswa', 'mahasiswa_id', 'minat_id');
     }
+    public function memilikiMagangAktif(): bool
+    {
+        return $this->lamaran()
+            ->where('auth', 'diterima')
+            ->exists();
+    }
 }
