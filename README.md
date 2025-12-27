@@ -39,6 +39,7 @@ Project ini dilengkapi dengan dokumentasi testing lengkap untuk keperluan valida
 | Testing Guide | Panduan lengkap semua testing | [TESTING-DOCUMENTATION.md](TESTING-DOCUMENTATION.md) |
 | Validation Report | Summary untuk laporan formal | [VALIDATION-SUMMARY.md](VALIDATION-SUMMARY.md) |
 | Documentation Index | Navigation guide | [DOCUMENTATION-INDEX.md](DOCUMENTATION-INDEX.md) |
+| Performance Testing Results | Hasil lengkap pengujian kinerja K6 | [HASIL-PENGUJIAN-KINERJA.md](https://github.com/afadlih/E2E-JTIintern-PMPL/blob/Performance-Testing/tests/Performance/results/HASIL-PENGUJIAN-KINERJA.md) |
 
 ---
 
@@ -186,6 +187,45 @@ npx playwright test
 # Optional: Performance check
 .\tests\Performance\run-tests.ps1 -TestType quick
 ```
+
+---
+
+## Contributors
+
+Terima kasih kepada semua kontributor yang telah berkontribusi dalam project ini:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/afadlih">
+        <img src="https://github.com/afadlih.png?size=100" width="100px;" alt="Ahmad Fadlih Wahyu Sardana"/>
+        <br />
+        <sub><b>Ahmad Fadlih Wahyu Sardana</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Fabiqnn">
+        <img src="https://github.com/Fabiqnn.png?size=100" width="100px;" alt="Fabiqnn"/>
+        <br />
+        <sub><b>Fabiqnn</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/uhamhz">
+        <img src="https://github.com/uhamhz.png?size=100" width="100px;" alt="uhamhz"/>
+        <br />
+        <sub><b>uhamhz</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/larasaticindy">
+        <img src="https://github.com/larasaticindy.png?size=100" width="100px;" alt="Cindy Laili Larasati"/>
+        <br />
+        <sub><b>Cindy Laili Larasati</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 ---
 
