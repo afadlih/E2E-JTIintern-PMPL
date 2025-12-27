@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('m_lowongan', function (Blueprint $table) {
-            $table->decimal('min_ipk', 3, 2)->default(0.00)->after('kapasitas');
+            if (!Schema::hasColumn('m_lowongan', 'min_ipk')) {
+                $table->decimal('min_ipk', 3, 2)->default(0.00)->after('kapasitas');
+            }
         });
     }
 

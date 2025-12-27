@@ -22,22 +22,27 @@ class LowonganFactory extends Factory
      */
     public function definition(): array
     {
+        $judul = fake()->randomElement([
+            'Web Developer',
+            'Mobile Developer',
+            'Data Analyst',
+            'UI/UX Designer',
+            'Network Engineer',
+            'System Administrator'
+        ]);
+        $kapasitas = fake()->numberBetween(1, 10);
+
         return [
-            'judul_lowongan' => fake()->randomElement([
-                'Web Developer',
-                'Mobile Developer',
-                'Data Analyst',
-                'UI/UX Designer',
-                'Network Engineer',
-                'System Administrator'
-            ]),
+            'judul_lowongan' => $judul,
+            'nama_lowongan' => $judul,
             'perusahaan_id' => Perusahaan::factory(),
             'periode_id' => Periode::factory(),
-            'jenis_id' => fake()->numberBetween(1, 3), // Assuming 1-3 jenis exists
-            'kapasitas' => fake()->numberBetween(1, 10),
+            'jenis_id' => Jenis::factory(),
+            'kapasitas' => $kapasitas,
+            'kuota' => $kapasitas,
             'min_ipk' => fake()->randomFloat(2, 2.5, 3.5),
             'deskripsi' => fake()->paragraph(3),
-            'jenis_id' => Jenis::factory()
+            'status' => 'aktif',
         ];
     }
 

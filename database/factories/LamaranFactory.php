@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Dokumen;
-use App\Models\Dosen;
-use App\Models\Lowongan;
+use App\Models\Lamaran;
 use App\Models\Mahasiswa;
+use App\Models\Lowongan;
+use App\Models\Dosen;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

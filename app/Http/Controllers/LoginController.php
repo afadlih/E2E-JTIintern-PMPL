@@ -61,6 +61,24 @@ class LoginController extends Controller
             }
         }
 
+        // Debug: log details about failed login attempts to help E2E troubleshooting.
+        try {
+            $email = $request->input('email');
+            $pwd = $request->input('password');
+            $user = User::where('email', $email)->first();
+            $userExists = $user ? true : false;
+            $passwordMatches = $user && isset($user->password) ? \Illuminate\Support\Facades\Hash::check($pwd, $user->password) : false;
+            \Illuminate\Support\Facades\Log::info('Failed login attempt', [
+                'email' => $email,
+                'password_length' => is_string($pwd) ? strlen($pwd) : 0,
+                'user_exists' => $userExists,
+                'password_matches' => $passwordMatches,
+            ]);
+        } catch (\Throwable $e) {
+            // don't break normal flow if logging fails
+            \Illuminate\Support\Facades\Log::error('Login debug logging failed: ' . $e->getMessage());
+        }
+
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);

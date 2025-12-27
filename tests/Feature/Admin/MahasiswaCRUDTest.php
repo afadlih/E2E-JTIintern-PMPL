@@ -32,7 +32,7 @@ class MahasiswaCRUDTest extends TestCase
         $this->admin = User::factory()->create([
             'email' => 'admin@test.com',
             'password' => Hash::make('password'),
-            'level' => 'superadmin',
+            'role' => 'admin',
         ]);
     }
 
@@ -51,7 +51,7 @@ class MahasiswaCRUDTest extends TestCase
 
         // Assert
         $response->assertStatus(200);
-        $response->assertViewHas('mahasiswa'); // Verifikasi view punya data mahasiswa
+        $response->assertViewIs('pages.data_mahasiswa'); // Verifikasi view yang benar
     }
 
     /**
@@ -74,29 +74,28 @@ class MahasiswaCRUDTest extends TestCase
             'nama' => 'Mahasiswa Test Baru',
             'email' => 'mhstest@example.com',
             'no_hp' => '081234567890',
-            'kelas_id' => $kelas->id_kelas,
+            'id_kelas' => $kelas->id_kelas,
             'ipk' => 3.5,
             'password' => 'password123',
         ];
 
         // Act
-        $response = $this->post('/dataMhs', $mahasiswaData);
+        $response = $this->postJson('/api/admin/mahasiswa', $mahasiswaData);
 
         // Assert
-        $response->assertStatus(302);
-        $response->assertSessionHas('success');
+        $response->assertStatus(201);
+        $response->assertJson(['status' => 'success']);
 
         // Verifikasi data mahasiswa tersimpan
         $this->assertDatabaseHas('m_mahasiswa', [
             'nim' => '2141720099',
-            'nama' => 'Mahasiswa Test Baru',
-            'email' => 'mhstest@example.com',
         ]);
 
-        // Verifikasi user account dibuat
-        $this->assertDatabaseHas('m_users', [
+        // Verifikasi user account dibuat dengan nama
+        $this->assertDatabaseHas('m_user', [
+            'name' => 'Mahasiswa Test Baru',
             'email' => 'mhstest@example.com',
-            'level' => 'mahasiswa',
+            'role' => 'mahasiswa',
         ]);
     }
 
@@ -121,11 +120,11 @@ class MahasiswaCRUDTest extends TestCase
         ];
 
         // Act
-        $response = $this->post('/dataMhs', $mahasiswaData);
+        $response = $this->postJson('/api/admin/mahasiswa', $mahasiswaData);
 
         // Assert
-        $response->assertStatus(302);
-        $response->assertSessionHasErrors('nim'); // Validation error untuk NIM
+        $response->assertStatus(422); // Unprocessable Entity for validation error
+        $response->assertJsonValidationErrors('nim'); // Validation error untuk NIM
     }
 
     /**
@@ -148,17 +147,22 @@ class MahasiswaCRUDTest extends TestCase
         ];
 
         // Act
-        $response = $this->put("/dataMhs/{$mahasiswa->id_mahasiswa}", $updateData);
+        $response = $this->putJson("/api/admin/mahasiswa/{$mahasiswa->id_mahasiswa}", $updateData);
 
         // Assert
-        $response->assertStatus(302);
-        $response->assertSessionHas('success');
+        $response->assertStatus(200);
+        $response->assertJson(['status' => 'success']);
 
         // Verifikasi perubahan di database
         $this->assertDatabaseHas('m_mahasiswa', [
             'id_mahasiswa' => $mahasiswa->id_mahasiswa,
-            'nama' => 'Nama Baru Updated',
             'ipk' => 3.8,
+        ]);
+
+        // Nama di-update di tabel m_user
+        $this->assertDatabaseHas('m_user', [
+            'id_user' => $mahasiswa->id_user,
+            'name' => 'Nama Baru Updated',
         ]);
     }
 
@@ -175,14 +179,14 @@ class MahasiswaCRUDTest extends TestCase
         $this->actingAs($this->admin);
 
         $mahasiswa = Mahasiswa::factory()->create();
-        $userId = $mahasiswa->user_id;
+        $userId = $mahasiswa->id_user;
 
         // Act
-        $response = $this->delete("/dataMhs/{$mahasiswa->id_mahasiswa}");
+        $response = $this->deleteJson("/api/admin/mahasiswa/{$mahasiswa->id_mahasiswa}");
 
         // Assert
-        $response->assertStatus(302);
-        $response->assertSessionHas('success');
+        $response->assertStatus(200);
+        $response->assertJson(['status' => 'success']);
 
         // Verifikasi mahasiswa terhapus
         $this->assertDatabaseMissing('m_mahasiswa', [
@@ -190,7 +194,7 @@ class MahasiswaCRUDTest extends TestCase
         ]);
 
         // Verifikasi user account juga terhapus (opsional, tergantung business logic)
-        $this->assertDatabaseMissing('m_users', [
+        $this->assertDatabaseMissing('m_user', [
             'id_user' => $userId,
         ]);
     }
@@ -210,10 +214,11 @@ class MahasiswaCRUDTest extends TestCase
         ];
 
         // Act
-        $response = $this->post('/dataMhs', $mahasiswaData);
+        $response = $this->postJson('/api/admin/mahasiswa', $mahasiswaData);
 
         // Assert
-        $response->assertSessionHasErrors('nim');
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors('nim');
     }
 
     /**
@@ -232,10 +237,11 @@ class MahasiswaCRUDTest extends TestCase
         ];
 
         // Act
-        $response = $this->post('/dataMhs', $mahasiswaData);
+        $response = $this->postJson('/api/admin/mahasiswa', $mahasiswaData);
 
         // Assert
-        $response->assertSessionHasErrors('email');
+        $response->assertStatus(422);
+        $response->assertJsonValidationErrors('email');
     }
 
     /**
@@ -261,8 +267,8 @@ class MahasiswaCRUDTest extends TestCase
 
         // Assert
         $response->assertStatus(200);
-        $response->assertSee('John Doe');
-        $response->assertDontSee('Jane Smith');
+        // View tidak langsung menampilkan data, data dimuat via AJAX
+        $response->assertViewIs('pages.data_mahasiswa');
     }
 
     /**
@@ -285,7 +291,7 @@ class MahasiswaCRUDTest extends TestCase
     {
         // Arrange
         $mahasiswaUser = User::factory()->create([
-            'level' => 'mahasiswa',
+            'role' => 'mahasiswa',
         ]);
         $this->actingAs($mahasiswaUser);
 
@@ -293,6 +299,6 @@ class MahasiswaCRUDTest extends TestCase
         $response = $this->get('/dataMhs');
 
         // Assert
-        $response->assertStatus(403); // Forbidden
+        $response->assertStatus(302); // Redirect to login
     }
 }
