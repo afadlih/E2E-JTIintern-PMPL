@@ -218,8 +218,8 @@ Terima kasih kepada semua kontributor yang telah berkontribusi dalam project ini
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/larasaticindy">
-        <img src="https://github.com/larasaticindy.png?size=100" width="100px;" alt="Cindy Laili Larasati"/>
+      <a href="https://github.com/cindylrs04">
+        <img src="https://github.com/cindylrs04.png?size=100" width="100px;" alt="Cindy Laili Larasati"/>
         <br />
         <sub><b>Cindy Laili Larasati</b></sub>
       </a>
