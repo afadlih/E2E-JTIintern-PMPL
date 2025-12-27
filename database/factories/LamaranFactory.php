@@ -13,8 +13,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class LamaranFactory extends Factory
 {
-    protected $model = Lamaran::class;
-
     /**
      * Define the model's default state.
      *
@@ -25,40 +23,14 @@ class LamaranFactory extends Factory
         return [
             'id_mahasiswa' => Mahasiswa::factory(),
             'id_lowongan' => Lowongan::factory(),
-            'id_dosen' => null,
-            'auth' => fake()->randomElement(['menunggu', 'diterima', 'ditolak']),
-            'tanggal_lamaran' => fake()->dateTimeBetween('-1 month', 'now'),
-        ];
-    }
-
-    /**
-     * Indicate that the lamaran is pending.
-     */
-    public function pending(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'auth' => 'menunggu',
-        ]);
-    }
-
-    /**
-     * Indicate that the lamaran is accepted.
-     */
-    public function diterima(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'auth' => 'diterima',
             'id_dosen' => Dosen::factory(),
-        ]);
-    }
-
-    /**
-     * Indicate that the lamaran is rejected.
-     */
-    public function ditolak(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'auth' => 'ditolak',
-        ]);
+            'id_dokumen' => Dokumen::factory(),
+            'auth' => $this->faker->randomElement([
+                'menunggu',
+                'diterima',
+                'ditolak',
+            ]),
+            'tanggal_lamaran' => $this->faker->date(),
+        ];
     }
 }

@@ -15,6 +15,7 @@
         "setup:auth": "node tests/setup-auth.js",
         "test:all": "npm run setup:auth && npm run test",
         "test:ci": "npm run setup:auth && playwright test --reporter=html,json"
+        ,"test:e2e:ordered": "npm run setup:auth && npx playwright test tests/e2e/mahasiswa --workers=1 && npx playwright test tests/e2e/admin --workers=1 && npx playwright test tests/e2e/dosen --workers=1"
     },
     "devDependencies": {
         "@playwright/test": "^1.56.1",

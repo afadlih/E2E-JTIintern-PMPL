@@ -1517,9 +1517,9 @@ DOSEN_PASSWORD=secret
 
 | Role | Email | Password | Dashboard URL |
 |------|-------|----------|---------------|
-| Admin | admin@example.com | secret | /dashboard |
-| Mahasiswa | mahasiswa1@example.com | secret | /mahasiswa/dashboard |
-| Dosen | dosen1@example.com | secret | /dosen/dashboard |
+| Admin | admin@example.com | admin | /dashboard |
+| Mahasiswa | 2341720074@student.com | 2341720074 | /mahasiswa/dashboard |
+| Dosen | 1980031@gmail.com | 1980031 | /dosen/dashboard |
 
 ---
 
