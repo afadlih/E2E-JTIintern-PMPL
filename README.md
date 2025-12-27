@@ -1,66 +1,207 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# E2E JTI Intern PMPL
+## Sistem Manajemen Magang Jurusan Teknologi Informasi
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Framework**: Laravel 10.x  
+**URL Production**: https://afws.my.id/E2E-JTIintern-PMPL  
+**Last Updated**: 27 Desember 2025
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## � Dokumentasi Testing & Validasi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Project ini dilengkapi dengan dokumentasi testing lengkap untuk keperluan validasi dan pelaporan:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 📖 Dokumentasi Utama
 
-## Learning Laravel
+1. **[TESTING-DOCUMENTATION.md](TESTING-DOCUMENTATION.md)**
+   - Panduan lengkap testing suite (197+ tests)
+   - Petunjuk instalasi dan konfigurasi
+   - Command reference untuk semua jenis testing
+   - Best practices dan troubleshooting
+   - Hasil performance testing (K6)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **[VALIDATION-SUMMARY.md](VALIDATION-SUMMARY.md)**
+   - Executive summary untuk laporan formal
+   - Hasil validasi testing lengkap
+   - Metrics dan quality assurance
+   - Status approval production
+   - Checklist validasi pre-production
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. **[DOCUMENTATION-INDEX.md](DOCUMENTATION-INDEX.md)**
+   - Panduan navigasi dokumentasi
+   - Quick reference berdasarkan role
+   - Command cheatsheet
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🎯 Quick Links
 
-## Laravel Sponsors
+| Dokumentasi | Deskripsi | Link |
+|-------------|-----------|------|
+| Testing Guide | Panduan lengkap semua testing | [TESTING-DOCUMENTATION.md](TESTING-DOCUMENTATION.md) |
+| Validation Report | Summary untuk laporan formal | [VALIDATION-SUMMARY.md](VALIDATION-SUMMARY.md) |
+| Documentation Index | Navigation guide | [DOCUMENTATION-INDEX.md](DOCUMENTATION-INDEX.md) |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+---
 
-### Premium Partners
+## 📋 Table of Contents
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- [About Project](#about-project)
+- [Testing Overview](#testing-overview)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+
+---
+
+## About Project
+
+Sistem Manajemen Magang JTI adalah platform berbasis web untuk mengelola proses magang mahasiswa Jurusan Teknologi Informasi. Sistem ini dibangun menggunakan Laravel 10 dengan fitur:
+
+- 🔐 Authentication & Authorization (Laravel Sanctum)
+- 👥 Multi-role: Admin, Dosen, Mahasiswa, Perusahaan
+- 📝 Manajemen Lowongan & Lamaran Magang
+- 📊 Dashboard & Reporting
+- 🔔 Sistem Notifikasi
+- 🎯 SPK Recommendation System (SAW Method)
+- 📈 Beban Kerja Dosen & Plotting Mahasiswa
+
+---
+
+## Testing Overview
+
+Project ini dilengkapi dengan **comprehensive testing suite** mencakup 197+ tests:
+
+| Test Type | Status | Count | Coverage |
+|-----------|--------|-------|----------|
+| **API Tests** | ✅ **100% PASS** | 115 tests | Auth, CRUD, Validation |
+| **Unit Tests** | ⚠️ Partial | 41 tests | Models & Logic |
+| **Integration** | ⚠️ Partial | 13 tests | Services |
+| **E2E Tests** | ✅ **PASS** | 23 tests | User Workflows |
+| **Performance** | ✅ **100% PASS** | 5 suites | Load, Stress, Spike |
+
+**Overall Success Rate**: 97.5% (192/197 tests passing)
+
+### Quick Start Testing
+
+```powershell
+# API Tests (PHPUnit)
+.\vendor\bin\phpunit.bat --testsuite=Api --testdox
+
+# E2E Tests (Playwright)
+npx playwright test
+
+# Performance Tests (K6)
+.\tests\Performance\run-tests.ps1
+```
+
+**📖 Untuk detail lengkap**, lihat: [TESTING-DOCUMENTATION.md](TESTING-DOCUMENTATION.md)
+
+---
+
+## Installation
+
+### Prerequisites
+
+- PHP 8.1+
+- Composer
+- MySQL 5.7+
+- Node.js 18+
+- K6 (optional, for performance testing)
+
+### Steps
+
+1. Clone repository:
+```bash
+git clone <repository-url>
+cd E2E-JTIintern-PMPL
+```
+
+2. Install dependencies:
+```bash
+composer install
+npm install
+```
+
+3. Configure environment:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+4. Setup database:
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+5. Run development server:
+```bash
+php artisan serve
+npm run dev
+```
+
+---
+
+## Configuration
+
+### Database
+
+Edit `.env` file:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### Testing Configuration
+
+Lihat [TESTING-DOCUMENTATION.md](TESTING-DOCUMENTATION.md) untuk:
+- PHPUnit configuration
+- Playwright setup
+- K6 performance testing
+- CI/CD integration
+
+---
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Run tests to ensure quality
+4. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+5. Push to the Branch (`git push origin feature/AmazingFeature`)
+6. Open a Pull Request
 
-## Code of Conduct
+### Testing Before Commit
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```powershell
+# Run all API tests
+.\vendor\bin\phpunit.bat --testsuite=Api
 
-## Security Vulnerabilities
+# Run E2E tests
+npx playwright test
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Optional: Performance check
+.\tests\Performance\run-tests.ps1 -TestType quick
+```
+
+---
 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+---
+
+## Support & Contact
+
+- **Documentation**: See [TESTING-DOCUMENTATION.md](TESTING-DOCUMENTATION.md)
+- **Issues**: GitHub Issues
+- **Production**: https://afws.my.id/E2E-JTIintern-PMPL
+
+---
+
+**Built with**: Laravel 10 | PHPUnit | Playwright | K6 | MySQL  
+**Last Updated**: 27 Desember 2025
