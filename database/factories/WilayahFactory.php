@@ -2,25 +2,25 @@
 
 namespace Database\Factories;
 
-use App\Models\Jenis;
+use App\Models\Wilayah;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Jenis>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Wilayah>
  */
-class JenisFactory extends Factory
+class WilayahFactory extends Factory
 {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    protected $model = Jenis::class;
+    protected $model = Wilayah::class;
 
     public function definition(): array
     {
         return [
-            'nama_jenis' => $this->faker->word(),
+            'nama_kota' => $this->faker->city(),
         ];
     }
 }
