@@ -84,51 +84,47 @@ class LowonganController extends Controller
     {
         $request->validate([
             'judul_lowongan' => 'required|string|max:255',
-            'perusahaan_id' => 'required|exists:m_perusahaan,perusahaan_id',
-            'periode_id' => 'required|exists:m_periode,periode_id',
-            'skill_id' => 'required|array',
-            'skill_id.*' => 'exists:m_skill,skill_id',
-            'jenis_id' => 'required|exists:m_jenis,jenis_id',
+            'perusahaan_id' => 'required_without:id_perusahaan|exists:m_perusahaan,perusahaan_id',
+            'id_perusahaan' => 'required_without:perusahaan_id|exists:m_perusahaan,perusahaan_id',
+            'periode_id' => 'nullable|exists:m_periode,periode_id',
+            'skill_id' => 'nullable|array',
+            'skill_id.*' => 'nullable|exists:m_skill,skill_id',
+            'jenis_id' => 'nullable|exists:m_jenis,jenis_id',
             'kapasitas' => 'required|integer|min:1',
             'deskripsi' => 'required|string',
         ]);
 
         try {
             DB::beginTransaction();
-            
-            // Create lowongan
+            // ...existing code...
             $lowongan = new Lowongan();
             $lowongan->judul_lowongan = $request->judul_lowongan;
-            $lowongan->perusahaan_id = $request->perusahaan_id;
-            $lowongan->periode_id = $request->periode_id;
-            $lowongan->jenis_id = $request->jenis_id;
+            $lowongan->perusahaan_id = $request->perusahaan_id ?? $request->id_perusahaan;
+            $lowongan->periode_id = $request->periode_id ?? 1;
+            $lowongan->jenis_id = $request->jenis_id ?? 1;
             $lowongan->kapasitas = $request->kapasitas;
             $lowongan->deskripsi = $request->deskripsi;
             $lowongan->save();
-            
-            // Add skills
-            foreach ($request->skill_id as $skillId) {
-                DB::table('t_skill_lowongan')->insert([
-                    'id_lowongan' => $lowongan->id_lowongan,
-                    'id_skill' => $skillId
-                ]);
+            if ($request->skill_id) {
+                foreach ($request->skill_id as $skillId) {
+                    DB::table('t_skill_lowongan')->insert([
+                        'id_lowongan' => $lowongan->id_lowongan,
+                        'id_skill' => $skillId
+                    ]);
+                }
             }
-            
-            // Initialize capacity record
             $this->kapasitasService->initializeKapasitas($lowongan->id_lowongan, $request->kapasitas);
-            
             DB::commit();
-            
             return response()->json([
-                'success' => true,
+                'status' => 'success',
                 'message' => 'Lowongan berhasil ditambahkan.',
                 'data' => $lowongan
-            ]);
+            ], 201);
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error adding lowongan: ' . $e->getMessage());
             return response()->json([
-                'success' => false,
+                'status' => 'error',
                 'message' => 'Gagal menambahkan lowongan: ' . $e->getMessage(),
             ], 500);
         }
@@ -199,13 +195,14 @@ class LowonganController extends Controller
     {
         $request->validate([
             'judul_lowongan' => 'required|string|max:255',
-            'perusahaan_id' => 'required|exists:m_perusahaan,perusahaan_id',
-            'periode_id' => 'required|exists:m_periode,periode_id',
-            'jenis_id' => 'required|exists:m_jenis,jenis_id',
+            'perusahaan_id' => 'required_without:id_perusahaan|exists:m_perusahaan,perusahaan_id',
+            'id_perusahaan' => 'required_without:perusahaan_id|exists:m_perusahaan,perusahaan_id',
+            'periode_id' => 'nullable|exists:m_periode,periode_id',
+            'skill_id' => 'nullable|array',
+            'skill_id.*' => 'nullable|exists:m_skill,skill_id',
+            'jenis_id' => 'nullable|exists:m_jenis,jenis_id',
             'kapasitas' => 'required|integer|min:1',
             'deskripsi' => 'required|string',
-            'skill_id' => 'required|array',
-            'skill_id.*' => 'exists:m_skill,skill_id'
         ]);
 
         try {
@@ -218,9 +215,9 @@ class LowonganController extends Controller
             
             // Update the main fields
             $lowongan->judul_lowongan = $request->judul_lowongan;
-            $lowongan->perusahaan_id = $request->perusahaan_id;
-            $lowongan->periode_id = $request->periode_id;
-            $lowongan->jenis_id = $request->jenis_id;
+            $lowongan->perusahaan_id = $request->perusahaan_id ?? $request->id_perusahaan;
+            $lowongan->periode_id = $request->periode_id ?? 1;
+            $lowongan->jenis_id = $request->jenis_id ?? 1;
             $lowongan->kapasitas = $request->kapasitas;
             $lowongan->deskripsi = $request->deskripsi;
             $lowongan->save();
@@ -232,12 +229,13 @@ class LowonganController extends Controller
             DB::table('t_skill_lowongan')->where('id_lowongan', $id)->delete();
             
             // Add the new skills
-            foreach ($request->skill_id as $skillId) {
-                DB::table('t_skill_lowongan')->insert([
-                    'id_lowongan' => $id,
-                    'id_skill' => $skillId
-                    // Remove created_at and updated_at
-                ]);
+            if ($request->skill_id) {
+                foreach ($request->skill_id as $skillId) {
+                    DB::table('t_skill_lowongan')->insert([
+                        'id_lowongan' => $id,
+                        'id_skill' => $skillId
+                    ]);
+                }
             }
             
             // Update kapasitas if changed
@@ -249,10 +247,10 @@ class LowonganController extends Controller
             DB::commit();
 
             return response()->json([
-                'success' => true,
+                'status' => 'success',
                 'message' => 'Lowongan berhasil diperbarui',
                 'data' => $lowongan
-            ]);
+            ], 200);
         } catch (\Exception $e) {
             // Rollback transaction on error
             DB::rollBack();
@@ -280,9 +278,9 @@ class LowonganController extends Controller
             DB::commit();
 
             return response()->json([
-                'success' => true,
+                'status' => 'success',
                 'message' => 'Lowongan berhasil dihapus.',
-            ]);
+            ], 200);
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error deleting lowongan: ' . $e->getMessage());

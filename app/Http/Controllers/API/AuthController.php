@@ -9,6 +9,36 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function register(Request $request)
+    {
+        try {
+            $validated = $request->validate([
+                'nama' => 'required|string|max:255',
+                'email' => 'required|email|unique:m_user,email',
+                'password' => 'required|string|min:8|confirmed',
+            ]);
+
+            $user = new User();
+            $user->name = $validated['nama'];
+            $user->email = $validated['email'];
+            $user->password = bcrypt($validated['password']);
+            $user->role = 'mahasiswa'; // default role
+            $user->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Register berhasil',
+                'data' => [
+                    'user' => $user
+                ]
+            ], 201);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'message' => 'The given data was invalid.',
+                'errors' => $e->errors(),
+            ], 422);
+        }
+    }
     public function login(Request $request)
     {
         $credentials = $request->validate([

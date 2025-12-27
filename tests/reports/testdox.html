@@ -51,81 +51,12 @@
         </style>
     </head>
     <body>
-        <h2>Helper Functions (Tests\Unit\Helpers\HelperFunctions)</h2>
+        <h2>Register (Tests\Feature\Auth\Register)</h2>
         <ul>
-            <li class="success">Format nim with valid input</li>
-            <li class="success">Calculate ipk average</li>
-            <li class="success">Validate email format</li>
-            <li class="success">Generate random password</li>
-            <li class="success">Sanitize user input</li>
-            <li class="success">Calculate percentage</li>
-            <li class="success">String contains case insensitive</li>
-            <li class="success">Array to comma separated string</li>
-            <li class="success">Value is within range</li>
-            <li class="success">Round number to decimal places</li>
-        </ul>
-        <h2>Login (Tests\Feature\Auth\Login)</h2>
-        <ul>
-            <li class="success">Admin dapat login dengan credentials benar</li>
-            <li class="success">Login gagal dengan password salah</li>
-            <li class="success">Mahasiswa redirect ke mahasiswa dashboard</li>
-            <li class="success">Dosen redirect ke dosen dashboard</li>
-            <li class="success">Login validation email required</li>
-            <li class="success">Login validation password required</li>
-            <li class="success">User dapat logout</li>
-            <li class="success">Login dengan remember me</li>
-        </ul>
-        <h2>Mahasiswa CRUD (Tests\Feature\Admin\MahasiswaCRUD)</h2>
-        <ul>
-            <li class="success">Admin dapat melihat daftar mahasiswa</li>
-            <li class="success">Admin berhasil menambah mahasiswa baru</li>
-            <li class="success">Admin tidak bisa menambah mahasiswa nim duplikat</li>
-            <li class="success">Admin berhasil update data mahasiswa</li>
-            <li class="success">Admin berhasil menghapus mahasiswa</li>
-            <li class="success">Tambah mahasiswa validation nim required</li>
-            <li class="success">Tambah mahasiswa validation email invalid</li>
-            <li class="success">Admin dapat search mahasiswa</li>
-            <li class="success">Guest tidak bisa akses halaman admin</li>
-            <li class="success">Mahasiswa tidak bisa akses halaman admin</li>
-        </ul>
-        <h2>Mahasiswa Model (Tests\Unit\Models\MahasiswaModel)</h2>
-        <ul>
-            <li class="success">Mahasiswa memiliki relasi lamaran</li>
-            <li class="success">Check mahasiswa sudah apply lowongan</li>
-            <li class="success">Filter mahasiswa by ipk minimal</li>
-            <li class="success">Mahasiswa full name accessor</li>
-            <li class="success">Mahasiswa eligible untuk apply</li>
-            <li class="success">Count lamaran pending mahasiswa</li>
-            <li class="success">Mahasiswa dengan status magang aktif</li>
-            <li class="success">Filter mahasiswa by kelas</li>
-            <li class="success">Nim format validation</li>
-            <li class="success">Mahasiswa dapat di soft delete</li>
-        </ul>
-        <h2>SPKRecommendation Service (Tests\Unit\Services\SPKRecommendationService)</h2>
-        <ul>
-            <li class="success">CalculateEDASRecommendation dengan data valid</li>
-            <li class="success">CalculateEDASRecommendation mahasiswa tidak ditemukan</li>
-            <li class="success">CalculateEDASRecommendation tidak ada lowongan</li>
-            <li class="success">CalculateSAWRecommendation dengan data valid</li>
-            <li class="success">CalculateSAWRecommendation profil tidak lengkap</li>
-            <li class="success">GetCriteriaWeights valid configuration</li>
-            <li class="defect">CalculateEDASRecommendation handle database exception</li>
-            <li class="success">CalculateEDASRecommendation ranking sorted by score</li>
-            <li class="success">CalculateEDASRecommendation dengan kapasitas penuh</li>
-            <li class="success">CalculateEDASRecommendation performance dengan banyak lowongan</li>
-        </ul>
-        <h2>Validation Logic (Tests\Unit\Services\ValidationLogic)</h2>
-        <ul>
-            <li class="success">Validate nim format valid</li>
-            <li class="success">Validate nim format invalid kurang 10 digit</li>
-            <li class="success">Validate nim format invalid dengan huruf</li>
-            <li class="success">Validate ipk range valid</li>
-            <li class="success">Validate ipk range invalid</li>
-            <li class="success">Check mahasiswa eligible ipk minimal</li>
-            <li class="success">Calculate average rating</li>
-            <li class="success">Calculate average array kosong</li>
-            <li class="success">Check capacity lowongan penuh</li>
-            <li class="success">Check capacity lowongan tersedia</li>
+            <li class="success">User berhasil register</li>
+            <li class="success">Register gagal email sudah terdaftar</li>
+            <li class="success">Register gagal email tidak valid</li>
+            <li class="success">Register gagal password kurang dari minimal</li>
         </ul>
     </body>
 </html>

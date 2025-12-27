@@ -52,7 +52,7 @@ Route::get('/wilayah', [WilayahController::class, 'index']);
 // 2. AUTHENTICATION ROUTES
 // =========================================================
 Route::post('/login', [AuthController::class, 'login']);
-// Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
@@ -190,6 +190,21 @@ Route::middleware(['api', 'web', 'auth:sanctum', 'role:admin,superadmin'])->grou
         Route::post('/mahasiswa', [AdminMahasiswaController::class, 'store']);
         Route::put('/mahasiswa/{id}', [AdminMahasiswaController::class, 'update']);
         Route::delete('/mahasiswa/{id}', [AdminMahasiswaController::class, 'destroy']);
+
+        // --- Perusahaan CRUD routes for admin ---
+        Route::get('/perusahaan', [PerusahaanController::class, 'getPerusahaanData']);
+        Route::get('/perusahaan/{id}', [PerusahaanController::class, 'getDetailPerusahaan']);
+        Route::post('/perusahaan', [PerusahaanController::class, 'store']);
+        Route::put('/perusahaan/{id}', [PerusahaanController::class, 'update']);
+        Route::delete('/perusahaan/{id}', [PerusahaanController::class, 'destroy']);
+        Route::post('/tambah-perusahaan', [PerusahaanController::class, 'tambahPerusahaan']);
+
+        // --- Lowongan CRUD routes for admin ---
+        Route::get('/lowongan', [LowonganController::class, 'index']);
+        Route::post('/lowongan', [LowonganController::class, 'store']);
+        Route::get('/lowongan/{id}', [LowonganController::class, 'show']);
+        Route::put('/lowongan/{id}', [LowonganController::class, 'update']);
+        Route::delete('/lowongan/{id}', [LowonganController::class, 'destroy']);
     });
 
     // Mahasiswa Management (existing)

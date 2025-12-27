@@ -128,7 +128,7 @@ class PerusahaanController extends Controller
             'alamat_perusahaan' => 'nullable|string|max:255',
             'wilayah_id' => 'required|exists:m_wilayah,wilayah_id',
             'contact_person' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:m_perusahaan,email',
             'instagram' => 'nullable|string|max:255',
             'website' => 'nullable|string|max:255',
             'deskripsi' => 'nullable|string',
@@ -184,15 +184,14 @@ class PerusahaanController extends Controller
             ]);
 
             return response()->json([
-                'success' => true,
-                'message' => 'Perusahaan berhasil ditambahkan!',
+                'status' => 'success',
                 'data' => [
                     'perusahaan_id' => $perusahaan->perusahaan_id,
                     'nama_perusahaan' => $perusahaan->nama_perusahaan,
                     'logo' => $perusahaan->logo,
                     'logo_url' => $perusahaan->logo_url
                 ]
-            ]);
+            ], 201);
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error adding perusahaan: ' . $e->getMessage());
@@ -212,7 +211,7 @@ class PerusahaanController extends Controller
             'alamat_perusahaan' => 'nullable|string|max:255',
             'wilayah_id' => 'required|exists:m_wilayah,wilayah_id',
             'contact_person' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:m_perusahaan,email,' . $id . ',perusahaan_id',
             'instagram' => 'nullable|string|max:255',
             'website' => 'nullable|string|max:255',
             'deskripsi' => 'nullable|string',
@@ -285,15 +284,14 @@ class PerusahaanController extends Controller
             ]);
 
             return response()->json([
-                'success' => true,
-                'message' => 'Data perusahaan berhasil diperbarui!',
+                'status' => 'success',
                 'data' => [
                     'perusahaan_id' => $perusahaan->perusahaan_id,
                     'nama_perusahaan' => $perusahaan->nama_perusahaan,
                     'logo' => $perusahaan->logo,
                     'logo_url' => $perusahaan->logo_url
                 ]
-            ]);
+            ], 200);
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error updating perusahaan: ' . $e->getMessage());
@@ -340,9 +338,8 @@ class PerusahaanController extends Controller
             Log::info('Perusahaan deleted successfully:', ['id' => $id]);
 
             return response()->json([
-                'success' => true,
-                'message' => 'Data perusahaan berhasil dihapus'
-            ]);
+                'status' => 'success'
+            ], 200);
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error('Error deleting perusahaan: ' . $e->getMessage());
